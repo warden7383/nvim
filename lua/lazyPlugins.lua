@@ -94,7 +94,7 @@ return {
 
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
-    event = "InsertEnter",
+    event = "BufEnter",
     config = function()
       require('ts_context_commentstring').setup {
         enable_autocmd = false,
@@ -159,7 +159,7 @@ return {
     event = "BufEnter",
     config = function ()
       require('neoscroll').setup {}
-    end
+    end,
     lazy = true,
   },
 

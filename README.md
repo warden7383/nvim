@@ -4,3 +4,5 @@ Usage:
 `git clone https://github.com/warden7383/.config/`
 ##### Eye Candy
 \[Insert eye candy here\]
+###Todo:
+- Lazy load a majority of plugins

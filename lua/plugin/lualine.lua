@@ -34,6 +34,12 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {
+    lualine_a = {
+      "buffers",
+    },
+    lualine_z = {
+      "tabs",
+    },
   },
   winbar = {
   },
@@ -41,7 +47,6 @@ require('lualine').setup {
   },
   extensions = {'fzf','nvim-tree', 'trouble', 'toggleterm'}
 }
-
 -- -- Bubbles config for lualine
 -- -- Author: lokesh-krishna
 -- -- MIT license, see LICENSE for more details.

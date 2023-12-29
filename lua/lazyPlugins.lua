@@ -171,4 +171,66 @@ return {
     end,
     lazy = true,
   },
+
+  {
+    'famiu/bufdelete.nvim',
+    keys = {
+      {"<leader>q", ":Bdelete<CR>", desc = "Delete the buffer without losing layout",},
+    },
+    config = function()
+      vim.keymap.set('n', '<leader>q', ':Bdelete<CR>', {silent = true}, {desc = "Delete buffer without losing layout"}) 
+    end,
+  },
+
+  {
+    'NvChad/nvim-colorizer.lua',
+    lazy = true,
+    cmd = "ColorizerToggle",
+    config = function()
+      require("colorizer").setup()
+      --vim.keymap.set('n', '<leader>')
+    end,
+  },
+
+  --under testing, possibly may replace with https://github.com/ethanholz/nvim-lastplace?tab=readme-ov-file
+  {
+    "farmergreg/vim-lastplace",
+    lazy = false,
+  },
+
+  {
+    "wakatime/vim-wakatime",
+    lazy = true,
+    event = "BufWinEnter",
+  },
+
+  -- install this plugin (https://github.com/willothy/wezterm.nvim) when trying wezterm
+  -- {
+  --   'willothy/wezterm.nvim',
+  --   config = true
+  -- },
+  {
+    "RRethy/vim-illuminate",
+    event = "BufEnter",
+    lazy = true,
+    config = function()
+      require("plugin.illuminate")
+    end,
+  },
+
+  -- {
+  --   "TobinPalmer/Tip.nvim",
+  --   event = "VimEnter",
+  --   init = function()
+  --     -- Default config
+  --     --- @type Tip.config
+  --     require("tip").setup({
+  --       seconds = 3,
+  --       title = "Tip!",
+  --       url = "https://vtip.43z.one",
+  --     })
+  --   end,
+  -- },
+
+
 }

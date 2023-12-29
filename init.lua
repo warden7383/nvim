@@ -32,7 +32,7 @@ require("utilities.pluginMappings")
 
 local m = require("plugin.test")
 m.printing()
-
+---testing
 vim.cmd([[colorscheme tokyonight]])
 function testing()
     print("config loaded")

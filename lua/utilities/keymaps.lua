@@ -4,7 +4,7 @@ local map = vim.keymap
 vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set('n', '<leader>c', ':nohlsearch<CR>', {silent = true} )
 -- vim.keymap.set('n', '<leader>v', vim.api.nvim_paste())
-vim.keymap.set('n', '<leader>q', ':bd<CR>', {silent = true}) -- with nvim 10.0 nightly, Bdelete not a command, use bd instead
+-- vim.keymap.set('n', '<leader>q', ':Bdelete<CR>', {silent = true}) -- from vim-bbye plugin NOTE this keymap is set on lazyPlugins.lua
 -- vim.keymap.set('n', 'DD', ':TroubleToggle document_diagnostics<CR>', {silent = true}) -- enable when trouble.nvim exists
 vim.keymap.set('c', 'jk', '<C-c>')
 vim.keymap.set('n', '<leader>b', '<CMD>enew<CR>', {silent = true}, {desc = "New file"})

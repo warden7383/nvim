@@ -76,9 +76,11 @@ return {
 
   {
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
+    -- NOTE: a dependency for nvim-cmp when nvimlsp is loaded
+    --
+    -- event = "InsertEnter",
     opts = {}, -- this is equalent to setup({}) function
-    verylazy = true,
+    -- verylazy = true,
   },
 
   {
@@ -232,5 +234,35 @@ return {
   --   end,
   -- },
 
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("plugin.mason")
+    end,
+    cmd = "Mason",
+    event = "BufReadPre",
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+      'windwp/nvim-autopairs',
+    },
+    config = function()
+      require("plugin.lsp")
+    end,
+  },
+
+  {
+    "williamboman/mason-lspconfig.nvim",
+    event = "BufReadPre",
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
+    config = function()
+      require("plugin.masonlsp")
+    end,
+  },
 
 }

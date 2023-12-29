@@ -3,6 +3,10 @@ This is my personal nvim config that is personalized for my needs.<br>
 Usage:
 `git clone https://github.com/warden7383/.config/`
 ##### Eye Candy
-\[Insert eye candy here\]
-###Todo:
+\[Insert eye candy here\]<br>
+### Todo:
 - Lazy load a majority of plugins
+- Add notify
+- Add alpha
+- 
+- Display startup time

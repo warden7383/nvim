@@ -53,7 +53,7 @@ return {
   { 
     'ThePrimeagen/vim-be-good',
     cmd = "VimBeGood",
-    verylazy = true,
+    lazy = true,
   },
 
   {
@@ -71,7 +71,7 @@ return {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
-    verylazy = true,
+    lazy = true,
   },
 
   {
@@ -80,7 +80,7 @@ return {
     --
     -- event = "InsertEnter",
     opts = {}, -- this is equalent to setup({}) function
-    -- verylazy = true,
+    -- lazy = true,
   },
 
   {

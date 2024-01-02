@@ -265,4 +265,54 @@ return {
     end,
   },
 
+  -- {
+  --   'hrsh7th/cmp-nvim-lsp'
+  -- },
+  -- 
+  -- {
+  --   'hrsh7th/cmp-buffer'
+  -- },
+  --
+  -- {
+  --   'hrsh7th/cmp-path'
+  -- },
+  --
+  -- {
+  --   'hrsh7th/cmp-cmdline'
+  -- },
+
+  {
+    "folke/neodev.nvim",
+    lazy = true,
+    event = "BufReadPre",
+  },
+
+  {
+    'L3MON4D3/LuaSnip',
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    lazy = true,
+  },
+
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      "petertriho/cmp-git", -- TODO:https://github.com/petertriho/cmp-git for config
+      'hrsh7th/cmp-buffer', -- NOTE:https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-emoji',
+      "roobert/tailwindcss-colorizer-cmp.nvim",
+    },
+    lazy = true,
+    event = "BufReadPre",
+    config = function()
+      require("plugin.cmp")
+    end,
+  },
+
 }

@@ -3,9 +3,8 @@ This is my personal nvim config that is personalized for my needs.<br>
 ## Requirements:
 - [neovim nightly](https://github.com/neovim/neovim/releases/)
 - a nerd font (I'm using jetbrains mono nerd font)
-- terminal of your choice
+- terminal of your choice<br>
 
-<br>
 Usage:
 `git clone https://github.com/warden7383/.config/`
 ##### Eye Candy

@@ -9,10 +9,13 @@ Usage:
 `git clone https://github.com/warden7383/.config/`
 ##### Eye Candy
 \[Insert eye candy here\]<br>
-### Todo:
+### Todo(features):
 - Lazy load a majority of plugins
 - Add notify
 - Add alpha
 - configure lsp  mappings, and settings 
 - highlights
 - Display startup time
+
+### Fixes:
+- almost all plugins

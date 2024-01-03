@@ -19,9 +19,9 @@ require'nvim-treesitter.configs'.setup {
     "diff",
     "dtd", 
     "jq",
-    --"lua patterns", -- not the right name, look at specific usage
-    --"markdown (basic highlighting)",
-    --"markdown_inline (needed for full highlighting)",
+    "luap", -- not the right name, look at specific usage
+    "markdown",
+    "markdown_inline",
     "scss",
     "svelte",
     "yaml",

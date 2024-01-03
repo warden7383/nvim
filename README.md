@@ -19,3 +19,5 @@ Usage:
 
 ### Fixes:
 - almost all plugins
+- Todo.lua icons:
+  - the fix icon should be a wrench?

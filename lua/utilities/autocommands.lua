@@ -32,3 +32,5 @@ autocmd({"TextYankPost"}, {
 --   pattern = '*',
 --   command = 'silent! normal! g`"zv',
 -- })
+
+-- autocmd

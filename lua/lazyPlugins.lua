@@ -299,6 +299,7 @@ return {
     'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
+      "onsails/lspkind.nvim",
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       "petertriho/cmp-git", -- TODO:https://github.com/petertriho/cmp-git for config
@@ -315,4 +316,4 @@ return {
     end,
   },
 
-}
+  }

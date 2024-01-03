@@ -2,6 +2,7 @@ local opt = vim.opt
 local api = vim.api
 local glb = vim.g
 
+local sign = vim.diagnostic.severity
 -- glb.mapleader = " "
 
 local powershell_options = {
@@ -62,4 +63,18 @@ opt.wrap = false
 vim.cmd([[
 autocmd BufEnter * lcd %:p:h
 ]])
+
+vim.diagnostic.config({
+  virtual_text = false,
+  underline = false,
+  signs = {
+    text = {
+      [sign.HINT] = "󰛨",
+      [sign.ERROR] = "",
+      [sign.WARN] = "",
+      [sign.INFO] = "",
+    },
+  },
+})
+
 print("loaded options")

@@ -306,8 +306,11 @@ return {
       'hrsh7th/cmp-buffer', -- NOTE:https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
+      'FelipeLema/cmp-async-path',
       'hrsh7th/cmp-emoji',
+      'hrsh7th/cmp-calc',
       "roobert/tailwindcss-colorizer-cmp.nvim",
+      "hrsh7th/cmp-nvim-lsp-signature-help"
     },
     lazy = true,
     event = "BufReadPre",

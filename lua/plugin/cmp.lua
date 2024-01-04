@@ -87,12 +87,12 @@ cmp.setup({
 
   sources = cmp.config.sources({
     {name = "nvim_lsp"},
+    {name = 'nvim_lsp_signature_help'},
     {name = "luasnip"},
     {name = "buffer"},
     {name = "path"},
     {name = "calc"},
     {name = "emoji"},
-
   }),
 })
 -- from the tailwindcss-colorizer-cmp docs
@@ -120,7 +120,8 @@ cmp.setup.cmdline({"/", "?"}, {
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    {name = "path"},
+    {name = "async_path"},
+    -- {name = "path"}, -- WARNING: will block/freeze, use async_path instead
     {name = "cmdline"},
   })
 })

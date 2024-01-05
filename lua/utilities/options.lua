@@ -50,9 +50,8 @@ opt.encoding = 'utf-8' -- encoding, fileencoding, mousemovement, numbers, wrap m
 opt.fileencoding = 'utf-8'
 opt.mousemoveevent = true
 opt.wrap = false
-
 opt.pumheight = 8
-opt.pumwidth = 8 -- TESTING
+
 -- opt.clipboard=unnamedplus; -- does not allow to copy to system clipboard
 -- vim.cmd([[
 --    set clipboard+=unnamedplus 

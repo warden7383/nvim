@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local lspkind = require("lspkind")
 
 local cmp_kinds = {
   Text = '  ',
@@ -57,6 +58,7 @@ cmp.setup({
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
+    scrollbar = false,
   },
 
   formatting = {
@@ -69,7 +71,14 @@ cmp.setup({
           return vim_item
         end
       end
-      return require('lspkind').cmp_format({ with_text = true })(entry, vim_item)
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[LaTeX]",
+      })[entry.source.name]
+      return require('lspkind').cmp_format({ with_text = true, maxwidth = 50 })(entry, vim_item)
     end,
   },
 

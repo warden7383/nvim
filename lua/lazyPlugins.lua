@@ -319,4 +319,15 @@ return {
     end,
   },
 
+  {
+    'akinsho/bufferline.nvim', 
+    version = "*", 
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    lazy = true,
+    event = "BufReadPre",
+    config = function()
+      require("plugin.bufferline")
+    end,
+  },
+
   }

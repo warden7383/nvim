@@ -22,18 +22,18 @@ require("utilities")
 local lazyConfig = require("plugin.lazyConfig")
 require("lazy").setup("lazyPlugins",lazyConfig)
 
---require("plugin") 
-
 require("utilities.autocommands")
 
 require("utilities.pluginMappings")
 
---vim.cmd([[packadd matchit]])
-
-local m = require("plugin.test")
-m.printing()
+-- local m = require("plugin.test")
+-- m.printing()
 ---testing
 vim.cmd([[colorscheme tokyonight]])
 function testing()
     print("config loaded")
 end
+
+
+require("utilities.highlights")
+

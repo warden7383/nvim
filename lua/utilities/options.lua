@@ -32,8 +32,11 @@ glb.loaded_netrw = 1 -- for nvim-tree
 glb.loaded_netrwPlugin = 1 -- for nvim-tree
 
 opt.termguicolors = true
+opt.splitright = true
+opt.splitbelow = true
 opt.tabstop = 2
 opt.shiftwidth = 2
+opt.foldlevel = 999 -- start's folding at the highest nested code, followed by the ones less than that.. etc
 opt.softtabstop = 2
 opt.expandtab = true
 opt.scrolloff = 8 -- check this

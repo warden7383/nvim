@@ -1,37 +1,13 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
-
-local cmp_kinds = {
-  Text = '  ',
-  Method = '  ',
-  Function = '  ',
-  Constructor = '  ',
-  Field = '  ',
-  Variable = '  ',
-  Class = '  ',
-  Interface = '  ',
-  Module = '  ',
-  Property = '  ',
-  Unit = '  ',
-  Value = '  ',
-  Enum = '  ',
-  Keyword = '  ',
-  Snippet = '  ',
-  Color = '  ',
-  File = '  ',
-  Reference = '  ',
-  Folder = '  ',
-  EnumMember = '  ',
-  Constant = '  ',
-  Struct = '  ',
-  Event = '  ',
-  Operator = '  ',
-  TypeParameter = '  ',
-}
+local handlers = require('nvim-autopairs.completion.handlers')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 require("tailwindcss-colorizer-cmp").setup({
   color_square_width = 2,
 })
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 cmp.setup({
   snippet = {
@@ -73,6 +49,8 @@ cmp.setup({
       end
       vim_item.menu = ({
         buffer = "[Buffer]",
+        path = "[Path]",
+        emoji = "[Emoji]",
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         nvim_lua = "[Lua]",
@@ -134,5 +112,6 @@ cmp.setup.cmdline(":", {
     {name = "cmdline"},
   })
 })
+
 
 require("plugin.lsp")

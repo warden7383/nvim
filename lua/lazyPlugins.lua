@@ -247,7 +247,6 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
-      'windwp/nvim-autopairs',
     },
     config = function()
       require("plugin.lsp")
@@ -264,22 +263,6 @@ return {
       require("plugin.masonlsp")
     end,
   },
-
-  -- {
-  --   'hrsh7th/cmp-nvim-lsp'
-  -- },
-  -- 
-  -- {
-  --   'hrsh7th/cmp-buffer'
-  -- },
-  --
-  -- {
-  --   'hrsh7th/cmp-path'
-  -- },
-  --
-  -- {
-  --   'hrsh7th/cmp-cmdline'
-  -- },
 
   {
     "folke/neodev.nvim",
@@ -310,7 +293,8 @@ return {
       'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-calc',
       "roobert/tailwindcss-colorizer-cmp.nvim",
-      "hrsh7th/cmp-nvim-lsp-signature-help"
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      'windwp/nvim-autopairs',
     },
     lazy = true,
     event = "BufReadPre",
@@ -330,4 +314,52 @@ return {
     end,
   },
 
-  }
+  {
+    "b0o/incline.nvim",
+    lazy = true,
+    event = "BufReadPre",
+    config = function()
+      require("plugin.incline")
+    end,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    lazy = true,
+    event = "BufReadPre",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("plugin.treesitterObjects")
+    end,
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+        -- NOTE: More information on how to configure this plugin can be found in 
+        -- :h nvim-surround.configuration.
+      })
+    end
+  },
+  -- {
+  --   'nvimdev/dashboard-nvim',
+  --   lazy = true,
+  --   event = 'VimEnter',
+  --   config = function()
+  --     require('plugin.dashboard')
+  --   end,
+  --   dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  -- },
+  {
+    'goolord/alpha-nvim',
+    config = function ()
+      require("plugin.alpha")
+    end
+  },
+}

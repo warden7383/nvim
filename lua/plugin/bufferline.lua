@@ -1,41 +1,42 @@
 local api = vim.api
 local bufferline = require("bufferline")
+
 bufferline.setup{ --some of these features may not work based on terminal type. See :h bufferline-configuration for docs. (or plugin github)
-    highlights = {
-      --hover event close button
-      close_button = {
-        fg = '#f7768e',
-        bg = '',
-      },
-      --active buffers in a split window
-      close_button_visible = {
-        fg = '#f7768e',
-        bg = '#414057',
-      },
-      --the active buffer's close button (the currently active buffer)
-      close_button_selected = {
-        fg = '#f7768e',
-        bg = '#414057',
-      },
-      --the selected active buffer (close_button_selected must have the same color as this)
-      buffer_selected = {
-        fg = '#7de1ff', --#79b1b5 #7de1ff
-        bg = '#414057',
-        bold = true,
-        italic = true,
-        underline = false,
-      },
-      modified = {
-        -- fg = '',
-        bg = '#414057',
-
-      },
-      modified_selected = {
-        -- fg = '',
-        bg = '#414057',
-
-      },
+  highlights = {
+    --hover event close button
+    close_button = {
+      fg = '#f7768e',
+      bg = '',
     },
+    --active buffers in a split window
+    close_button_visible = {
+      fg = '#f7768e',
+      bg = '#414057',
+    },
+    --the active buffer's close button (the currently active buffer)
+    close_button_selected = {
+      fg = '#f7768e',
+      bg = '#414057',
+    },
+    --the selected active buffer (close_button_selected must have the same color as this)
+    buffer_selected = {
+      fg = '#7de1ff', --#79b1b5 #7de1ff
+      bg = '#414057',
+      bold = true,
+      italic = true,
+      underline = false,
+    },
+    -- adding colors to this results in changing all buffers that are modified
+    modified = {
+      -- fg = '',
+      -- bg = '#414057',
+    },
+    modified_selected = {
+      -- fg = '',
+      bg = '#414057',
+    },
+  },
+
   options = {
     -- style_preset = bufferline.style_preset.minimal, -- NOTE: what does it do? may not work for win term?
     themable = true,
@@ -50,6 +51,7 @@ bufferline.setup{ --some of these features may not work based on terminal type. 
     right_trunc_marker = '',
     name_formatter = function(name)
     end,
+
     offsets = {
       {
         filetype = "NvimTree",

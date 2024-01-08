@@ -1,11 +1,10 @@
 -- require'alpha'.setup(require'alpha.themes.dashboard'.config)
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
-local lazy = require("lazy")
-local stats = lazy.stats()
-local m = "testing"
+local stats = require("lazy").stats()
 
-local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+local autocmd = vim.api.nvim_create_autocmd
+
 dashboard.section.header.val = {
 -- [[ _  _ ____ _    _    ____    _  _ ____ ____ _  _ _ _  _   / ]],
 -- [[ |__| |___ |    |    |  |    |\ | |___ |  | |  | | |\/|  / ]],
@@ -43,10 +42,18 @@ dashboard.section.buttons.val = {
 -- local handle = io.popen('fortune')
 -- local fortune = handle:read("*a")
 -- handle:close()
-dashboard.section.footer.val = {
-[[                ]]..stats.loaded..[[ / ]]..stats.count..[[ plugins       ]],
-[[                at ]]..ms..[[ms]],
-}
+
+autocmd({"User"}, {
+  pattern = "LazyVimStarted",
+  desc = "Gets the startup time",
+  callback = function()
+    local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+    dashboard.section.footer.val = {
+      [[]]..stats.loaded..[[/]]..stats.count..[[ loaded plugins at ]]..ms..[[ms]],
+    }
+    vim.cmd('AlphaRedraw')
+  end,
+})
 
 dashboard.config.opts.noautocmd = true
 

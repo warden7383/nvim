@@ -21,6 +21,11 @@ return {
       },
     },
   },
+  --for optimization and debugging
+  profiling = {
+    -- loader = true,
+    -- require = true,
+  },
 
 
 }

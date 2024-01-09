@@ -362,4 +362,23 @@ return {
       require("plugin.alpha")
     end
   },
+
+  {
+    'stevearc/dressing.nvim',
+    lazy = false,
+    opts = {},
+    config = function()
+      require("plugin.dressing")
+    end,
+  },
+  -- amongst your other plugins
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    lazy = true,
+    event = "BufReadPre",
+    config = function()
+
+    end,
+  },
 }

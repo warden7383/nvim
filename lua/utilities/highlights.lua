@@ -23,4 +23,3 @@ api.nvim_set_hl(0, 'LineNrBelow', { fg='#f5d3ba', bold=true }) --#FB508F #80bd9c
 -- " :hi Cursor guifg=#1e1d24 guibg=#FF7DA3 " only highlights the cursor in command mode
 -- ]])
 --
-print("highlights loaded")

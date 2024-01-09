@@ -51,7 +51,6 @@ cmp.setup({
     side_padding = 0,
     scrollbar = false,
   },
-  
   documentation = {
     border = "rounded",
     winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
@@ -93,7 +92,7 @@ cmp.setup({
       })(entry, vim_item)
 
       local strings = vim.split(kind.kind, "%s", { trimempty = true })
-      kind.kind = " " .. (strings[1] or "") .. " "
+      kind.kind = " " .. (strings[1] or "") .. " |"
       kind.menu = " (" .. (strings[2] or "") .. ")"
       return kind
 

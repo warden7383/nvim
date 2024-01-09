@@ -2,10 +2,16 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 local handlers = require('nvim-autopairs.completion.handlers')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local tailwindColor = require("tailwindcss-colorizer-cmp")
 
-require("tailwindcss-colorizer-cmp").setup({
-  color_square_width = 2,
-})
+-- tailwindColor.setup({
+--   color_square_width = 2,
+-- })
+
+
+-- require("tailwindcss-colorizer-cmp").setup({
+--   color_square_width = 2,
+-- })
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
@@ -36,8 +42,9 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
     scrollbar = false,
   },
-
   formatting = {
+    fields = { "kind", "abbr", "menu" },
+
     format = function(entry, vim_item)
       if vim.tbl_contains({"path"}, entry.source.name) then
         local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
@@ -47,16 +54,26 @@ cmp.setup({
           return vim_item
         end
       end
-      vim_item.menu = ({
-        buffer = "[Buffer]",
-        path = "[Path]",
-        emoji = "[Emoji]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
-        nvim_lua = "[Lua]",
-        latex_symbols = "[LaTeX]",
-      })[entry.source.name]
-      return require('lspkind').cmp_format({ with_text = true, maxwidth = 50 })(entry, vim_item)
+
+      local kind = require('lspkind').cmp_format({ 
+        with_text = true, 
+        maxwidth = 30, -- NOTE: initial was 50, set higher for longer width of completion menu
+
+        ellipsis_char = "...",
+        before = tailwindColor.formatter,
+      })(entry, vim_item)
+
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. (strings[1] or "") .. " "
+      kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+      return kind
+      -- return require('lspkind').cmp_format({ 
+      --   with_text = true, 
+      --   maxwidth = 50,
+      --   -- ellipsis_char = "...",
+      --   -- before = tailwindColor.formatter,
+      -- })(entry, vim_item)
     end,
   },
 
@@ -86,9 +103,7 @@ cmp.setup({
 -- require("cmp").config.formatting = {
 --   format = require("tailwindcss-colorizer-cmp").formatter
 -- }
-cmp.config.formatting = {
-  format = require("tailwindcss-colorizer-cmp").formatter
-}
+
 
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({

@@ -382,9 +382,5 @@ return {
     end,
   },
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5bd64acf8d90ca04e2ecf54566dccf83edff9603
 }
 

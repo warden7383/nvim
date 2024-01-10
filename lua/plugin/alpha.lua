@@ -49,6 +49,8 @@ autocmd({"User"}, {
   callback = function()
     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
     dashboard.section.footer.val = {
+      [[]],
+      [[]],
       [[]]..stats.loaded..[[/]]..stats.count..[[ loaded plugins at ]]..ms..[[ms]],
     }
     vim.cmd('AlphaRedraw')

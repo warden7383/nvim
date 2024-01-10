@@ -371,7 +371,7 @@ return {
       require("plugin.dressing")
     end,
   },
-  -- amongst your other plugins
+
   {
     'akinsho/toggleterm.nvim',
     version = "*",
@@ -382,5 +382,9 @@ return {
     end,
   },
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd64acf8d90ca04e2ecf54566dccf83edff9603
 }
 

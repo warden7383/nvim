@@ -1,6 +1,6 @@
 local cmp = require("cmp")
-local lspkind = require("lspkind")
-local handlers = require('nvim-autopairs.completion.handlers')
+-- local lspkind = require("lspkind")
+-- local handlers = require('nvim-autopairs.completion.handlers')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local tailwindColor = require("tailwindcss-colorizer-cmp")
 
@@ -22,6 +22,9 @@ tailwindColor.setup({
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 cmp.setup({
+  completion = {
+    completeopt = 'menu,menuone',
+  },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
@@ -45,7 +48,7 @@ cmp.setup({
 
   window = {
   completion = {
-    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Cursorline,Search:None",--"Normal:Pmenu,CursorLine:CmpCursorLine,Search:None",
+    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",--"Normal:Pmenu,CursorLine:CmpCursorLine,Search:None",
     col_offset = 0,
     border = "rounded",
     side_padding = 0,
@@ -83,9 +86,9 @@ cmp.setup({
       --   async_path = "[Path]",
       -- })[entry.source.name]
 
-      local kind = require('lspkind').cmp_format({ 
-        with_text = true, 
-        maxwidth = 50, -- NOTE: initial was 50, set higher for longer width of completion menu
+      local kind = require('lspkind').cmp_format({
+        with_text = true,
+        maxwidth = 40, -- NOTE: initial was 50, set higher for longer width of completion menu
 
         ellipsis_char = "...",
         before = tailwindColor.formatter,

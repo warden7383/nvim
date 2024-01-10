@@ -381,6 +381,5 @@ return {
       require("plugin.toggleterm")
     end,
   },
-
 }
 

@@ -1,10 +1,39 @@
-local api = vim.api
+-- #macchiato colorscheme
+-- rosewater: &rosewater "#f4dbd6"
+-- flamingo: &flamingo "#f0c6c6"
+-- pink: &pink "#f5bde6"
+-- mauve: &mauve "#c6a0f6"
+-- red: &red "#ed8796"
+-- maroon: &maroon "#ee99a0"
+-- peach: &peach "#f5a97f"
+-- yellow: &yellow "#eed49f"
+-- green: &green "#a6da95"
+-- teal: &teal "#8bd5ca"
+-- sky: &sky "#91d7e3"
+-- sapphire: &sapphire "#7dc4e4"
+-- blue: &blue "#8aadf4"
+-- lavender: &lavender "#b7bdf8"
+-- text: &text "#cad3f5"
+-- subtext1: &subtext1 "#b8c0e0"
+-- subtext0: &subtext0 "#a5adcb"
+-- overlay2: &overlay2 "#939ab7"
+-- overlay1: &overlay1 "#8087a2"
+-- overlay0: &overlay0 "#6e738d"
+-- surface2: &surface2 "#5b6078"
+-- surface1: &surface1 "#494d64"
+-- surface0: &surface0 "#363a4f"
+-- base: &base "#24273a"
+-- mantle: &mantle "#1e2030"
+-- crust: &crust "#24283b" #181926"
+--
+local api = vim.api.nvim_set_hl
 
 --line column
-api.nvim_set_hl(0, 'LineNrAbove', { fg='#f5d3ba', bold=true })
-api.nvim_set_hl(0, 'CursorLineNr', { fg='#f5d3ba', bold=true })
-api.nvim_set_hl(0, 'LineNrBelow', { fg='#f5d3ba', bold=true }) --#FB508F #80bd9c #68ded8
-
+api(0, 'LineNrAbove', { fg='#8087a2', bold=true })
+api(0, 'CursorLineNr', { fg='#eed49f', bold=true })
+api(0, 'LineNrBelow', { fg='#8087a2', bold=true }) --#FB508F #80bd9c #68ded8 #f5d3ba
+api(0, 'WinSeparator', { fg='#8aadf4', bold=true }) --#FB508F #80bd9c #68ded8 #f5d3ba
+api(0, 'SignColumn', { fg='#8aadf4', bold=true})
 -- vim.cmd([[
 --
 -- " -----------------HIGHLIGHTS--------------------
@@ -25,13 +54,14 @@ api.nvim_set_hl(0, 'LineNrBelow', { fg='#f5d3ba', bold=true }) --#FB508F #80bd9c
 --
 ------------------------------CMP Highlights ---------------------------------------------------------
 -- Customization for Pmenu
--- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#8bd5ca", fg = "#1e2030" }) --DEFAULT: bg = "#282C34", fg = "NONE" #29a4bd
+
 -- vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
 --
 -- vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#7E8294", bg = "NONE", strikethrough = true })
 -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#82AAFF", bg = "NONE", bold = true })
 -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#82AAFF", bg = "NONE", bold = true })
--- vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#C792EA", bg = "NONE", italic = true })
+vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#C792EA", bg = "NONE", italic = true })
 --
 -- vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = "#EED8DA", bg = "#B5585F" })
 -- vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = "#EED8DA", bg = "#B5585F" })

@@ -371,14 +371,16 @@ return {
       require("plugin.dressing")
     end,
   },
-  -- amongst your other plugins
+
   {
     'akinsho/toggleterm.nvim',
     version = "*",
     lazy = true,
     event = "BufReadPre",
     config = function()
-
+      require("plugin.toggleterm")
     end,
   },
+
+
 }

@@ -25,7 +25,7 @@ end
 
 --glb.loaded_netrw = 1 -- for nvim-tree
 --glb.loaded_netrwPlugin = 1 -- for nvim-tree
-local ok, hl = pcall(vim.api.nvim_get_hl_by_name, "Normal", true)
+local ok, hl = pcall(vim.api.nvim_get_hl, "Normal", true)
 
 --ENABLE WHEN nvim-tree IS INSTALLED
 glb.loaded_netrw = 1 -- for nvim-tree
@@ -71,7 +71,7 @@ autocmd BufEnter * lcd %:p:h
 
 vim.diagnostic.config({
   virtual_text = false,
-  underline = false,
+  underline = false, 
   signs = {
     text = {
       [sign.HINT] = "󰛨",
@@ -82,4 +82,3 @@ vim.diagnostic.config({
   },
 })
 
-print("loaded options")

@@ -378,7 +378,9 @@ return {
     lazy = true,
     event = "BufReadPre",
     config = function()
-
+      require("plugin.toggleterm")
     end,
   },
+
 }
+

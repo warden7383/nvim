@@ -1,5 +1,6 @@
 -- briefly display the selected text that was yanked
 local autocmd = vim.api.nvim_create_autocmd
+local map = vim.keymap.set
 
 autocmd({"TextYankPost"}, {
     command = "lua vim.highlight.on_yank {timeout=1000}"
@@ -33,4 +34,32 @@ autocmd({"TextYankPost"}, {
 --   command = 'silent! normal! g`"zv',
 -- })
 
--- autocmd
+-- For .cpp file building and compiling
+-- TODO: fix a possible known autocommand error that runs on all "*??"
+autocmd({"BufEnter"}, {
+    pattern = {"*.cpp", "*.h", "*.lua"},
+    -- command = "echo 'Enter j lua file'",
+    callback = function()
+        -- print("Entered into lua file")
+        -- vim.keymap.set('n', '<leader>r', function()
+        --     print("This is actually working")
+        -- end)
+        -- vim.keymap.set('n', '<leader>r', '<CMD>ToggleTerm dir=vim.fn.getcwd()<CR>')
+        -- vim.keymap.set('n', '<leader>rr', function()
+        --     vim.cmd([[
+        --         " ToggleTerm
+        --         TermExec cmd="echo" dir=vim.fn.getcwd()
+        --     ]])
+        -- end)
+        map('t', '<leader>r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ')
+        map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>')
+    end,
+})
+-- TODO: figure out what this did again.....
+--
+-- autocmd({"VimEnter", "WinEnter", "BufWinEnter"}, {
+--     command = "setlocal cursorline"
+-- })
+-- autocmd({"WinLeave"}, {
+--     command = "setlocal nocursorline"
+-- })

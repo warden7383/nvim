@@ -37,6 +37,7 @@ dashboard.section.buttons.val = {
   dashboard.button("r", "    Recent", "<cmd>Telescope oldfiles<CR>"),
   dashboard.button("g", "󰊄    Grep pattern", "<cmd>Telescope live_grep<CR>"),
   dashboard.button("l", "󰒲    Plugins", "<cmd>Lazy<CR>"),
+  dashboard.button("l", "󰒲    Keymaps", "<cmd>Lazy<CR>"),
   dashboard.button("q", "󰿅    Get me out ", "<cmd>qa<CR>"),
 }
 -- local handle = io.popen('fortune')

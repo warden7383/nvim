@@ -31,7 +31,7 @@ local ok, hl = pcall(vim.api.nvim_get_hl, "Normal", true)
 glb.loaded_netrw = 1 -- for nvim-tree
 glb.loaded_netrwPlugin = 1 -- for nvim-tree
 
--- opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum} |" --%@SignCb@%s%=%T%@NumCb@%r│%T" --experimental, may affect render performance
+opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum} │" --%@SignCb@%s%=%T%@NumCb@%r│%T" --experimental, may affect render performance
 opt.termguicolors = true
 opt.splitright = true
 opt.splitbelow = true

@@ -6,7 +6,6 @@ return {
     border = "rounded",
   },
   performance = {
-
     rtp = {
       disabled_plugins = {
         "gzip",
@@ -23,9 +22,7 @@ return {
   },
   --for optimization and debugging
   profiling = {
-    -- loader = true,
-    -- require = true,
+    loader = true,
+    require = true,
   },
-
-
 }

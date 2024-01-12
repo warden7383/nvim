@@ -24,8 +24,6 @@ require("lazy").setup("lazyPlugins",lazyConfig)
 
 require("utilities.autocommands")
 
-require("utilities.pluginMappings")
-
 -- local m = require("plugin.test")
 -- m.printing()
 ---testing

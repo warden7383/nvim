@@ -9,48 +9,61 @@ return {
     opts = {},
   },
 
-  { 
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
       require("plugin.treesitter")
     end,
+    -- Initial: lazy false, no lazy event
+    lazy = true, 
+    event = "BufReadPre",
   },
 
-  { 
-    "nvim-tree/nvim-web-devicons", 
+  {
+    "nvim-tree/nvim-web-devicons",
     config = function()
       require("plugin.webdevicons")
     end,
-    lazy = true, 
+    lazy = true,
   },
 
-  { "nvim-lua/plenary.nvim" },
+  {
+    "nvim-lua/plenary.nvim",
+    lazy = true
+  },
 
   {
     "nvim-tree/nvim-tree.lua",
-    event = "BufEnter",
-    config = function() 
+    event = { "BufReadPre", "CmdlineEnter" }, -- Initial: BufEnter
+    cmd = {"NvimTree"},
+    keys = { "<leader>d", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle NvimTree (FileTree)"},
+    config = function()
       require("plugin.nvimtree")
+      print("loaded nvimtree")
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = false,
+    lazy = true, -- Initial: false
   },
 
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    lazy = true,
+    event = "BufReadPre",
+    cmd = "Telescope",
     config = function()
       require("plugin.telescope")
     end,
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
-  { 
-    'nvim-telescope/telescope-fzf-native.nvim', 
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    lazy = true,
     build = 'make'
   },
 
-  { 
+  {
     'ThePrimeagen/vim-be-good',
     cmd = "VimBeGood",
     lazy = true,
@@ -58,6 +71,8 @@ return {
 
   {
     'nvim-lualine/lualine.nvim',
+    lazy = true,
+    event = "BufReadPre",
     config = function()
       require("plugin.lualine")
     end,
@@ -78,7 +93,7 @@ return {
     'windwp/nvim-autopairs',
     -- NOTE: a dependency for nvim-cmp when nvimlsp is loaded
     --
-    -- event = "InsertEnter",
+    event = "BufReadPre",
     opts = {}, -- this is equalent to setup({}) function
     -- lazy = true,
   },
@@ -96,7 +111,7 @@ return {
 
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
-    event = "BufEnter",
+    event = "BufReadPre",
     config = function()
       require('ts_context_commentstring').setup {
         enable_autocmd = false,
@@ -137,10 +152,10 @@ return {
     lazy = true,
   },
 
-  { 
+  {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufEnter",
-    main = "ibl", 
+    event = "BufReadPre",
+    main = "ibl",
     opts = {},
     config = function()
       require("plugin.indent-blankline")
@@ -150,7 +165,7 @@ return {
 
   {
     "andymass/vim-matchup",
-    event = "BufEnter",
+    event = "BufReadPre",
     init = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup"}
     end,
@@ -158,7 +173,7 @@ return {
 
   {
     "karb94/neoscroll.nvim",
-    event = "BufEnter",
+    event = "BufReadPre",
     config = function ()
       require('neoscroll').setup {}
     end,
@@ -167,7 +182,7 @@ return {
 
   {
     "dstein64/nvim-scrollview",
-    event = "BufEnter",
+    event = "BufReadPre",
     config = function()
       require("scrollview").setup{}
     end,
@@ -180,7 +195,7 @@ return {
       {"<leader>q", ":Bdelete<CR>", desc = "Delete the buffer without losing layout",},
     },
     config = function()
-      vim.keymap.set('n', '<leader>q', ':Bdelete<CR>', {silent = true}, {desc = "Delete buffer without losing layout"}) 
+      vim.keymap.set('n', '<leader>q', ':Bdelete<CR>', {silent = true}, {desc = "Delete buffer without losing layout"})
     end,
   },
 
@@ -190,20 +205,21 @@ return {
     cmd = "ColorizerToggle",
     config = function()
       require("colorizer").setup()
-      --vim.keymap.set('n', '<leader>')
     end,
   },
 
   --under testing, possibly may replace with https://github.com/ethanholz/nvim-lastplace?tab=readme-ov-file
+  -- TESTING: attempting to lazyload
   {
     "farmergreg/vim-lastplace",
-    lazy = false,
+    lazy = true,
+    event = "BufReadPre",
   },
 
   {
     "wakatime/vim-wakatime",
     lazy = true,
-    event = "BufWinEnter",
+    event = "BufReadPre",
   },
 
   -- install this plugin (https://github.com/willothy/wezterm.nvim) when trying wezterm
@@ -213,7 +229,7 @@ return {
   -- },
   {
     "RRethy/vim-illuminate",
-    event = "BufEnter",
+    event = "BufReadPre",
     lazy = true,
     config = function()
       require("plugin.illuminate")
@@ -233,6 +249,17 @@ return {
   --     })
   --   end,
   -- },
+  {
+    'nvimdev/lspsaga.nvim',
+    lazy = true,
+    config = function()
+      require("plugin.lspsaga")
+    end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter', -- optional
+      'nvim-tree/nvim-web-devicons'     -- optional
+    },
+  },
 
   {
     "williamboman/mason.nvim",
@@ -245,11 +272,13 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    lazy = true,
     dependencies = {
       "williamboman/mason.nvim",
+      'nvimdev/lspsaga.nvim',
     },
     config = function()
-      require("plugin.lsp")
+      -- require("plugin.lsp") -- NOTE: this was being called on last line of cmp.lua as well.
     end,
   },
 
@@ -297,15 +326,15 @@ return {
       'windwp/nvim-autopairs',
     },
     lazy = true,
-    event = "BufReadPre",
+    event = { "BufReadPre", "CmdLineEnter" },
     config = function()
       require("plugin.cmp")
     end,
   },
 
   {
-    'akinsho/bufferline.nvim', 
-    version = "*", 
+    'akinsho/bufferline.nvim',
+    version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     lazy = true,
     event = "BufReadPre",
@@ -338,7 +367,8 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
+    lazy = true,
+    event = "BufReadPre",
     config = function()
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
@@ -347,15 +377,7 @@ return {
       })
     end
   },
-  -- {
-  --   'nvimdev/dashboard-nvim',
-  --   lazy = true,
-  --   event = 'VimEnter',
-  --   config = function()
-  --     require('plugin.dashboard')
-  --   end,
-  --   dependencies = { {'nvim-tree/nvim-web-devicons'}}
-  -- },
+
   {
     'goolord/alpha-nvim',
     config = function ()
@@ -363,14 +385,14 @@ return {
     end
   },
 
-  {
-    'stevearc/dressing.nvim',
-    lazy = false,
-    opts = {},
-    config = function()
-      require("plugin.dressing")
-    end,
-  },
+  -- {
+  --   'stevearc/dressing.nvim',
+  --   lazy = false,
+  --   opts = {},
+  --   config = function()
+  --     require("plugin.dressing")
+  --   end,
+  -- },
 
   {
     'akinsho/toggleterm.nvim',
@@ -381,5 +403,16 @@ return {
       require("plugin.toggleterm")
     end,
   },
+  -- NOTE: will create 2 statuscolumn icons when todo.nvim is at used
+  -- {
+  --   "luukvbaal/statuscol.nvim",
+  --   lazy = true,
+  --   event = "BufReadPre",
+  --   config = function()
+  --     require("plugin.statuscol")
+  --   end,
+  -- },
+
+
 }
 

@@ -23,15 +23,30 @@ end
 -- windows 10/11 .wakatime.cfg file location: ~/wakatime.cfg (aka, C:\Users\YOUR_USERNAME\.wakatime.cfg) (see example below)
 -- example: "C:\Users\Andrew Ng\.wakatime.cfg"
 
---glb.loaded_netrw = 1 -- for nvim-tree
---glb.loaded_netrwPlugin = 1 -- for nvim-tree
 local ok, hl = pcall(vim.api.nvim_get_hl, "Normal", true)
 
 --ENABLE WHEN nvim-tree IS INSTALLED
 glb.loaded_netrw = 1 -- for nvim-tree
 glb.loaded_netrwPlugin = 1 -- for nvim-tree
-
--- opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum} │" --%@SignCb@%s%=%T%@NumCb@%r│%T" --experimental, may affect render performance
+-- Examples: >vim
+-- 		" Relative number with bar separator and click handlers:
+-- 		set statuscolumn=%@SignCb@%s%=%T%@NumCb@%r│%T
+--
+-- 		" Right aligned relative cursor line number:
+-- 		let &stc=y'%=%{v:relnum?v:relnum:v:lnum} 'y
+--
+-- 		" Line numbers in hexadecimal for non wrapped part of lines:
+-- 		let &stc='%=%{v:virtnum>0?"":printf("%x",v:lnum)} '
+--
+-- 		" Human readable line numbers with thousands separator:
+-- 		let &stc='%{substitute(v:lnum,"\\d\\zs\\ze\\'
+-- 			   . '%(\\d\\d\\d\\)\\+$",",","g")}'
+--
+-- 		" Both relative and absolute line numbers with different
+-- 		" highlighting for odd and even relative numbers:
+-- 		let &stc='%#NonText#%{&nu?v:lnum:""}' .
+-- 		 '%=%{&rnu&&(v:lnum%2)?"\ ".v:relnum:""}' .
+-- 		 '%#LineNr#%{&rnu&&!(v:lnum%2)?"\ ".v:relnum:""}'
 opt.termguicolors = true
 opt.splitright = true
 opt.splitbelow = true
@@ -72,7 +87,7 @@ autocmd BufEnter * lcd %:p:h
 
 vim.diagnostic.config({
   virtual_text = false,
-  underline = false, 
+  underline = false,
   signs = {
     text = {
       [sign.HINT] = "󰛨",

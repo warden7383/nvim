@@ -28,9 +28,25 @@ require("neodev").setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-- TODO: do on_attach keybindings for goto definiition/hovers etc?
 for _, i in ipairs(lsp) do
-  lspconfig[i].setup{
-    -- on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  if i == "clangd" then
+    lspconfig[i].setup{
+      capabilities = capabilities,
+      cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+      },
+    }
+  else
+    lspconfig[i].setup{
+      capabilities = capabilities,
+    }
+  end
+  -- NOTE: produced offset_encodin warnings for cpp clangd (see below)
+  --
+  -- lspconfig[i].setup{
+  --   -- on_attach = on_attach, -- use later
+  --   capabilities = capabilities,
+  -- }
 end

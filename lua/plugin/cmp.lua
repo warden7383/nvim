@@ -31,38 +31,20 @@ cmp.setup({
     end,
   },
 
-  -- window = {
-  --   completion = {
-  --     border = "rounded",
-  --     -- winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
-  --     col_offset = -3,
-  --     side_padding = 1,
-  --     scrollbar = false,
-  --     scrolloff = 8,
-  --   },
-  --   documentation = {
-  --     border = "rounded",
-  --     -- winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
-  --   },
-  -- },
-
   window = {
-  completion = {
-    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",--"Normal:Pmenu,CursorLine:CmpCursorLine,Search:None",
-    col_offset = 0,
-    border = "rounded",
-    side_padding = 0,
-    scrollbar = false,
-  },
-  documentation = {
-    border = "rounded",
-    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
-    max_width = 80,
-    max_height = 12,
-  },
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
-    -- scrollbar = false,
+    completion = {
+      winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",--"Normal:Pmenu,CursorLine:CmpCursorLine,Search:None",
+      col_offset = 0,
+      border = "rounded",
+      side_padding = 0,
+      scrollbar = false,
+    },
+    documentation = {
+      border = "rounded",
+      winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
+      max_width = 80,
+      max_height = 12,
+    },
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -128,11 +110,11 @@ cmp.setup({
     end,
   }),
   sources = cmp.config.sources({
-    {name = "nvim_lsp"},
+    {name = "nvim_lsp", keyword_length = 3,},
     {name = 'nvim_lsp_signature_help'},
     {name = "luasnip"},
     {name = "buffer"},
-    {name = "path"},
+    {name = "path", keyword_length = 3, },
     {name = "calc"},
     {name = "emoji"},
   }),
@@ -149,13 +131,17 @@ cmp.setup.filetype("gitcommit", {
   })
 })
 
+-- function cmdlineMappings()
+--   return {
+--      ['<CR>'] = cmp.mapping.confirm({ select = true })
+--   }
+-- end
 cmp.setup.cmdline({"/", "?"}, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     {name = "buffer"},
   },
 })
-
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({

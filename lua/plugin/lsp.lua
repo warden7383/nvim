@@ -1,4 +1,8 @@
 local lspconfig = require("lspconfig")
+
+-- sets the 'LspInfo' ui to have rounded borders (and possibly other things?)
+require('lspconfig.ui.windows').default_options.border = "rounded"
+
 local lsp = {
     "bashls",
     "clangd",
@@ -23,7 +27,6 @@ local lsp = {
 }
 
 require("neodev").setup({
-
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()

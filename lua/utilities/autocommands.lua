@@ -63,3 +63,4 @@ autocmd({"BufEnter"}, {
 -- autocmd({"WinLeave"}, {
 --     command = "setlocal nocursorline"
 -- })
+

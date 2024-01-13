@@ -6,8 +6,16 @@ telescope.setup {
 			override_generic_sorter = true,
 			override_file_sorter = true,
 			case_mode = "smart_case",
-		}
+		},
+
+    persisted = {
+      layout_config = {
+        width = 0.55, 
+        height = 0.55
+      }
+    },
 	}
+
 }
 -- }require("telescope").setup {
 -- 	extensions = {
@@ -21,6 +29,7 @@ telescope.setup {
 -- }
 
 telescope.load_extension('fzf')
+require("telescope").load_extension("persisted")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "Find Files"})

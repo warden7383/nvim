@@ -236,19 +236,6 @@ return {
     end,
   },
 
-  -- {
-  --   "TobinPalmer/Tip.nvim",
-  --   event = "VimEnter",
-  --   init = function()
-  --     -- Default config
-  --     --- @type Tip.config
-  --     require("tip").setup({
-  --       seconds = 3,
-  --       title = "Tip!",
-  --       url = "https://vtip.43z.one",
-  --     })
-  --   end,
-  -- },
   {
     'nvimdev/lspsaga.nvim',
     lazy = true,
@@ -385,14 +372,16 @@ return {
     end
   },
 
-  -- {
-  --   'stevearc/dressing.nvim',
-  --   lazy = false,
-  --   opts = {},
-  --   config = function()
-  --     require("plugin.dressing")
-  --   end,
-  -- },
+  -- NOTE: required for icon-picker.nvim
+  {
+    'stevearc/dressing.nvim',
+    lazy = true,
+    event = "BufReadPre",
+    opts = {},
+    config = function()
+      require("plugin.dressing")
+    end,
+  },
 
   {
     'akinsho/toggleterm.nvim',
@@ -413,6 +402,62 @@ return {
   --   end,
   -- },
 
+  { 
+    "ziontee113/icon-picker.nvim" ,
+    config = function()
+      require("icon-picker").setup({ disable_legacy_commands = true })
+
+      local opts = { noremap = true, silent = true }
+
+      vim.keymap.set("n", "<Leader>i", "<cmd>IconPickerNormal<cr>", opts)
+      vim.keymap.set("n", "<Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+      vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
+    end,
+    lazy = true,
+    event = "CmdlineEnter",
+    dependencies = {
+      'stevearc/dressing.nvim',
+    }
+  },
+
+  {
+    "rcarriga/nvim-notify",
+    lazy = true,
+    event = "VeryLazy",
+  },
+
+  {
+    "MunifTanjim/nui.nvim",
+    lazy = true,
+  },
+  {
+    "folke/noice.nvim",
+    lazy = true,
+    event = "VeryLazy", --default: VeryLazy
+    config = function()
+      require("plugin.noice")
+    end,
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+
+  {
+    "olimorris/persisted.nvim",
+    lazy = true,
+    cmd = { "SessionLoadLast"  },
+    config = function()
+      require("plugin.persisted")
+    end,
+  },
 
 }
 

@@ -8,6 +8,8 @@ require("ibl").setup {
     },
     filetypes = {
       "dashboard",
+      "NvimTree",
+      "checkhealth",
     },
   },
 }

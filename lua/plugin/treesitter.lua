@@ -22,6 +22,7 @@ require'nvim-treesitter.configs'.setup {
     "luap", -- not the right name, look at specific usage
     "markdown",
     "markdown_inline",
+    "regex",
     "scss",
     "svelte",
     "yaml",

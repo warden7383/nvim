@@ -221,10 +221,11 @@ require("noice").setup({
   }, ---@see section on views
   ---@type NoiceRouteConfig[]
   routes = {
-    {
-      view = "notify",
-      filter = { event = "msg_showmode" },
-    },
+    --{
+      --  NOTE: "mini" seems to be the best to showing macro recording mode, notify is annoying
+      -- view = "mini",
+      -- filter = { event = "msg_showmode" },
+    --},
   }, --- @see section on routes
   ---@type table<string, NoiceFilter>
   status = {}, --- @see section on statusline components

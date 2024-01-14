@@ -16,7 +16,7 @@ Usage:
 - configure lsp  mappings, and settings 
 - highlights
 - Display startup time
-
+- configure noice to add status-line components to lualine(?)
 ### Fixes:
 - almost all plugins
 - Todo.lua icons:

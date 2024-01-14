@@ -97,7 +97,7 @@ require("noice").setup({
   },
   lsp = {
     progress = {
-      enabled = true,
+      enabled = false,
       -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
       -- See the section on formatting for more details on how to customize.
       --- @type NoiceFormat|string
@@ -167,9 +167,9 @@ require("noice").setup({
       ["{%S-}"] = "@parameter",
     },
   },
-  health = {
-    checker = true, -- Disable if you don't want health checks to run
-  },
+  -- health = {
+  --   checker = true, -- Disable if you don't want health checks to run
+  -- },
   smart_move = {
     -- noice tries to move out of the way of existing floating windows.
     enabled = true, -- you can disable this behaviour here
@@ -181,16 +181,51 @@ require("noice").setup({
     -- you can enable a preset by setting it to true, or a table that will override the preset config
     -- you can also add custom presets that you can enable/disable with enabled=true
     bottom_search = false, -- use a classic bottom cmdline for search
-    command_palette = false, -- position the cmdline and popupmenu together
-    long_message_to_split = false, -- long messages will be sent to a split
+    command_palette = true, -- position the cmdline and popupmenu together
+    long_message_to_split = true, -- long messages will be sent to a split
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
-    lsp_doc_border = false, -- add a border to hover docs and signature help
+    lsp_doc_border = true, -- add a border to hover docs and signature help
   },
   throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
   ---@type NoiceConfigViews
-  views = {}, ---@see section on views
+  -- views = {}, ---@see section on views
+  views = {
+    cmdline_popup = {
+      position = {
+        row = 10,
+        col = "50%",
+      },
+      size = {
+        width = 60,
+        height = "auto",
+      },
+    },
+    -- popupmenu = {
+    --   relative = "editor",
+    --   position = {
+    --     row = 8,
+    --     col = "50%",
+    --   },
+    --   size = {
+    --     width = 60,
+    --     height = 10,
+    --   },
+    --   border = {
+    --     style = "rounded",
+    --     padding = { 0, 1 },
+    --   },
+    --   win_options = {
+    --     winhighlight = { Normal = "Normal", FloatBoard = "DiagnosticInfo" },
+    --   },
+    -- },
+  }, ---@see section on views
   ---@type NoiceRouteConfig[]
-  routes = {}, --- @see section on routes
+  routes = {
+    {
+      view = "notify",
+      filter = { event = "msg_showmode" },
+    },
+  }, --- @see section on routes
   ---@type table<string, NoiceFilter>
   status = {}, --- @see section on statusline components
   ---@type NoiceFormatOptions

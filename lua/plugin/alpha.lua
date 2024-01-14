@@ -33,14 +33,15 @@ dashboard.section.header.val = {
 dashboard.section.buttons.val = {
   dashboard.button("n", "    New file", "<cmd>ene<CR>"),
   dashboard.button("v", "    Load Recent Session", "<cmd>SessionLoadLast<CR>"),
-  dashboard.button("s", "    Load Selected Session", "<cmd>Telescope persisted<CR>"),
+  dashboard.button("s", "󱚄    Load Selected Session", "<cmd>Telescope persisted<CR>"),
   dashboard.button("f", "󰈞    Find project file", "<cmd>Telescope find_files<CR>"),
   dashboard.button("r", "    Recent", "<cmd>Telescope oldfiles<CR>"),
   dashboard.button("g", "󰊄    Grep pattern", "<cmd>Telescope live_grep<CR>"),
   dashboard.button("l", "󰒲    Plugins", "<cmd>Lazy<CR>"),
-  dashboard.button("k", "󰒲    Keymaps", "<cmd>Lazy<CR>"),
+  dashboard.button("k", "󰌓    Keymaps", "<cmd>Lazy<CR>"),
   dashboard.button("q", "󰿅    Get me out ", "<cmd>qa<CR>"),
 }
+
 -- local handle = io.popen('fortune')
 -- local fortune = handle:read("*a")
 -- handle:close()
@@ -53,7 +54,7 @@ autocmd({"User"}, {
     dashboard.section.footer.val = {
       [[]],
       [[]],
-      [[]]..stats.loaded..[[/]]..stats.count..[[ loaded plugins at ]]..ms..[[ms]],
+      [[]]..stats.loaded..[[/]]..stats.count..[[ plugins loaded at ]]..ms..[[ms]],
     }
     vim.cmd('AlphaRedraw')
   end,

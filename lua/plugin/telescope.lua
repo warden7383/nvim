@@ -29,6 +29,7 @@ telescope.setup {
 -- }
 
 telescope.load_extension('fzf')
+require("telescope").load_extension("notify")
 require("telescope").load_extension("persisted")
 
 local builtin = require('telescope.builtin')

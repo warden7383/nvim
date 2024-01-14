@@ -424,6 +424,9 @@ return {
     "rcarriga/nvim-notify",
     lazy = true,
     event = "VeryLazy",
+    config = function()
+      require("plugin.notify")
+    end,
   },
 
   {
@@ -457,6 +460,9 @@ return {
     config = function()
       require("plugin.persisted")
     end,
+    dependencies = {
+      "nvim-tree/nvim-tree.lua",
+    }
   },
 
 }

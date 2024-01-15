@@ -24,13 +24,9 @@ require("lazy").setup("lazyPlugins",lazyConfig)
 
 require("utilities.autocommands")
 
--- local m = require("plugin.test")
--- m.printing()
----testing
 vim.cmd([[colorscheme tokyonight]])
 function testing()
     print("config loaded")
 end
-
 
 require("utilities.highlights")

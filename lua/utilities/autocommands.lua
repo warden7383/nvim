@@ -1,4 +1,3 @@
--- briefly display the selected text that was yanked
 local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
 
@@ -64,8 +63,19 @@ autocmd({"WinLeave"}, {
     command = "setlocal nocursorline"
 })
 
--- autocmd("filetype", {
---   pattern = "Alpha",
---   command = "set laststatus=0"
--- })
+autocmd("User", {
+  pattern = "AlphaReady",
+  command = "set laststatus=0"
+})
 
+-- Sets statusline to global state
+-- autocmd({"BufEnter", "VimEnter", "WinEnter"},{
+--   once = true,
+--   -- command = "set laststatus=3",
+--   callback = function()
+--     vim.notify("setting status to global",3)
+--     vim.cmd([[
+--       set laststatus=3
+--     ]])
+--   end,
+-- })

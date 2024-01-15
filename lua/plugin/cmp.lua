@@ -112,6 +112,8 @@ cmp.setup({
     {name = "path", keyword_length = 3, },
     {name = "calc"},
     {name = "emoji"},
+    {name = "cmdline"},
+    {name = "async_path"}
   }),
 })
 -- from the tailwindcss-colorizer-cmp docs

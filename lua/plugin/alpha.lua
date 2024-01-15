@@ -51,10 +51,13 @@ autocmd({"User"}, {
   desc = "Gets the startup time",
   callback = function()
     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+-- [[   ┌─────────────────────────────────────────────────────────────────────┐ ]],
     dashboard.section.footer.val = {
       [[]],
-      [[]],
-      [[]]..stats.loaded..[[/]]..stats.count..[[ plugins loaded at ]]..ms..[[ms]],
+      [[┌──────────┐]],
+      [[│ ]]..stats.loaded..[[/]]..stats.count..[[ plugins loaded at ]]..ms..[[ms │]],
+      [[└──────────┘]],
+-- [[   └─────────────────────────────────────────────────────────────────────┘ ]],
     }
     vim.cmd('AlphaRedraw')
   end,

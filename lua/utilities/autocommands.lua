@@ -3,7 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
 
 autocmd({"TextYankPost"}, {
-    command = "lua vim.highlight.on_yank {timeout=1000}"
+    command = "lua vim.highlight.on_yank {timeout=700}"
 })
 
 --NOTE: Does not work
@@ -56,11 +56,16 @@ autocmd({"BufEnter"}, {
     end,
 })
 -- TODO: figure out what this did again.....
---
--- autocmd({"VimEnter", "WinEnter", "BufWinEnter"}, {
---     command = "setlocal cursorline"
--- })
--- autocmd({"WinLeave"}, {
---     command = "setlocal nocursorline"
+
+autocmd({"VimEnter", "WinEnter", "BufWinEnter"}, {
+    command = "setlocal cursorline"
+})
+autocmd({"WinLeave"}, {
+    command = "setlocal nocursorline"
+})
+
+-- autocmd("filetype", {
+--   pattern = "Alpha",
+--   command = "set laststatus=0"
 -- })
 

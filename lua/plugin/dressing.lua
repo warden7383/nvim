@@ -64,9 +64,7 @@ require("dressing").setup({
     -- see :help dressing_get_config
     -- get_config = nil,
     get_config = function()
-      local test = vim.api.nvim_get_option_value("filetype")
-      print(test)
-      if vim.api.nvim_get_option_value("filetype") == "NvimTree" then
+      if vim.api.nvim_get_option_value("filetype", {buf=0}) == "NvimTree" then
         return { enabled = false }
       end
     end,

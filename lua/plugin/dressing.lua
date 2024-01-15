@@ -62,7 +62,14 @@ require("dressing").setup({
     end,
 
     -- see :help dressing_get_config
-    get_config = nil,
+    -- get_config = nil,
+    get_config = function()
+      local test = vim.api.nvim_get_option_value("filetype")
+      print(test)
+      if vim.api.nvim_get_option_value("filetype") == "NvimTree" then
+        return { enabled = false }
+      end
+    end,
   },
   select = {
     -- Set to false to disable the vim.ui.select implementation

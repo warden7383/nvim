@@ -48,6 +48,7 @@ glb.loaded_netrwPlugin = 1 -- for nvim-tree
 -- 		 '%=%{&rnu&&(v:lnum%2)?"\ ".v:relnum:""}' .
 -- 		 '%#LineNr#%{&rnu&&!(v:lnum%2)?"\ ".v:relnum:""}'
 opt.termguicolors = true
+opt.updatetime = 200
 opt.splitright = true
 opt.splitbelow = true
 opt.tabstop = 2

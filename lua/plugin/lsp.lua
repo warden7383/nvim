@@ -30,11 +30,17 @@ require("neodev").setup({
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+local on_attach = function(client, bufnr)
+  -- insert keymaps here
+  if client.server_capabilities["documentSymbolProvider"] then
+    require("nvim-navic").attach(client, bufnr)
+  end
+end
 -- TODO: do on_attach keybindings for goto definiition/hovers etc?
 for _, i in ipairs(lsp) do
   if i == "clangd" then
     lspconfig[i].setup{
+      on_attach = on_attach,
       capabilities = capabilities,
       cmd = {
         "clangd",
@@ -43,6 +49,7 @@ for _, i in ipairs(lsp) do
     }
   else
     lspconfig[i].setup{
+      on_attach = on_attach,
       capabilities = capabilities,
     }
   end

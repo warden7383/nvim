@@ -1,5 +1,4 @@
 local cmp = require("cmp")
--- local lspkind = require("lspkind")
 -- local handlers = require('nvim-autopairs.completion.handlers')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local tailwindColor = require("tailwindcss-colorizer-cmp")
@@ -8,9 +7,6 @@ tailwindColor.setup({
   color_square_width = 2,
 })
 
--- require("tailwindcss-colorizer-cmp").setup({
---   color_square_width = 2,
--- })
 -- TODO: figure out how to disable cmp when commenting code
 -- WARN: the following code does not work
 --
@@ -71,7 +67,6 @@ cmp.setup({
       local kind = require('lspkind').cmp_format({
         with_text = true,
         maxwidth = 40, -- NOTE: initial was 50, set higher for longer width of completion menu
-
         ellipsis_char = "...",
         before = tailwindColor.formatter,
       })(entry, vim_item)

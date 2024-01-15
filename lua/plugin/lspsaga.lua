@@ -13,7 +13,7 @@ require('lspsaga').setup({
     kind = {},
   },
   symbol_in_winbar = {
-    enable = true,
+    enable = false,
     -- separator = ' > ',
     folder_level = 1,
     delay = 300,

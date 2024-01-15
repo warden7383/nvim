@@ -123,7 +123,7 @@ local severity = {
 vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
              vim.notify(method.message, severity[params.type])
 end
-
+--
 
 
 

@@ -143,7 +143,7 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    event = "InsertEnter",
+    event = "BufReadPre",
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
@@ -308,7 +308,7 @@ return {
       'FelipeLema/cmp-async-path',
       'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-calc',
-      "roobert/tailwindcss-colorizer-cmp.nvim",
+      "roobert/tailwindcss-colorizer-cmp.nvim", 
       "hrsh7th/cmp-nvim-lsp-signature-help",
       'windwp/nvim-autopairs',
     },
@@ -406,12 +406,6 @@ return {
     "ziontee113/icon-picker.nvim" ,
     config = function()
       require("icon-picker").setup({ disable_legacy_commands = true })
-
-      local opts = { noremap = true, silent = true }
-
-      vim.keymap.set("n", "<Leader>i", "<cmd>IconPickerNormal<cr>", opts)
-      vim.keymap.set("n", "<Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
-      vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
     end,
     lazy = true,
     event = "CmdlineEnter",
@@ -465,5 +459,60 @@ return {
     }
   },
 
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua:
+    config = function()
+      require("plugin.flash")
+    end,
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  },
+
+  -- WARN: detaches lsps based on afk time, this plugin could be a potential cause of breaking lsp-related plugins
+  {
+    "hinell/lsp-timeout.nvim",
+    lazy = true,
+    event = "LspAttach",
+    init = function()
+      require("plugin.lspTimeout")
+    end,
+    dependencies={ "neovim/nvim-lspconfig" },
+  },
+
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    lazy = true,
+    event = "BufReadPre",
+    config = function()
+      require("plugin.barbecue")
+    end,
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+  },
+
+  {
+    "SmiteshP/nvim-navic",
+    lazy = true,
+    event = "BufReadPre",
+    config = function()
+      require("plugin.navic")
+    end,
+    dependencies = { 
+      "neovim/nvim-lspconfig",
+    },
+  },
 }
 

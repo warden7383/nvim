@@ -12,10 +12,8 @@ Usage:
 ### Todo(features):
 - Lazy load a majority of plugins
 - Add notify
-- Add alpha
 - configure lsp  mappings, and settings 
 - highlights
-- Display startup time
 - configure noice to add status-line components to lualine(?)
 ### Fixes:
 - almost all plugins

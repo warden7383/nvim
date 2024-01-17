@@ -38,7 +38,7 @@ dashboard.section.buttons.val = {
   dashboard.button("r", "    Recent", "<cmd>Telescope oldfiles<CR>"),
   dashboard.button("g", "󰊄    Grep pattern", "<cmd>Telescope live_grep<CR>"),
   dashboard.button("l", "󰒲    Plugins", "<cmd>Lazy<CR>"),
-  dashboard.button("k", "󰌓    Keymaps", "<cmd>Lazy<CR>"),
+  dashboard.button("m", "󰌓    Keymaps", "<cmd>Lazy<CR>"),
   dashboard.button("q", "󰿅    Get me out ", "<cmd>qa<CR>"),
 }
 

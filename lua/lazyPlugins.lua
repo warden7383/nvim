@@ -451,6 +451,7 @@ return {
     "olimorris/persisted.nvim",
     lazy = true,
     cmd = { "SessionLoadLast"  },
+    event = "BufReadPre",
     config = function()
       require("plugin.persisted")
     end,
@@ -523,5 +524,6 @@ return {
       'nvim-telescope/telescope-fzf-native.nvim'
     }
   },
+
 }
 

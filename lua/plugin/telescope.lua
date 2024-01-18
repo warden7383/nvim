@@ -30,7 +30,7 @@ telescope.setup {
 
 telescope.load_extension('fzf')
 require("telescope").load_extension("notify")
-require("telescope").load_extension("persisted")
+-- require("telescope").load_extension("persisted")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "Find Files"})

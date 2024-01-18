@@ -28,3 +28,7 @@ require("persisted").setup({
     reset_prompt = true, -- Reset the Telescope prompt after an action?
   },
 })
+
+
+
+require("telescope").load_extension("persisted")

@@ -71,7 +71,7 @@ opt.fileencoding = 'utf-8'
 opt.mousemoveevent = true
 opt.wrap = false
 opt.pumheight = 8
-opt.sessionoptions = "blank,buffers,curdir,folds,help,globals,resize,tabpages,terminal,winpos,winsize" --each word enables saving and restoring something
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,winsize,options" --each word enables saving and restoring something
 opt.laststatus = 3
 -- opt.clipboard=unnamedplus; -- does not allow to copy to system clipboard
 -- vim.cmd([[

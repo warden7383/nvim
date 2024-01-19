@@ -6,7 +6,7 @@ require("mason-lspconfig").setup({
     "cssmodules_ls",
     "efm",
     "html",
-    "htmx",
+--    "htmx", failed to install
     "jsonls",
     "jdtls",
     "tsserver",

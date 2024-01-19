@@ -313,7 +313,7 @@ return {
       'windwp/nvim-autopairs',
     },
     lazy = true,
-    event = { "BufReadPre", "CmdLineEnter" },
+    event = { "InsertEnter", "CmdLineEnter" },
     config = function()
       require("plugin.cmp")
     end,

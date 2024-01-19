@@ -7,7 +7,6 @@ tailwindColor.setup({
   color_square_width = 2,
 })
 
--- TODO: figure out how to disable cmp when commenting code
 -- WARN: the following code does not work
 --
 -- cmp.setup {                                                                                                                                                                                                                                 
@@ -18,6 +17,24 @@ tailwindColor.setup({
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 cmp.setup({
+  performance = {
+    trigger_debounce_time = 500,
+    throttle = 550,
+    fetching_timeout = 80, 
+    debounce = 150,
+  },
+  enabled = function()
+    -- disable completion in comments
+    local context = require 'cmp.config.context'
+    -- keep command mode completion enabled when cursor is in a comment
+    if vim.api.nvim_get_mode().mode == 'c' then
+      return true
+    else
+      return not context.in_treesitter_capture("comment") 
+      and not context.in_syntax_group("Comment")
+    end
+  end,
+
   completion = {
     completeopt = 'menu,menuone',
   },
@@ -95,7 +112,18 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<CR>"] = cmp.mapping({
+      i = function(fallback)
+        if cmp.visible() and cmp.get_active_entry() then
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+        else
+          fallback()
+        end
+      end,
+      s = cmp.mapping.confirm({ select = true }),
+      c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+    }),
     ['<C-d>'] = function()
       if cmp.visible_docs() then
         cmp.close_docs()
@@ -106,14 +134,14 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     {name = "nvim_lsp", keyword_length = 3,},
-    {name = 'nvim_lsp_signature_help'},
+    {name = 'nvim_lsp_signature_help', keyword_length = 2},
     {name = "luasnip"},
-    {name = "buffer"},
+    {name = "buffer", keyword_length = 2},
     {name = "path", keyword_length = 3, },
     {name = "calc"},
     {name = "emoji"},
     {name = "cmdline"},
-    {name = "async_path"}
+    {name = "async_path", keyword_length = 3,}
   }),
 })
 -- from the tailwindcss-colorizer-cmp docs
@@ -128,11 +156,6 @@ cmp.setup.filetype("gitcommit", {
   })
 })
 
--- function cmdlineMappings()
---   return {
---      ['<CR>'] = cmp.mapping.confirm({ select = true })
---   }
--- end
 cmp.setup.cmdline({"/", "?"}, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
@@ -142,9 +165,14 @@ cmp.setup.cmdline({"/", "?"}, {
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    {name = "async_path"},
+    {name = "async_path", keyword_length = 1},
     -- {name = "path"}, -- WARNING: will block/freeze, use async_path instead
-    {name = "cmdline"},
+    {
+      name = "cmdline",
+      option = {
+        ignore_cmds = { 'Man', '!' }
+      },
+    },
   })
 })
 

@@ -173,6 +173,10 @@ return {
   {
     "karb94/neoscroll.nvim",
     event = "BufReadPre",
+    keys = { 
+      { "<C-d>", desc = "Neoscroll down" },
+      { "<C-u>", desc = "Neoscroll up" },
+    },
     config = function ()
       require('neoscroll').setup {}
     end,
@@ -526,6 +530,31 @@ return {
       'nvim-telescope/telescope-fzf-native.nvim'
     }
   },
+
+  -- NOTE: prevents autostart from happening? (source: lua_ls lsps)
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   lazy = true,
+  --   -- opts = {},
+  --   -- dependencies = {
+  --   --   "neovim/nvim-lspconfig",
+  --   -- },
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("plugin.lsp_signature")
+  --   end,
+  -- },
+
+  -- {
+  --   'huy-hng/anyline.nvim',
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  --   config = function()
+  --     require("plugin.anyline")
+  --   end,
+  --   event = 'VeryLazy',
+  --   lazy = true,
+  -- },
+
 
 }
 

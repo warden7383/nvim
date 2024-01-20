@@ -115,7 +115,7 @@ cmp.setup({
     ["<C-l>"] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() and cmp.get_active_entry() then
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
         else
           fallback()
         end
@@ -176,3 +176,4 @@ cmp.setup.cmdline(":", {
 })
 
 require("plugin.lsp")
+

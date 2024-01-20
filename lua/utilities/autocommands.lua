@@ -68,6 +68,10 @@ autocmd("User", {
   command = "set laststatus=0"
 })
 
+--resize windows when Vim's window size changes
+autocmd("VimResized", {
+  command = "wincmd="
+})
 -- Sets statusline to global state
 -- autocmd({"BufEnter", "VimEnter", "WinEnter"},{
 --   once = true,

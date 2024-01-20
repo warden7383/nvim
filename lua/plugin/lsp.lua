@@ -29,9 +29,11 @@ local lsp = {
 require("neodev").setup({
 })
 
+
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- local on_attach = function(client, bufnr)
---   -- insert keymaps here
+  -- insert keymaps here
 --   if client.server_capabilities["documentSymbolProvider"] then
 --     require("nvim-navic").attach(client, bufnr)
 --   end

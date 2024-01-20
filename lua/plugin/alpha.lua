@@ -36,15 +36,11 @@ dashboard.section.buttons.val = {
   dashboard.button("s", "󱚄    Load Selected Session", "<cmd>Telescope persisted<CR>"),
   dashboard.button("f", "󰈞    Find project file", "<cmd>Telescope find_files<CR>"),
   dashboard.button("r", "    Recent", "<cmd>Telescope oldfiles<CR>"),
-  dashboard.button("g", "󰊄    Grep pattern", "<cmd>Telescope live_grep<CR>"),
-  dashboard.button("l", "󰒲    Plugins", "<cmd>Lazy<CR>"),
+  -- dashboard.button("g", "󰊄    Grep pattern", "<cmd>Telescope live_grep<CR>"),
+  dashboard.button("l", "󰐱    Plugins", "<cmd>Lazy<CR>"),
   dashboard.button("m", "󰌓    Keymaps", "<cmd>Lazy<CR>"),
   dashboard.button("q", "󰿅    Get me out ", "<cmd>qa<CR>"),
 }
-
--- local handle = io.popen('fortune')
--- local fortune = handle:read("*a")
--- handle:close()
 
 autocmd({"User"}, {
   pattern = "LazyVimStarted",

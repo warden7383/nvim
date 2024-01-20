@@ -19,3 +19,4 @@ Usage:
 - almost all plugins
 - Todo.lua icons:
   - the fix icon should be a wrench?
+- Session loading may not display cursor after loading?

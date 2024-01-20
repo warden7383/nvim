@@ -32,3 +32,4 @@ require("persisted").setup({
 
 
 require("telescope").load_extension("persisted")
+-- vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,winsize,options" --each word enables saving and restoring something -- WARN: cursor disappears/creates a ton of weird buffers indicating path does not exist?

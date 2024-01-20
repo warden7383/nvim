@@ -25,33 +25,21 @@
 -- base: &base "#24273a"
 -- mantle: &mantle "#1e2030"
 -- crust: &crust "#24283b" #181926"
---
+
 local api = vim.api.nvim_set_hl
 
 --line column
 api(0, 'LineNrAbove', { fg='#8087a2', bold=true })
-api(0, 'CursorLineNr', { fg='#eed49f', bold=true })
+api(0, 'CursorLineNr', { fg='#c6a0f6', bold=true }) -- #eed49f
 api(0, 'LineNrBelow', { fg='#8087a2', bold=true }) --#FB508F #80bd9c #68ded8 #f5d3ba
 api(0, 'WinSeparator', { fg='#8aadf4', bold=true }) --#FB508F #80bd9c #68ded8 #f5d3ba
 api(0, 'SignColumn', { fg='#8aadf4', bold=true})
+
+api(0, 'TelescopeBorder', {fg="#80b7ff"})
 -- vim.cmd([[
---
--- " -----------------HIGHLIGHTS--------------------
 -- " :hi Comment guifg=#777c96 
--- " :hi TelescopeBorder guifg=#80b7ff "enable this after installing telescope
---
--- " these highligt options below don't seem to change the wildermenu's background color
--- " :hi FloatShadow guibg=White blend=0
--- " :hi FloatShadowThrough guibg=White blend=0
--- " :hi NoiceAttr11 guibg=white blend=0
--- " :hi NoiceAttr12 guibg=white blend=0
--- " :hi NoiceAttr316 guifg=white
--- " :hi NoiceAttr1060 guifg=white
--- " :hi DevIconScheme ctermfg=16 guifg=white
--- " ---------------CURSOR HIGHLIGHTING----------------
--- " :hi Cursor guifg=#1e1d24 guibg=#FF7DA3 " only highlights the cursor in command mode
 -- ]])
---
+
 ------------------------------CMP Highlights ---------------------------------------------------------
 -- Customization for Pmenu
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#8bd5ca", fg = "#1e2030" }) --DEFAULT: bg = "#282C34", fg = "NONE" #29a4bd
@@ -119,3 +107,19 @@ highlight link NotifyINFOBody Normal
 highlight link NotifyDEBUGBody Normal
 highlight link NotifyTRACEBody Normal
 ]])
+ 
+api(0, 'WinBar', {bg="NONE", fg="#a9b1d6"}) -- used for dropbar.nvim
+api(0, 'WinBarNC', {bg="NONE", fg="#3b4261"})-- used for dropbar.nvim
+
+--------------------Illuminate------------------------------
+vim.cmd [[hi illuminatedWord gui=underline guibg=NONE]]
+vim.cmd [[hi illuminatedWordWrite gui=underline guibg=NONE]]
+vim.cmd [[hi illuminatedWordText gui=underline guibg=NONE]]
+vim.cmd [[hi illuminatedWordRead gui=underline guibg=NONE]]
+vim.cmd [[hi illuminatedCurWord gui=underline guibg=NONE]]
+
+--overwritten by terminal cursor settings first
+-- api(0, 'CursorIM', {fg="#24283b", bg="#91d7e3"})
+-- api(0, 'Cursor', {fg="#24283b", bg="#91d7e3"} )
+-- api(0, 'lCursor', {fg="#24283b", bg="#91d7e3"} )
+

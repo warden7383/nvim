@@ -12,11 +12,10 @@ vim.g.lspTimeoutConfig = {
 -- local Config = require("lsp-timeout.config").Config
 -- Config:new(vim.g.lspTimeoutConfig):validate()
 
-vim.api.nvim_create_autocmd({"LspDetach"},{
-  pattern = "*",
-  callback = function()
-    print("Lsp timed out")
-  end,
-})
-
-print("Lsptimeout loaded")
+-- for testing:
+-- vim.api.nvim_create_autocmd({"LspDetach"},{
+--   pattern = "*",
+--   callback = function()
+--     print("Lsp timed out")
+--   end,
+-- })

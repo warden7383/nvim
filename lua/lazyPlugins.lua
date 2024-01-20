@@ -40,7 +40,6 @@ return {
     keys = { "<leader>d", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle NvimTree (FileTree)"},
     config = function()
       require("plugin.nvimtree")
-      print("loaded nvimtree")
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = true, -- Initial: false
@@ -100,7 +99,7 @@ return {
 
   {
     'numToStr/Comment.nvim',
-    event = "InsertEnter",
+    event = "BufReadPre",
     opts = {
     },
     config = function()
@@ -451,7 +450,7 @@ return {
     "olimorris/persisted.nvim",
     lazy = true,
     cmd = { "SessionLoadLast"  },
-    event = "BufReadPre",
+    event = "VeryLazy",
     config = function()
       require("plugin.persisted")
     end,
@@ -520,6 +519,9 @@ return {
     -- optional, but required for fuzzy finder support
     lazy = true,
     event = "BufReadPre",
+    config = function()
+      require("plugin.dropbar")
+    end,
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim'
     }

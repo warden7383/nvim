@@ -301,6 +301,7 @@ return {
     'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
+      -- "ray-x/lsp_signature.nvim",
       "onsails/lspkind.nvim",
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
@@ -535,14 +536,14 @@ return {
   -- {
   --   "ray-x/lsp_signature.nvim",
   --   lazy = true,
-  --   -- opts = {},
-  --   -- dependencies = {
-  --   --   "neovim/nvim-lspconfig",
-  --   -- },
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("plugin.lsp_signature")
-  --   end,
+    -- opts = {},
+    -- dependencies = {
+    --   "neovim/nvim-lspconfig",
+    -- },
+    -- event = "VeryLazy",
+    -- config = function()
+    --   require("plugin.lsp_signature")
+    -- end,
   -- },
 
   -- {
@@ -554,7 +555,39 @@ return {
   --   event = 'VeryLazy',
   --   lazy = true,
   -- },
+  { 
+    "monaqa/dial.nvim",
+    lazy = true,
+    keys = {
+      {"<C-a>", desc = "increment in normal" },
+      {"<C-x>", desc = "decretment in normal" },
+      {"g<C-a>", desc = "increment in gnormal" },
+      {"g<C-x>", desc = "decrement in gnormal" },
+      {"<C-a>", desc = "increment in visual", mode = "v" },
+      {"<C-x>", desc = "increment in visual", mode = "v"},
+      {"g<C-a>", desc = "increment in gvisual", mode = "v"},
+      {"g<C-x>", desc = "decrement in gvisual", mode = "v"},
+    },
+    config = function()
+      require("plugin.dial")
+    end,
+  },
 
-
+-- NOTE: can be integrated with several terminal emulators such as wezterm for win
+  {
+    'mrjones2014/smart-splits.nvim',
+    lazy = true,
+    event = {"BufReadPre", "BufNewFile"},
+    config = function ()
+      require("plugin.smart-splits")
+    end,
+  },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = function()
+      require('plugin.colorful-winsep')
+    end,
+    event = { "WinNew" },
+  },
 }
 

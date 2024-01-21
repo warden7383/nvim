@@ -18,7 +18,6 @@ cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 cmp.setup({
   performance = {
-    trigger_debounce_time = 500,
     throttle = 550,
     fetching_timeout = 80, 
     debounce = 150,
@@ -136,7 +135,7 @@ cmp.setup({
     {name = 'nvim_lsp_signature_help', keyword_length = 2},
     {name = "luasnip"},
     {name = "buffer", keyword_length = 2},
-    {name = "path", keyword_length = 3, },
+    -- {name = "path", keyword_length = 3, },
     {name = "calc"},
     {name = "emoji"},
     {name = "cmdline"},
@@ -175,5 +174,48 @@ cmp.setup.cmdline(":", {
   })
 })
 
+-- local signature_config = {
+--   -- log_path = vim.fn.expand("$HOME") .. "/tmp/sig.log",
+--   log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log", -- log dir when  debug is on
+--   debug = true,
+--   hint_enable = false,
+--   hi_parameter = "PmenuSel",
+--   handler_opts = { border = "rounded" },
+--   max_width = 80,
+--   select_signature_key = [[<M-n>]]
+-- }
+--
+-- require("lsp_signature").setup(signature_config)
+
 require("plugin.lsp")
+
+print()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

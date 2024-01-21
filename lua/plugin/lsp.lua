@@ -32,6 +32,10 @@ require("neodev").setup({
 
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+--   properties = { "documentation", "detail", "additionalTextEdits" },
+-- }
 -- local on_attach = function(client, bufnr)
   -- insert keymaps here
 --   if client.server_capabilities["documentSymbolProvider"] then

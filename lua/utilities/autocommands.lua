@@ -50,6 +50,7 @@ autocmd({"BufEnter"}, {
         --         TermExec cmd="echo" dir=vim.fn.getcwd()
         --     ]])
         -- end)
+        -- FIX: if in terminal mode, do not type g++.... when pressing leader r 
         map('t', '<leader>r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ')
         map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>')
     end,
@@ -89,8 +90,8 @@ autocmd({"TermOpen"},{
     --   vim.notify("entered terminal")
     -- end
     vim.notify("entered tt")
-    map({"t"}, "<leader>q", "exit<CR>", {silent = true, desc = "Quit terminal"})
-    map({"n"}, "<leader>q", "Aexit<CR>", { desc = "Quit terminal"})
+    map({"t"}, "<C-q>", "exit<CR>", {silent = true, desc = "Quit terminal"})
+    map({"n"}, "<C-q>", "Aexit<CR>", { desc = "Quit terminal"})
     -- local mode = vim.api.nvim_get_mode().mode
     -- vim.notify(mode)
   end

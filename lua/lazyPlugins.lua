@@ -572,5 +572,45 @@ return {
     "kwkarlwang/bufresize.nvim",
    lazy = true,
   },
+  
+  {
+    "lewis6991/gitsigns.nvim",
+    lazy = true,
+    event = {"BufEnter", "BufReadPre"},
+    config = function()
+      require("plugin.gitsigns")
+    end,
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    -- init = function()
+    --   vim.o.timeout = true
+    --   vim.o.timeoutlen = 1000
+    -- end,
+    -- opts = {
+    --   -- your configuration comes here
+    --   -- or leave it empty to use the default settings
+    --   -- refer to the configuration section below
+    -- }
+    config = function ()
+      require("plugin.which-key")
+    end
+  },
+
+  {
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    lazy = true,
+    event = {"BufReadPre", "BufNewFile"},
+    config = function ()
+      require("plugin.lazygit")
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+
 }
 

@@ -6,12 +6,16 @@ vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set('i', 'Jk', '<esc>')
 vim.keymap.set('i', 'JK', '<esc>')
 vim.keymap.set('i', 'jK', '<esc>')
-
-vim.keymap.set('n', '<leader>c', ':nohlsearch<CR>', {silent = true} )
--- vim.keymap.set('n', '<leader>v', vim.api.nvim_paste())
--- vim.keymap.set('n', '<leader>q', ':Bdelete<CR>', {silent = true}) -- from vim-bbye plugin NOTE this keymap is set on lazyPlugins.lua
--- vim.keymap.set('n', 'DD', ':TroubleToggle document_diagnostics<CR>', {silent = true}) -- enable when trouble.nvim exists
 vim.keymap.set('c', 'jk', '<C-c>')
+
+-- vim.keymap.set('n', '<leader>c', ':nohlsearch<CR>', {silent = true, desc = "Clear highlight search and dismiss Notify notifications"} )
+-- vim.keymap.set('n', '<leader>c', '<CMD>nohlsearch<CR>'..require("notify").dismiss, {silent = true, desc = "Clear highlight search and dismiss Notify notifications"} )
+map('n', '<leader>c', function ()
+  require("notify").dismiss()
+  vim.cmd('nohlsearch')
+end, {silent = true, desc = "Cleaer highlight search and dismiss Notify Notifications"})
+
+-- vim.keymap.set('n', '<leader>v', vim.api.nvim_paste())
 vim.keymap.set('n', '<leader>b', '<CMD>enew<CR>', {silent = true, desc = "New file"} )
 vim.keymap.set("n", "x", '"_x')
 -----------------------Navigation Keymaps---------------------
@@ -26,6 +30,9 @@ vim.keymap.set('n', '<Right>', '<C-w>>', {desc = "Enlarges window width"})
 vim.keymap.set('n', '<Left>', '<C-w><lt>', {desc = "Shrinks window width"})
 vim.keymap.set('n', '<Down>', '<C-w>+', {desc = "increase window height"})
 vim.keymap.set('n', '<Up>', '<C-w>-', {desc = "decrease window height"})
+
+map('n','<leader>sv', '<CMD>vsplit<CR>', {silent = true, desc = "Split Vertical"})
+map('n','<leader>sh', '<CMD>split<CR>', {silent = true, desc = "Split Horizontal"})
 --Naviate through windows
 -- vim.keymap.set({'n','t'}, '<C-h>', '<C-w>h', {desc = "Moves cursor to the right window"})
 -- vim.keymap.set({'n','t'}, '<C-l>', '<C-w>l', {desc = "Moves cursor to the left window"})

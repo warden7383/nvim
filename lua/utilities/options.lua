@@ -3,7 +3,6 @@ local api = vim.api
 local glb = vim.g
 
 local sign = vim.diagnostic.severity
--- glb.mapleader = " "
 
 local powershell_options = {
   shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",

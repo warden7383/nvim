@@ -187,7 +187,9 @@ return {
     "dstein64/nvim-scrollview",
     event = "BufReadPre",
     config = function()
-      require("scrollview").setup{}
+      require("scrollview").setup{
+
+      }
     end,
     lazy = true,
   },
@@ -576,7 +578,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     lazy = true,
-    event = {"BufNewFile", "BufReadPre"},
+    event = {"BufNewFile", "BufNew"},
     config = function()
       require("plugin.gitsigns")
     end,
@@ -603,7 +605,7 @@ return {
     "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
     lazy = true,
-    event = {"BufReadPre", "BufNewFile"},
+    event = {"BufReadPre", "BufNew"},
     config = function ()
       require("plugin.lazygit")
     end,

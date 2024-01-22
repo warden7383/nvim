@@ -118,8 +118,14 @@ vim.cmd [[hi illuminatedWordText gui=underline guibg=NONE]]
 vim.cmd [[hi illuminatedWordRead gui=underline guibg=NONE]]
 vim.cmd [[hi illuminatedCurWord gui=underline guibg=NONE]]
 
+-- api(0, 'DiffAdd', {bg="#8bd5ca"})
+-- api(0, 'DiffText', bg=)
+-- api(0, 'DiffChange', bg=)
+-- api(0, 'DiffDelete', bg=)
+
 --overwritten by terminal cursor settings first
 -- api(0, 'CursorIM', {fg="#24283b", bg="#91d7e3"})
 -- api(0, 'Cursor', {fg="#24283b", bg="#91d7e3"} )
 -- api(0, 'lCursor', {fg="#24283b", bg="#91d7e3"} )
 
+api(0, 'ScrollViewCursor', {fg="#c6a0f6", bg="#c6a0f6"})

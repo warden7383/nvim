@@ -141,4 +141,4 @@ notify.setup({
 })
 
 vim.notify = notify
-vim.api.nvim_set_keymap("n", "<leader>p", "", { callback = notify.dismiss, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>p", "", { callback = notify.dismiss, silent = true })

@@ -69,8 +69,42 @@ autocmd("User", {
 })
 
 --resize windows when Vim's window size changes
-autocmd("VimResized", {
-  command = "wincmd="
+--also keeps the split window sizes when terminal exits
+autocmd({ "VimResized" }, { --TermLeave?
+  -- command = "wincmd=",
+  command = "lua require('bufresize').resize()",
+})
+
+-- when terminal is opened, do not alter split size of other buffers and set keymaps to quit
+autocmd({"TermOpen"},{
+  pattern = "term://*",
+  callback = function ()
+    -- if vim.bo.filetype == "toggleterm" then
+      require("bufresize").block_register()
+      require("bufresize").resize_open()
+      -- vim.notify("entered toggleterm")
+    -- else
+    --   require("bufresize").block_register()
+    --   require("bufresize").resize_open()
+    --   vim.notify("entered terminal")
+    -- end
+    vim.notify("entered tt")
+    map({"t"}, "<leader>q", "exit<CR>", {silent = true, desc = "Quit terminal"})
+    map({"n"}, "<leader>q", "Aexit<CR>", { desc = "Quit terminal"})
+    -- local mode = vim.api.nvim_get_mode().mode
+    -- vim.notify(mode)
+  end
+})
+-- When terminal is closed (exited), do not allow the terminal space to move the size of the buffers in
+-- the splits and return to normal mode
+autocmd({"TermClose"}, {
+  pattern = "term://*",
+  callback = function ()
+    require("bufresize").block_register()
+    require("bufresize").resize_close()
+    vim.notify("closed term")
+    vim.api.nvim_feedkeys("jk","t",false) --without this, closing terminals will leave you in insert mode
+  end
 })
 -- Sets statusline to global state
 -- autocmd({"BufEnter", "VimEnter", "WinEnter"},{

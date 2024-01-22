@@ -9,7 +9,7 @@ require('smart-splits').setup({
   -- Ignored buffer types (only while resizing)
   ignored_buftypes = { 'NvimTree' },
   -- the default number of lines/columns to resize by at a time
-  default_amount = 3,
+  default_amount = 1,
   -- Desired behavior when your cursor is at an edge and you
   -- are moving towards that same edge:
   -- 'wrap' => Wrap to opposite side
@@ -64,10 +64,8 @@ require('smart-splits').setup({
       -- on_enter = function()
       --   vim.notify("Entering resize mode...")
       -- end,
-      on_leave = nil,
-      -- on_leave = function ()
-      --   vim.notify("Leaving resize mode...")
-      -- end,
+      -- on_leave = nil,
+      on_leave = require("bufresize").register
     },
   },
   -- ignore these autocmd events (via :h eventignore) while processing

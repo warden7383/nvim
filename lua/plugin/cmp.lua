@@ -138,8 +138,8 @@ cmp.setup({
     -- {name = "path", keyword_length = 3, },
     {name = "calc"},
     {name = "emoji"},
-    {name = "cmdline"},
-    {name = "async_path", keyword_length = 3,}
+    -- {name = "cmdline"},
+    -- {name = "async_path", keyword_length = 3,}
   }),
 })
 -- from the tailwindcss-colorizer-cmp docs
@@ -163,7 +163,7 @@ cmp.setup.cmdline({"/", "?"}, {
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    {name = "async_path", keyword_length = 1},
+    {name = "async_path", keyword_length = 3},
     -- {name = "path"}, -- WARNING: will block/freeze, use async_path instead
     {
       name = "cmdline",
@@ -188,34 +188,5 @@ cmp.setup.cmdline(":", {
 -- require("lsp_signature").setup(signature_config)
 
 require("plugin.lsp")
-
-print()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

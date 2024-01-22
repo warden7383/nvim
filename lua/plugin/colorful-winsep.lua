@@ -1,8 +1,8 @@
 require("colorful-winsep").setup({
   -- highlight for Window separator
   highlight = {
-    bg = "#16161E",
-    fg = "#3fe86c", --#1F3442
+    -- bg = "#16161E",
+    fg = '#c6a0f6', --#1F3442
   },
   -- timer refresh rate
   interval = 30,
@@ -10,6 +10,7 @@ require("colorful-winsep").setup({
   no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
   -- Symbols for separator lines, the order: horizontal, vertical, top left, top right, bottom left, bottom right.
   symbols = { "━", "┃", "┏", "┓", "┗", "┛" },
+  -- symbols = {"─", "│", "┌", "┐", "└", "┘"},
   close_event = function()
     -- Executed after closing the window separator
   end,

@@ -301,7 +301,7 @@ return {
     'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
-      -- "ray-x/lsp_signature.nvim",
+      "ray-x/lsp_signature.nvim",
       "onsails/lspkind.nvim",
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
@@ -493,32 +493,6 @@ return {
     dependencies={ "neovim/nvim-lspconfig" },
   },
 
-  -- {
-  --   "utilyre/barbecue.nvim",
-  --   name = "barbecue",
-  --   lazy = true,
-  --   event = "BufReadPre",
-  --   config = function()
-  --     require("plugin.barbecue")
-  --   end,
-  --   version = "*",
-  --   dependencies = {
-  --     "SmiteshP/nvim-navic",
-  --     "nvim-tree/nvim-web-devicons", -- optional dependency
-  --   },
-  -- },
-  --
-  -- {
-  --   "SmiteshP/nvim-navic",
-  --   lazy = true,
-  --   event = "BufReadPre",
-  --   config = function()
-  --     require("plugin.navic")
-  --   end,
-  --   dependencies = { 
-  --     "neovim/nvim-lspconfig",
-  --   },
-  -- },
   {
     'Bekaboo/dropbar.nvim',
     -- optional, but required for fuzzy finder support
@@ -581,13 +555,22 @@ return {
     config = function ()
       require("plugin.smart-splits")
     end,
+    dependencies = {
+      "kwkarlwang/bufresize.nvim",
+    },
   },
+
   {
     "nvim-zh/colorful-winsep.nvim",
     config = function()
       require('plugin.colorful-winsep')
     end,
     event = { "WinNew" },
+  },
+
+  { 
+    "kwkarlwang/bufresize.nvim",
+   lazy = true,
   },
 }
 

@@ -51,8 +51,9 @@ autocmd({"BufEnter"}, {
         --     ]])
         -- end)
         -- FIX: if in terminal mode, do not type g++.... when pressing leader r 
-        map('t', '<leader>r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ')
-        map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>')
+        -- map('t', '<leader>r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ')
+        map('t', ';r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ', {desc = "Compile cpp in terminal mode"})
+        map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>',{desc = "Compile and run"})
     end,
 })
 -- TODO: figure out what this did again.....

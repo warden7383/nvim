@@ -17,7 +17,7 @@ return {
     end,
     -- Initial: lazy false, no lazy event
     lazy = true, 
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
   },
 
   {
@@ -35,7 +35,7 @@ return {
 
   {
     "nvim-tree/nvim-tree.lua",
-    event = { "BufReadPre", "CmdlineEnter" }, -- Initial: BufEnter
+    event = { "BufReadPre", "CmdlineEnter", "BufAdd" }, -- Initial: BufEnter
     cmd = {"NvimTree"},
     keys = { "<leader>d", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle NvimTree (FileTree)"},
     config = function()
@@ -48,7 +48,7 @@ return {
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     cmd = "Telescope",
     config = function()
       require("plugin.telescope")
@@ -71,7 +71,7 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("plugin.lualine")
     end,
@@ -92,14 +92,14 @@ return {
     'windwp/nvim-autopairs',
     -- NOTE: a dependency for nvim-cmp when nvimlsp is loaded
     --
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     opts = {}, -- this is equalent to setup({}) function
     -- lazy = true,
   },
 
   {
     'numToStr/Comment.nvim',
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     opts = {
     },
     config = function()
@@ -110,7 +110,7 @@ return {
 
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require('ts_context_commentstring').setup {
         enable_autocmd = false,
@@ -142,7 +142,7 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
@@ -153,7 +153,7 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     main = "ibl",
     opts = {},
     config = function()
@@ -164,7 +164,7 @@ return {
 
   {
     "andymass/vim-matchup",
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     init = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup"}
     end,
@@ -172,7 +172,7 @@ return {
 
   {
     "karb94/neoscroll.nvim",
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     keys = { 
       { "<C-d>", desc = "Neoscroll down" },
       { "<C-u>", desc = "Neoscroll up" },
@@ -185,7 +185,7 @@ return {
 
   {
     "dstein64/nvim-scrollview",
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("scrollview").setup{
 
@@ -218,13 +218,13 @@ return {
   {
     "farmergreg/vim-lastplace",
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
   },
 
   {
     "wakatime/vim-wakatime",
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
   },
 
   -- install this plugin (https://github.com/willothy/wezterm.nvim) when trying wezterm
@@ -234,7 +234,7 @@ return {
   -- },
   {
     "RRethy/vim-illuminate",
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     lazy = true,
     config = function()
       require("plugin.illuminate")
@@ -259,7 +259,7 @@ return {
       require("plugin.mason")
     end,
     cmd = "Mason",
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
   },
 
   {
@@ -276,7 +276,7 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     dependencies = {
       "williamboman/mason.nvim",
     },
@@ -288,7 +288,7 @@ return {
   {
     "folke/neodev.nvim",
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
   },
 
   {
@@ -303,13 +303,13 @@ return {
     'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
-      "ray-x/lsp_signature.nvim",
+    --  "ray-x/lsp_signature.nvim",
       "onsails/lspkind.nvim",
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       "petertriho/cmp-git", -- TODO:https://github.com/petertriho/cmp-git for config
       'hrsh7th/cmp-buffer', -- NOTE:https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file
-      'hrsh7th/cmp-path',
+     -- 'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       'FelipeLema/cmp-async-path',
       'hrsh7th/cmp-emoji',
@@ -330,7 +330,7 @@ return {
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("plugin.bufferline")
     end,
@@ -339,7 +339,7 @@ return {
   {
     "b0o/incline.nvim",
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("plugin.incline")
     end,
@@ -348,7 +348,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
@@ -361,7 +361,7 @@ return {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
@@ -382,7 +382,7 @@ return {
   {
     'stevearc/dressing.nvim',
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     opts = {},
     config = function()
       require("plugin.dressing")
@@ -393,7 +393,7 @@ return {
     'akinsho/toggleterm.nvim',
     version = "*",
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("plugin.toggleterm")
     end,
@@ -499,7 +499,7 @@ return {
     'Bekaboo/dropbar.nvim',
     -- optional, but required for fuzzy finder support
     lazy = true,
-    event = "BufReadPre",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("plugin.dropbar")
     end,
@@ -553,7 +553,7 @@ return {
   {
     'mrjones2014/smart-splits.nvim',
     lazy = true,
-    event = {"BufReadPre", "BufNewFile"},
+    event = {"BufReadPre", "BufAdd"},
     config = function ()
       require("plugin.smart-splits")
     end,
@@ -578,7 +578,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     lazy = true,
-    event = {"BufNewFile", "BufNew"},
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("plugin.gitsigns")
     end,
@@ -605,7 +605,7 @@ return {
     "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
     lazy = true,
-    event = {"BufReadPre", "BufNew"},
+    event = {"BufReadPre", "BufAdd"},
     config = function ()
       require("plugin.lazygit")
     end,

@@ -20,7 +20,7 @@ cmp.setup({
   performance = {
     throttle = 550,
     fetching_timeout = 80, 
-    debounce = 150,
+    debounce = 250,
   },
   enabled = function()
     -- disable completion in comments
@@ -170,6 +170,7 @@ cmp.setup.cmdline(":", {
       option = {
         ignore_cmds = { 'Man', '!' }
       },
+      
     },
   })
 })

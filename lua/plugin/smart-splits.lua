@@ -103,14 +103,14 @@ require('smart-splits').setup({
 -- vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
 -- vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
 -- moving between splits
-vim.keymap.set({'n','t' }, '<C-h>', require('smart-splits').move_cursor_left)
-vim.keymap.set({'n', 't'}, '<C-j>', require('smart-splits').move_cursor_down)
-vim.keymap.set({'n', 't'}, '<C-k>', require('smart-splits').move_cursor_up)
-vim.keymap.set({'n', 't'}, '<C-l>', require('smart-splits').move_cursor_right)
+vim.keymap.set({'n','t' }, '<C-h>', require('smart-splits').move_cursor_left, {desc = "Split move left"})
+vim.keymap.set({'n', 't'}, '<C-j>', require('smart-splits').move_cursor_down,{desc = "Split move down"})
+vim.keymap.set({'n', 't'}, '<C-k>', require('smart-splits').move_cursor_up,{desc = "Split move up"})
+vim.keymap.set({'n', 't'}, '<C-l>', require('smart-splits').move_cursor_right,{desc = "Split move right"})
 -- swapping buffers between windows
-vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
-vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
-vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
-vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)-- recommended mappings
+vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left, {desc = "Swap buffer with left"} )
+vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down,{desc = "Swap buffer with down"})
+vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up,{desc = "Swap buffer with up"})
+vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right,{desc = "Swap buffer with right"})-- recommended mappings
 
-vim.keymap.set('n', '<leader>R', require('smart-splits').start_resize_mode)
+vim.keymap.set('n', '<leader>R', require('smart-splits').start_resize_mode, {desc = "Toggle resize mode"})

@@ -276,7 +276,7 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
-    event = {"BufReadPre", "BufAdd"},
+    event = {"BufReadPre", "BufAdd", "CmdLineEnter"},
     dependencies = {
       "williamboman/mason.nvim",
     },
@@ -373,6 +373,8 @@ return {
 
   {
     'goolord/alpha-nvim',
+    lazy = true,
+    event = "VimEnter",
     config = function ()
       require("plugin.alpha")
     end

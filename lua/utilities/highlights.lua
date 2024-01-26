@@ -36,9 +36,6 @@ api(0, 'WinSeparator', { fg='#8aadf4', bold=true }) --#FB508F #80bd9c #68ded8 #f
 api(0, 'SignColumn', { fg='#8aadf4', bold=true})
 
 api(0, 'TelescopeBorder', {fg="#80b7ff"})
--- vim.cmd([[
--- " :hi Comment guifg=#777c96 
--- ]])
 
 ------------------------------CMP Highlights ---------------------------------------------------------
 -- Customization for Pmenu
@@ -129,3 +126,10 @@ vim.cmd [[hi illuminatedCurWord gui=underline guibg=NONE]]
 -- api(0, 'lCursor', {fg="#24283b", bg="#91d7e3"} )
 
 api(0, 'ScrollViewCursor', {fg="#c6a0f6", bg="#c6a0f6"})
+
+----Alpha (landing page)
+api(0, 'AlphaHeader', {fg="#5eb9ff"}) -- #7dc4e4 #5eb9ff
+api(0, 'AlphaButtons', {fg="#8bd5ca", bg=""})
+api(0, 'AlphaShortcut', {fg="#ed8796", bg=""})
+api(0, 'AlphaFooter', {fg="#c6a0f6", bg=""})
+

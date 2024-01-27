@@ -1,16 +1,16 @@
 -- local opts = { noremap=true, silent=true }
-require("bufresize").setup({
-  register = {
-    keys = {
-    },
-    trigger_events = { "BufWinEnter", "WinEnter" },
-  },
-  resize = {
-    keys = {},
-    trigger_events = { "VimResized" },
-    increment = false,
-  },
-})
+-- require("bufresize").setup({
+--   register = {
+--     keys = {
+--     },
+--     trigger_events = { "BufWinEnter", "WinEnter" },
+--   },
+--   resize = {
+--     keys = {},
+--     trigger_events = { "VimResized" },
+--     increment = false,
+--   },
+-- })
 -- opts = { noremap = true, silent = true }
 -- local map = vim.api.nvim_set_keymap
 -- ToggleTerm = function(direction)

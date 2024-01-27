@@ -73,10 +73,11 @@ autocmd("User", {
 --resize windows when Vim's window size changes
 --also keeps the split window sizes when terminal exits
 autocmd({ "VimResized" }, { --TermLeave?
-  -- command = "wincmd=",
   command = "lua require('bufresize').resize()",
+  callback = function ()
+    vim.notify("resized vim")
+  end
 })
-
 -- when terminal is opened, do not alter split size of other buffers and set keymaps to quit
 autocmd({"TermOpen"},{
   pattern = "term://*",

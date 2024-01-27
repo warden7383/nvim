@@ -8,23 +8,24 @@ vim.keymap.set('i', 'JK', '<esc>')
 vim.keymap.set('i', 'jK', '<esc>')
 vim.keymap.set('c', 'jk', '<C-c>')
 
--- vim.keymap.set('n', '<leader>c', ':nohlsearch<CR>', {silent = true, desc = "Clear highlight search and dismiss Notify notifications"} )
--- vim.keymap.set('n', '<leader>c', '<CMD>nohlsearch<CR>'..require("notify").dismiss, {silent = true, desc = "Clear highlight search and dismiss Notify notifications"} )
 map('n', '<leader>c', function ()
   require("notify").dismiss()
   vim.cmd('nohlsearch')
-end, {silent = true, desc = "Cleaer highlight search and dismiss Notify Notifications"})
+end, {silent = true, desc = "Clear highlight search and dismiss Notify Notifications"})
 
 -- vim.keymap.set('n', '<leader>v', vim.api.nvim_paste())
 vim.keymap.set('n', '<leader>b', '<CMD>enew<CR>', {silent = true, desc = "New file"} )
 vim.keymap.set("n", "x", '"_x')
------------------------Navigation Keymaps---------------------
+vim.keymap.set({ 'n', 'v' }, 'c', '"_c')
+vim.keymap.set('n', 'C', '"_C')
+vim.keymap.set('n', 'S', '"_S')
+vim.keymap.set('n', 'd', '"_d') -- TEST:
+
 --Buffer navigation
 vim.keymap.set('n', '<M-b>', '<CMD>bp<CR>', {silent = true, desc = "Move to previous buffer"})
 vim.keymap.set('n', '<M-n>', '<CMD>bn<CR>', {silent = true, desc = "Move to next buffer"})
 --- NOTE: the following code here is being used in smart-splits.lua
 
---------------------------------------------------------------------------------------------------
 --Resize windows
 vim.keymap.set('n', '<Right>', '<C-w>>', {desc = "Enlarges window width"})
 vim.keymap.set('n', '<Left>', '<C-w><lt>', {desc = "Shrinks window width"})
@@ -38,7 +39,7 @@ map('n','<leader>sh', '<CMD>split<CR>', {silent = true, desc = "Split Horizontal
 -- vim.keymap.set({'n','t'}, '<C-l>', '<C-w>l', {desc = "Moves cursor to the left window"})
 -- vim.keymap.set({'n','t'}, '<C-k>', '<C-w>k', {desc = "Moves cursor to the top window"})
 -- vim.keymap.set({'n','t'}, '<C-j>', '<C-w>j', {desc = "Moves cursor to the bottom window"})
---------------------------------------------------------------------------------------------------
+
 --Code line alteration
 --Possible mappings: <C-d> <C-u>
 vim.keymap.set('n', '<M-d>', '<cmd>move+<CR>==', {desc = "Move a line down"}) --fix these later
@@ -48,12 +49,4 @@ vim.keymap.set({'v'}, '<M-d>', ":move'>+1<cr>gv=gv", {silent = true, desc = "Mov
 
 --------------------Plugin specific Keymaps---------------------------
 --vim.keymap.set('n', '<leader>d', ':NvimTreeFindFileToggle<CR>', {silent = true})
-
---------Telescope-------
---local builtin = require('telescope.builtin')
---vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
---vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
---vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
---vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
 

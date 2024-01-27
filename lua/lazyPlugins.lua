@@ -131,10 +131,10 @@ return {
       -- refer to the configuration section below
     },
     keys = {
-      { "DD", ":TroubleToggle document_diagnostics<CR>", desc = "toggle diagnostics"},
+      { "DD", ":TroubleToggle document_diagnostics<CR>", desc = "toggle diagnostics", silent = true},
     },
     config = function()
-      vim.keymap.set('n', 'DD', ':TroubleToggle document_diagnostics<CR>', {silent = true}) -- enable when trouble.nvim exists
+      vim.keymap.set('n', 'DD', ':TroubleToggle document_diagnostics<CR>', {silent = true, desc = "Toggle diagnostics"}) -- enable when trouble.nvim exists
     end,
     lazy = true,
   },
@@ -575,6 +575,9 @@ return {
   { 
     "kwkarlwang/bufresize.nvim",
    lazy = true,
+   config = function()
+     require("plugin.bufresize")
+   end,
   },
   
   {

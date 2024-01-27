@@ -20,7 +20,7 @@ cmp.setup({
   performance = {
     throttle = 550,
     fetching_timeout = 80, 
-    debounce = 250,
+    debounce = 150,
   },
   enabled = function()
     -- disable completion in comments
@@ -58,28 +58,10 @@ cmp.setup({
       max_height = 12,
     },
   },
+
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      -- if vim.tbl_contains({"path"}, entry.source.name) then
-      --   local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
-      --   if icon then
-      --     vim_item.kind = icon
-      --     vim_item.kind_hl_group = hl_group
-      --     return vim_item
-      --   end
-      -- end
-
-      -- vim_item.menu = ({
-      --   buffer = "[Buffer]",
-      --   nvim_lsp = "[LSP]",
-      --   luasnip = "[Snippet]",
-      --   nvim_lua = "[Lua]",
-      --   latex_symbols = "[LaTeX]",
-      --   cmdline = "[Cmdline]",
-      --   async_path = "[Path]",
-      -- })[entry.source.name]
-
       local kind = require('lspkind').cmp_format({
         with_text = true,
         maxwidth = 40, -- NOTE: initial was 50, set higher for longer width of completion menu
@@ -90,13 +72,6 @@ cmp.setup({
       kind.kind = " " .. (strings[1] or "") .. " │"
       kind.menu = " (" .. (strings[2] or "") .. ")"
       return kind
-
-      -- return require('lspkind').cmp_format({ 
-      --   with_text = true, 
-      --   maxwidth = 50,
-      --   -- ellipsis_char = "...",
-      --   -- before = tailwindColor.formatter,
-      -- })(entry, vim_item)
     end,
   },
 
@@ -132,12 +107,12 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     {name = "nvim_lsp", keyword_length = 3,},
-    {name = 'nvim_lsp_signature_help', keyword_length = 2},
+    {name = 'nvim_lsp_signature_help'},
     {name = "luasnip"},
     {name = "buffer", keyword_length = 2},
     -- {name = "path", keyword_length = 3, },
     {name = "calc"},
-    {name = "emoji"},
+    {name = "emoji", keyword_length = 2},
     -- {name = "cmdline"},
     -- {name = "async_path", keyword_length = 3,}
   }),
@@ -157,7 +132,7 @@ cmp.setup.filetype("gitcommit", {
 cmp.setup.cmdline({"/", "?"}, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    {name = "buffer"},
+    {name = "buffer", keyword_length = 2},
   },
 })
 cmp.setup.cmdline(":", {
@@ -170,7 +145,6 @@ cmp.setup.cmdline(":", {
       option = {
         ignore_cmds = { 'Man', '!' }
       },
-      
     },
   })
 })

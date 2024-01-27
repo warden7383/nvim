@@ -30,13 +30,15 @@ local api = vim.api.nvim_set_hl
 
 --line column
 api(0, 'LineNrAbove', { fg='#8087a2', bold=true })
+api(0, 'LineNr', { fg='#8087a2', bold=true })
 api(0, 'CursorLineNr', { fg='#c6a0f6', bold=true }) -- #eed49f
 api(0, 'LineNrBelow', { fg='#8087a2', bold=true }) --#FB508F #80bd9c #68ded8 #f5d3ba
 api(0, 'WinSeparator', { fg='#8aadf4', bold=true }) --#FB508F #80bd9c #68ded8 #f5d3ba
 api(0, 'SignColumn', { fg='#8aadf4', bold=true})
 
 api(0, 'TelescopeBorder', {fg="#80b7ff"})
-
+api(0, 'IncSearch', {bg="#f5a97f", fg="#24273a"})
+api(0, 'Search', {bg="#b7bdf8", fg="#24273a"})
 ------------------------------CMP Highlights ---------------------------------------------------------
 -- Customization for Pmenu
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#8bd5ca", fg = "#1e2030" }) --DEFAULT: bg = "#282C34", fg = "NONE" #29a4bd

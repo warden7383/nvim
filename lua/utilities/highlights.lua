@@ -38,7 +38,7 @@ api(0, 'SignColumn', { fg='#8aadf4', bold=true})
 
 api(0, 'TelescopeBorder', {fg="#80b7ff"})
 api(0, 'IncSearch', {bg="#f5a97f", fg="#24273a"})
-api(0, 'Search', {bg="#b7bdf8", fg="#24273a"})
+api(0, 'Search', {bg="#b5a5fa", fg="#24273a"})
 ------------------------------CMP Highlights ---------------------------------------------------------
 -- Customization for Pmenu
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#8bd5ca", fg = "#1e2030" }) --DEFAULT: bg = "#282C34", fg = "NONE" #29a4bd
@@ -135,3 +135,6 @@ api(0, 'AlphaButtons', {fg="#8bd5ca", bg=""})
 api(0, 'AlphaShortcut', {fg="#ed8796", bg=""})
 api(0, 'AlphaFooter', {fg="#c6a0f6", bg=""})
 
+-----Incline
+api(0, 'InclineNormal', {fg="#181926", bg="#c6a0f6"}) 
+api(0, 'InclineNormalNC', {fg="#363a4f", bg="#8aadf4"})

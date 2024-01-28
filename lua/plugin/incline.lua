@@ -1,4 +1,5 @@
 -- NOTE: see incline.txt for all config options
+-- local helpers = require 'incline.helpers' -- NOTE: module does not exist?
 require('incline').setup {
   debounce_threshold = {
     falling = 50,
@@ -7,7 +8,7 @@ require('incline').setup {
   hide = {
     cursorline = false,
     focused_win = false,
-    only_win = false
+    only_win = true
   },
   highlight = {
     groups = {
@@ -22,28 +23,55 @@ require('incline').setup {
     }
   },
   ignore = {
-    buftypes = "special",
+    -- buftypes = "special",
+    buftypes = {
+
+    },
     filetypes = {},
-    floating_wins = true,
-    unlisted_buffers = true,
+    floating_wins = false,
+    unlisted_buffers = false,
     wintypes = "special"
   },
-  render = "basic",
+
+  render = function (props)
+    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+    local modified = vim.bo[props.buf].modified
+    local modifiedChar = ""
+    local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+
+    if modified then
+      modifiedChar = modifiedChar.." "
+    else
+      modifiedChar = modifiedChar.." "
+    end 
+
+    return {
+      { ' ', icon, ' ', guibg = color, guifg = "#181926" }, { " " }, { filename,   gui = 'bold'},{modifiedChar, guifg="#28e047"}
+    }
+  end,
+  
   window = {
     margin = {
       horizontal = 1,
-      vertical = 1
+      vertical = {
+        top = 0,
+        bottom = 0,
+      },
     },
     options = {
       signcolumn = "no",
       wrap = false
     },
-    padding = 1,
+    padding = 0,
     padding_char = " ",
     placement = {
       horizontal = "right",
-      vertical = "top"
+      vertical = "top",
     },
+    -- overlap = {
+    --   winbar = false,
+    --   tabline = false,
+    -- },
     width = "fit",
     winhighlight = {
       active = {

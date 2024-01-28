@@ -487,15 +487,15 @@ return {
   },
 
   -- WARN: detaches lsps based on afk time, this plugin could be a potential cause of breaking lsp-related plugins
-  {
-    "hinell/lsp-timeout.nvim",
-    lazy = true,
-    event = "LspAttach",
-    init = function()
-      require("plugin.lspTimeout")
-    end,
-    dependencies={ "neovim/nvim-lspconfig" },
-  },
+  -- {
+  --   "hinell/lsp-timeout.nvim",
+  --   lazy = true,
+  --   event = "LspAttach",
+  --   init = function()
+  --     require("plugin.lspTimeout")
+  --   end,
+  --   dependencies={ "neovim/nvim-lspconfig" },
+  -- },
 
   {
     'Bekaboo/dropbar.nvim',

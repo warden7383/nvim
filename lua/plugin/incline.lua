@@ -46,7 +46,7 @@ require('incline').setup {
     end 
 
     return {
-      { ' ', icon, ' ', guibg = color, guifg = "#181926" }, { " " }, { filename,   gui = 'bold'},{modifiedChar, guifg="#28e047"}
+      { ' ', icon, '', guifg = "#181926" }, { " " }, { filename,   gui = 'bold'},{modifiedChar, guifg="#28e047"}
     }
   end,
   
@@ -67,7 +67,9 @@ require('incline').setup {
     placement = {
       horizontal = "right",
       vertical = "top",
-    },
+    }, 
+    -- NOTE: see https://github.com/b0o/incline.nvim/pull/44 for updates (feature not released)
+    -- TODO: implement the code below and possibly diagnostics/gitsign integration into incline
     -- overlap = {
     --   winbar = false,
     --   tabline = false,

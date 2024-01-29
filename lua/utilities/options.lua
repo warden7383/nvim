@@ -71,7 +71,17 @@ opt.mousemoveevent = true
 opt.wrap = false
 opt.pumheight = 8
 opt.confirm = true
-opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})
+opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]]
+-- opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  -- fold = "⸱",
+  fold = " ",
+  foldsep = " ",
+  -- diff = "╱",
+  eob = " ",
+}
 vim.opt.clipboard = 'unnamedplus'
   -- listchars=tab:> ,trail:-,nbsp:+
 -- opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,winsize,options" --each word enables saving and restoring something -- WARN: cursor disappears/creates a ton of weird buffers indicating path does not exist?
@@ -96,10 +106,15 @@ vim.diagnostic.config({
   signs = {
     text = {
       [sign.HINT] = "󰛨",
-      [sign.ERROR] = "",
+      [sign.ERROR] = "✘", --
       [sign.WARN] = "",
-      [sign.INFO] = "",
+      [sign.INFO] = "󰙎", --
     },
   },
 })
-
+-- lsp_zero.set_sign_icons({
+--   error = '✘',󰙎
+--   warn = '▲',
+--   hint = '⚑',
+--   info = '»'
+-- })

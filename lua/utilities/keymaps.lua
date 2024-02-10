@@ -53,4 +53,3 @@ vim.keymap.set( "n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Le
 vim.keymap.set("v", "<C-s>", [[:%s/\%V\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
 -- Split paragraphs into sentences
 vim.keymap.set("n", "<M-s>", "<CMD>s/\\. /.\\r/e<CR><CMD>nohlsearch<CR>")
-

@@ -22,11 +22,11 @@ end
 -- windows 10/11 .wakatime.cfg file location: ~/wakatime.cfg (aka, C:\Users\YOUR_USERNAME\.wakatime.cfg) (see example below)
 -- example: "C:\Users\Andrew Ng\.wakatime.cfg"
 
-local ok, hl = pcall(vim.api.nvim_get_hl, "Normal", true)
-
 --ENABLE WHEN nvim-tree IS INSTALLED
 glb.loaded_netrw = 1 -- for nvim-tree
 glb.loaded_netrwPlugin = 1 -- for nvim-tree
+glb.fsync = false
+-- testing did this save;
 -- Examples: >vim
 -- 		" Relative number with bar separator and click handlers:
 -- 		set statuscolumn=%@SignCb@%s%=%T%@NumCb@%r│%T
@@ -99,22 +99,19 @@ vim.opt.clipboard = 'unnamedplus'
 vim.cmd([[
 autocmd BufEnter * lcd %:p:h
 ]])
-
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = {
+    severity = {
+      min = vim.diagnostic.severity.ERROR
+    },
+  },
   underline = false,
   signs = {
     text = {
-      [sign.HINT] = "󰛨",
+      [sign.HINT] = "󰛨", --   hint = '⚑',
       [sign.ERROR] = "✘", --
-      [sign.WARN] = "",
-      [sign.INFO] = "󰙎", --
+      [sign.WARN] = "", --   warn = '▲',
+      [sign.INFO] = "󰙎", -- info = '»'
     },
   },
-})
--- lsp_zero.set_sign_icons({
---   error = '✘',󰙎
---   warn = '▲',
---   hint = '⚑',
---   info = '»'
--- })
+}) 

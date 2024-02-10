@@ -619,5 +619,59 @@ return {
     },
   },
 
-}
+  {
+    "tpope/vim-fugitive",
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    -- TODO: read docs
+  },
 
+  {
+    'nvim-pack/nvim-spectre',
+    lazy = true,
+    -- event = {"BufReadPre", "BufAdd"},
+    cmds = {"Spectre"},
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require("plugin.spectre")
+    end,
+  },
+
+  {
+    "smjonas/inc-rename.nvim",
+    lazy = true,
+    -- event = {"BufReadPre", "BufAdd"},
+    keys = {
+      {"<leader>wr"},
+      {"<leader>we"},
+    },
+    config = function()
+      require("inc_rename").setup()
+      vim.keymap.set("n", "<leader>wr", function()
+        return ":IncRename " .. vim.fn.expand("<cword>")
+      end, { expr = true })
+      vim.keymap.set("n", "<leader>we", ":IncRename ")
+    end,
+  },
+
+  {
+    'AckslD/muren.nvim',
+    lazy = true,
+    cmds = { "MurenToggle"},
+    keys = {
+      {"<leader>mt"},
+    },
+    config = function()
+      require("plugin.muren")
+    end,
+  },
+
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    lazy = true,
+     
+  },
+}

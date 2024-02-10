@@ -22,9 +22,9 @@ require('lspsaga').setup({
     show_file = true,
   },
   lightbulb = {
-    enable = true,
-    enable_in_insert = true,
-    sign = true,
+    enable = false,
+    enable_in_insert = false,
+    sign = false,
     virtual_text = false,
   },
   hover = {
@@ -72,8 +72,9 @@ require('lspsaga').setup({
       quit = '<C-c>',
       exec = '<CR>',
       mark = 'x',
-      confirm = '<CR>',
+      -- confirm = '<CR>',
       in_select = true,
+      confirm = '<M-i>',
     },
   },
   implement = {
@@ -97,4 +98,5 @@ require('lspsaga').setup({
   beacon = { enable = true, frequency = 7 },
   server_filetype_map = {},
 })
-
+-- NOTE: temp mapping:
+-- vim.keymap.set('n', "<M-s>", "<cmd>Lspsaga rename<cr>", {silent = true, desc = "Lspsaga rename"})

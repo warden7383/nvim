@@ -41,12 +41,15 @@ map('n','<leader>sh', '<CMD>split<CR>', {silent = true, desc = "Split Horizontal
 -- vim.keymap.set({'n','t'}, '<C-j>', '<C-w>j', {desc = "Moves cursor to the bottom window"})
 
 --Code line alteration
---Possible mappings: <C-d> <C-u>
 vim.keymap.set('n', '<M-d>', '<cmd>move+<CR>==', {desc = "Move a line down"}) --fix these later
 vim.keymap.set('n', '<M-u>', '<cmd>move-2<CR>==', {desc = "Move a line up"}) --fix these later
 vim.keymap.set({'v'}, '<M-u>', ":move'<-2<cr>gv=gv", {silent = true, desc = "Move a group of lines up"}) -- <SPACE>k
 vim.keymap.set({'v'}, '<M-d>', ":move'>+1<cr>gv=gv", {silent = true, desc = "Move a group of lines down"}) -- <SPACE>j
-
 --------------------Plugin specific Keymaps---------------------------
 --vim.keymap.set('n', '<leader>d', ':NvimTreeFindFileToggle<CR>', {silent = true})
+-- vim.keymap.set("n", "<C-s>", [[<cmd>%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left><cr>]], {silent = true, desc = "Subsitute words"})
+vim.keymap.set( "n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
+vim.keymap.set("v", "<C-s>", [[:%s/\%V\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
+-- Split paragraphs into sentences
+vim.keymap.set("n", "<M-s>", "<CMD>s/\\. /.\\r/e<CR><CMD>nohlsearch<CR>")
 

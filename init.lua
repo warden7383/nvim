@@ -1,34 +1,29 @@
- vim.loader.enable()
+vim.loader.enable()
 
- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
- if not vim.loop.fs_stat(lazypath) then
-   vim.fn.system({
-     "git",
-     "clone",
-     "--filter=blob:none",
-     "https://github.com/folke/lazy.nvim.git",
-     "--branch=stable", -- latest stable release
-     lazypath,
-   })
- end
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
 
- vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
- require("utilities")
- 
- --local tokyonightScheme = require("plugin.tokyonight1")
- --print(tokyonightScheme) -- returns a hex mem address
+require("utilities")
 
- local lazyConfig = require("plugin.lazyConfig")
- require("lazy").setup("lazyPlugins",lazyConfig)
+local lazyconfig = require("plugin.lazyconfig")
 
- require("utilities.autocommands")
+require("lazy").setup("lazyPlugins",lazyconfig)
 
- vim.cmd([[colorscheme tokyonight]])
- function testing()
-     print("config loaded")
- end
+require("utilities.autocommands")
 
- require("utilities.highlights")
+vim.cmd([[colorscheme tokyonight]])
+
+require("utilities.highlights")
 

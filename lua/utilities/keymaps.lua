@@ -34,6 +34,7 @@ vim.keymap.set('n', '<Up>', '<C-w>-', {desc = "decrease window height"})
 
 map('n','<leader>sv', '<CMD>vsplit<CR>', {silent = true, desc = "Split Vertical"})
 map('n','<leader>sh', '<CMD>split<CR>', {silent = true, desc = "Split Horizontal"})
+
 --Naviate through windows
 -- vim.keymap.set({'n','t'}, '<C-h>', '<C-w>h', {desc = "Moves cursor to the right window"})
 -- vim.keymap.set({'n','t'}, '<C-l>', '<C-w>l', {desc = "Moves cursor to the left window"})

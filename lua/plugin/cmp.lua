@@ -117,10 +117,6 @@ cmp.setup({
     -- {name = "async_path", keyword_length = 3,}
   }),
 })
--- from the tailwindcss-colorizer-cmp docs
--- require("cmp").config.formatting = {
---   format = require("tailwindcss-colorizer-cmp").formatter
--- }
 
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({

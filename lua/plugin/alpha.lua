@@ -26,7 +26,7 @@ dashboard.section.header.val = {
 [[                                       ⠀                        |、ﾞ ~ヽ  ]],
 [[                                                                じしf_,)ノ]],
 [[]],
-[[]],
+-- [[]], 
 }
 
 dashboard.section.buttons.val = {
@@ -48,7 +48,7 @@ end
 dashboard.section.header.opts.hl = "AlphaHeader"
 dashboard.section.buttons.opts.hl = "AlphaButtons" 
 dashboard.section.footer.opts.hl = "AlphaFooter"
-dashboard.opts.layout[1].val = 5 --changes the layout of the header
+-- dashboard.opts.layout[1].val = 5 --changes the layout of the header
 
 autocmd({"User"}, {
   pattern = "LazyVimStarted",

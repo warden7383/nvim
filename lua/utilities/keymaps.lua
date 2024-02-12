@@ -8,9 +8,12 @@ vim.keymap.set('i', 'JK', '<esc>')
 vim.keymap.set('i', 'jK', '<esc>')
 vim.keymap.set('c', 'jk', '<C-c>')
 
--- better up and down movement
+-- better up and down movement (deals with word wrap)
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+
+-- keep cursor position when joining 2 lines of code
+vim.keymap.set('n', 'J', 'mzJ`z:delmarks z<cr>')
 
 --Center scrolling (neoscroll override)
 -- map("n", "<C-u>", "<C-u>zz", {})

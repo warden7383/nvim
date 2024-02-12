@@ -9,11 +9,15 @@ vim.keymap.set('i', 'jK', '<esc>')
 vim.keymap.set('c', 'jk', '<C-c>')
 
 -- better up and down movement (deals with word wrap)
-map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
-map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+map({ "n", "v", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+map({ "n", "v", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+
+-- Stay in indent mode
+map("v", "<", "<gv", { desc = "Stay in visual mode, indent left", silent = true})
+map("v", ">", ">gv", { desc = "Stay in visual mode, indent right", silent = true})
 
 -- keep cursor position when joining 2 lines of code
-vim.keymap.set('n', 'J', 'mzJ`z:delmarks z<cr>')
+vim.keymap.set('n', 'J', 'mzJ`z:delmarks z<cr>', {desc = "keep cursor position when joining code", silent = true})
 
 --Center scrolling (neoscroll override)
 -- map("n", "<C-u>", "<C-u>zz", {})
@@ -31,7 +35,7 @@ vim.keymap.set("n", "x", '"_x')
 vim.keymap.set({ 'n', 'v' }, 'c', '"_c')
 vim.keymap.set('n', 'C', '"_C')
 vim.keymap.set('n', 'S', '"_S')
-vim.keymap.set('n', 'd', '"_d') -- TEST:
+vim.keymap.set('n', 'd', '"_d') 
 
 --Buffer navigation
 vim.keymap.set('n', '<M-b>', '<CMD>bp<CR>', {silent = true, desc = "Move to previous buffer"})

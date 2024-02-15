@@ -45,6 +45,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --     require("nvim-navic").attach(client, bufnr)
 --   end
 -- end
+--
 -- TODO: do on_attach keybindings for goto definiition/hovers etc?
 for _, i in ipairs(lsp) do
   if i == "clangd" then

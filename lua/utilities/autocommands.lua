@@ -40,16 +40,26 @@ autocmd({ "VimResized" }, { --TermLeave?
 autocmd({"TermOpen"},{
   pattern = "term://*",
   callback = function ()
+    local opt = vim.opt_local
+
     require("bufresize").block_register()
     require("bufresize").resize_open()
     vim.notify("entered tt")
     map({"t"}, "<C-q>", "exit<CR>", {silent = true, desc = "Quit terminal", buffer = 0}) -- buffer = 0, use in current buffer
     map({"n"}, "<C-q>", "Aexit<CR>", { desc = "Quit terminal", buffer = 0})
-    vim.opt_local.foldcolumn = "0"
-    vim.opt_local.signcolumn = "no"
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-    vim.api.nvim_feedkeys("i", "t", false) -- start in insert mode 
+
+    opt.foldcolumn = "0"
+    opt.signcolumn = "no"
+    opt.number = false
+    opt.relativenumber = false
+
+    vim.cmd.startinsert()
+    -- if vim.bo.filetype == "toggleterm" then
+    --
+    -- else
+    --   vim.api.nvim_feedkeys("i", "t", false) -- start in insert mode 
+    --
+    -- end
   end
 })
 
@@ -61,6 +71,14 @@ autocmd({"TermClose"}, {
     require("bufresize").block_register()
     require("bufresize").resize_close()
     vim.notify("closed term")
+
+    if vim.bo.filetype == "toggleterm" then
+    else
+      require('bufdelete').bufdelete(0, true)
+      -- vim.api.nvim_feedkeys(" q", "n", false)
+    end
+
+    -- vim.cmd([[stopinsert]])
     vim.api.nvim_feedkeys("jk","t",false) --without this, closing terminals will leave you in insert mode
   end
 })

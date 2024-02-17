@@ -72,6 +72,7 @@ opt.wrap = false
 opt.pumheight = 8
 opt.confirm = true
 opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]]
+-- opt.smoothscroll = true
 -- opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})
 opt.fillchars = {
   foldopen = "",
@@ -96,9 +97,11 @@ vim.opt.clipboard = 'unnamedplus'
 --    virtual_text = false,
 --        signs = true,
 --})
+
 vim.cmd([[
 autocmd BufEnter * lcd %:p:h
 ]])
+
 vim.diagnostic.config({
   virtual_text = {
     severity = {

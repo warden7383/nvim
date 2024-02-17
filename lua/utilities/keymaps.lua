@@ -15,7 +15,6 @@ map({ "n", "v", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 -- Stay in indent mode
 map("v", "<", "<gv", { desc = "Stay in visual mode, indent left", silent = true})
 map("v", ">", ">gv", { desc = "Stay in visual mode, indent right", silent = true})
-
 -- keep cursor position when joining 2 lines of code
 vim.keymap.set('n', 'J', 'mzJ`z:delmarks z<cr>', {desc = "keep cursor position when joining code", silent = true})
 

@@ -16,7 +16,24 @@ autocmd({"BufEnter"}, {
         map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>',{desc = "Compile and run"})
     end,
 })
-
+autocmd({"BufEnter"}, {
+  callback = function()
+    if vim.bo.filetype == "term://" then
+      
+      -- vim.cmd([[
+      -- autocmd BufEnter * lcd %:p:h
+      -- ]])
+    else
+      -- if(vim.filetype.match("term://*")) then
+      --   print("TRUE")
+      -- end
+      print("true")
+      vim.cmd([[
+      lcd %:p:h
+      ]])
+    end
+  end
+})
 autocmd({"VimEnter", "WinEnter", "BufWinEnter"}, {
     command = "setlocal cursorline"
 })

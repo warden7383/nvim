@@ -170,18 +170,18 @@ return {
     end,
   },
 
-  -- {
-  --   "karb94/neoscroll.nvim",
-  --   event = {"BufReadPre", "BufAdd"},
-  --   keys = { 
-  --     { "<C-d>", desc = "Neoscroll down" },
-  --     { "<C-u>", desc = "Neoscroll up" },
-  --   },
-  --   config = function ()
-  --     require('neoscroll').setup {}
-  --   end,
-  --   lazy = true,
-  -- },
+  {
+    "karb94/neoscroll.nvim",
+    event = {"BufReadPre", "BufAdd"},
+    keys = { 
+      { "<C-d>", desc = "Neoscroll down" },
+      { "<C-u>", desc = "Neoscroll up" },
+    },
+    config = function ()
+      require("plugin.neoscroll")
+    end,
+    lazy = true,
+  },
 
   {
     "dstein64/nvim-scrollview",
@@ -485,17 +485,6 @@ return {
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
-
-  -- WARN: detaches lsps based on afk time, this plugin could be a potential cause of breaking lsp-related plugins
-  -- {
-  --   "hinell/lsp-timeout.nvim",
-  --   lazy = true,
-  --   event = "LspAttach",
-  --   init = function()
-  --     require("plugin.lspTimeout")
-  --   end,
-  --   dependencies={ "neovim/nvim-lspconfig" },
-  -- },
 
   {
     'Bekaboo/dropbar.nvim',

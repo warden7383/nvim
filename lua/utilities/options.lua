@@ -98,9 +98,9 @@ vim.opt.clipboard = 'unnamedplus'
 --        signs = true,
 --})
 
-vim.cmd([[
-autocmd BufEnter * lcd %:p:h
-]])
+-- vim.cmd([[
+-- autocmd BufEnter * lcd %:p:h
+-- ]])
 
 vim.diagnostic.config({
   virtual_text = {

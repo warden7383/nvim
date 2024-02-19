@@ -12,28 +12,30 @@ autocmd({"BufEnter"}, {
     callback = function()
         -- FIX: if in terminal mode, do not type g++.... when pressing leader r 
         -- map('t', '<leader>r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ')
-        map('t', ';r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ', {desc = "Compile cpp in terminal mode"})
-        map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>',{desc = "Compile and run"})
+        map('t', ';r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ', {desc = "Compile cpp in terminal mode", buffer = 0})
+        map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>',{desc = "Compile and run", buffer = 0})
     end,
 })
-autocmd({"BufEnter"}, {
-  callback = function()
-    if vim.bo.filetype == "term://" then
-      
-      -- vim.cmd([[
-      -- autocmd BufEnter * lcd %:p:h
-      -- ]])
-    else
-      -- if(vim.filetype.match("term://*")) then
-      --   print("TRUE")
-      -- end
-      print("true")
-      vim.cmd([[
-      lcd %:p:h
-      ]])
-    end
-  end
-})
+
+-- autocmd({"BufEnter"}, {
+--   callback = function()
+--     -- local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+--     -- local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
+--     local filename = vim.api.nvim_buf_get_name(0)
+--     print(filename)
+--     -- print(string.len(filename))
+--     -- vim.notify(filename)
+--     if string.len(filename) == 0 then
+--       print("term entered")
+--     else
+--       print("not a term buffer")
+--       vim.cmd([[
+--       lcd %:p:h
+--       ]])
+--     end
+--   end
+-- })
+
 autocmd({"VimEnter", "WinEnter", "BufWinEnter"}, {
     command = "setlocal cursorline"
 })

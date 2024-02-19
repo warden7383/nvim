@@ -45,6 +45,13 @@ require('incline').setup {
       modifiedChar = modifiedChar.." "
     end 
 
+    if string.find(filename, "pwsh;#toggleterm") then
+      filename = "ToggleTerm"
+      icon = ""
+    elseif string.find(filename, "pwsh.EXE") then
+      icon = ""
+    end
+
     return {
       { ' ', icon, '', guifg = "#181926" }, { " " }, { filename,   gui = 'bold'},{modifiedChar, guifg="#28e047"}
     }

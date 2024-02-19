@@ -17,24 +17,25 @@ autocmd({"BufEnter"}, {
     end,
 })
 
--- autocmd({"BufEnter"}, {
---   callback = function()
---     -- local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
---     -- local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
---     local filename = vim.api.nvim_buf_get_name(0)
---     print(filename)
---     -- print(string.len(filename))
---     -- vim.notify(filename)
---     if string.len(filename) == 0 then
---       print("term entered")
---     else
---       print("not a term buffer")
---       vim.cmd([[
---       lcd %:p:h
---       ]])
---     end
---   end
--- })
+-- NOTE: a slight delay seems to happen when starting a new terminal with ':term' using the 
+-- mouse and clicking a terminal called with ':term'?
+--
+-- changes lcd (current directory to local window) to the buffer that was entered
+autocmd({"BufEnter"}, {
+  callback = function()
+    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
+
+    if string.find(filename, "pwsh;#toggleterm") then
+
+    elseif string.find(filename, "pwsh.EXE") then
+
+    else
+      vim.cmd([[
+      lcd %:p:h
+      ]])
+    end
+  end
+})
 
 autocmd({"VimEnter", "WinEnter", "BufWinEnter"}, {
     command = "setlocal cursorline"

@@ -6,13 +6,10 @@ autocmd({"TextYankPost"}, {
 })
 
 -- For .cpp file building and compiling
--- TODO: fix a possible known autocommand error that runs on all "*??"
 autocmd({"BufEnter"}, {
     pattern = {"*.cpp", "*.h"},
     callback = function()
-        -- FIX: if in terminal mode, do not type g++.... when pressing leader r 
-        -- map('t', '<leader>r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ')
-        map('t', ';r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ', {desc = "Compile cpp in terminal mode", buffer = 0})
+        -- map('t', ';r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ', {desc = "Compile cpp in terminal mode", buffer = 0})
         map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>',{desc = "Compile and run", buffer = 0})
     end,
 })
@@ -20,7 +17,8 @@ autocmd({"BufEnter"}, {
 -- NOTE: a slight delay seems to happen when starting a new terminal with ':term' using the 
 -- mouse and clicking a terminal called with ':term'?
 --
--- changes lcd (current directory to local window) to the buffer that was entered
+-- changes lcd (current directory to local window) to the buffer that was entered 
+-- mainly used to open a terminal to the path of the buffer it was called on
 autocmd({"BufEnter"}, {
   callback = function()
     local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
@@ -64,7 +62,7 @@ autocmd({"TermOpen"},{
 
     require("bufresize").block_register()
     require("bufresize").resize_open()
-    vim.notify("entered tt")
+    -- vim.notify("entered tt")
     map({"t"}, "<C-q>", "exit<CR>", {silent = true, desc = "Quit terminal", buffer = 0}) -- buffer = 0, use in current buffer
     map({"n"}, "<C-q>", "Aexit<CR>", { desc = "Quit terminal", buffer = 0})
 
@@ -90,7 +88,7 @@ autocmd({"TermClose"}, {
   callback = function ()
     require("bufresize").block_register()
     require("bufresize").resize_close()
-    vim.notify("closed term")
+    -- vim.notify("closed term")
 
     if vim.bo.filetype == "toggleterm" then
     else

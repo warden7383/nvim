@@ -92,21 +92,12 @@ vim.opt.clipboard = 'unnamedplus'
 --    set clipboard+=unnamedplus 
 --]])
 ------Floating diagnostics message ----
---vim.diagnostic.config({
---    float = {source = "always", border = border },
---    virtual_text = false,
---        signs = true,
---})
-
--- vim.cmd([[
--- autocmd BufEnter * lcd %:p:h
--- ]])
-
 vim.diagnostic.config({
   virtual_text = {
     severity = {
       min = vim.diagnostic.severity.ERROR
-    },
+    }, --󰝥
+    prefix = "",
   },
   underline = false,
   signs = {

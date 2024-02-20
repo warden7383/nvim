@@ -10,13 +10,9 @@ Usage:
 ##### Eye Candy
 \[Insert eye candy here\]<br>
 ### Todo(features):
-- Lazy load a majority of plugins
-- Add notify
-- configure lsp  mappings, and settings 
 - highlights
-- configure noice to add status-line components to lualine(?)
 ### Fixes:
-- almost all plugins
-- Todo.lua icons:
-  - the fix icon should be a wrench?
-- Session loading may not display cursor after loading?
+- bufResize:
+    - original split size not being restored unless its resize method is called and the windows are 
+    manually resized.
+    - ToggleDiagnostics + ToggleTerm(together) causes window size restore issues

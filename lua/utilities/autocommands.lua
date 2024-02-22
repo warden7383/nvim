@@ -62,7 +62,6 @@ autocmd({"TermOpen"},{
 
     require("bufresize").block_register()
     require("bufresize").resize_open()
-    -- vim.notify("entered tt")
     map({"t"}, "<C-q>", "exit<CR>", {silent = true, desc = "Quit terminal", buffer = 0}) -- buffer = 0, use in current buffer
     map({"n"}, "<C-q>", "Aexit<CR>", { desc = "Quit terminal", buffer = 0})
 
@@ -88,7 +87,6 @@ autocmd({"TermClose"}, {
   callback = function ()
     require("bufresize").block_register()
     require("bufresize").resize_close()
-    -- vim.notify("closed term")
 
     if vim.bo.filetype == "toggleterm" then
     else
@@ -100,4 +98,3 @@ autocmd({"TermClose"}, {
     vim.api.nvim_feedkeys("jk","t",false) --without this, closing terminals will leave you in insert mode
   end
 })
--- 𝓳

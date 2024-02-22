@@ -114,7 +114,7 @@ vim.api.nvim_set_keymap(
   "n",
   "<leader>fd",
   ":Telescope file_browser<CR>",
-  { noremap = true }
+  { noremap = true , desc = "Telescope file browser ", silent = true}
 )
 
 -- open file_browser with the path of the current buffer
@@ -122,5 +122,5 @@ vim.api.nvim_set_keymap(
   "n",
   "<space>fp",
   ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  { noremap = true }
+  { noremap = true , silent = true, desc = "Telescope file browser on current buffer path"}
 )

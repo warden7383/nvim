@@ -250,14 +250,12 @@ require("flash").setup({
   },
 })
 
-
--- flash keymaps:
-      -- { "<leader>j", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      -- { "<leader>ss", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
---test
+-- flash keymaps: (defaults)
+-- { "<leader>j", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+-- { "<leader>ss", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+-- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+-- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+-- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
 
 map({"n", "x", "o" }, "<leader>jp", function()
   require("flash").jump({
@@ -274,9 +272,9 @@ map({"n", "x", "o" }, "<leader>jp", function()
     },
     -- select the range
     jump = { pos = "range" },
-
   })
 end, {desc = "Flash jump on search word", silent = true})
+
 
 
 map({"n", "x", "o" }, "<leader>jc", function()
@@ -284,6 +282,8 @@ map({"n", "x", "o" }, "<leader>jc", function()
     pattern = vim.fn.expand("<cword>"),
   })
 end, {desc = "Flash jump word on cursor", silent = true})
+
+
 
 -- Enter a prompt and jump to any word
 map({"n", "x", "o" }, "<leader>jj", function()
@@ -295,6 +295,8 @@ map({"n", "x", "o" }, "<leader>jj", function()
     },
   })
 end, {desc = "Flash jump", silent = true})
+
+
 
 map({"n", "x", "o" }, "<leader>jt", function()
   require("flash").treesitter()

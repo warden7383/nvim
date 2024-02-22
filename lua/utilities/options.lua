@@ -105,7 +105,7 @@ vim.diagnostic.config({
       [sign.HINT] = "󰛨", --   hint = '⚑',
       [sign.ERROR] = "✘", --
       [sign.WARN] = "", --   warn = '▲',
-      [sign.INFO] = "󰙎", -- info = '»'
+      [sign.INFO] = "𝓳", -- info = '»' 𝓳 󰙎
     },
   },
 }) 

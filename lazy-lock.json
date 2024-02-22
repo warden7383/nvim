@@ -69,5 +69,6 @@
   "vim-lastplace": { "branch": "master", "commit": "aaaf3dc8bbe496c3242a4b4635154ccc9414d357" },
   "vim-matchup": { "branch": "master", "commit": "2550178c43464134ce65328da458905f70dbe041" },
   "vim-wakatime": { "branch": "master", "commit": "8c8856327815a077cbebeba8c7456312a3d2c39c" },
-  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
+  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
+  "zoxide.vim": { "branch": "master", "commit": "b1e70b6fc1682a83929aee63680d2b43456fe9a5" }
 }

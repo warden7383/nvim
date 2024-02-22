@@ -1,3 +1,4 @@
+local map = vim.keymap.set
 require("flash").setup({
   -- labels = "abcdefghijklmnopqrstuvwxyz",
   labels = "asdfghjklqwertyuiopzxcvbnm",
@@ -20,7 +21,7 @@ require("flash").setup({
     --   end,
     mode = "exact",
     -- behave like `incsearch`
-    incremental = false,
+    incremental = true,
     -- Excluded filetypes and custom window filters
     ---@type (string|fun(win:window))[]
     exclude = {
@@ -77,7 +78,7 @@ require("flash").setup({
     -- show the label before the match
     before = false, ---@type boolean|number[]
     -- position of the label extmark
-    style = "overlay", ---@type "eol" | "overlay" | "right_align" | "inline"
+    style = "inline", ---@type "eol" | "overlay" | "right_align" | "inline"
     -- flash tries to re-use labels that were already assigned to a position,
     -- when typing more characters. By default only lower-case labels are re-used.
     reuse = "lowercase", ---@type "lowercase" | "all" | "none"
@@ -169,12 +170,12 @@ require("flash").setup({
       -- hide after jump when not using jump labels
       autohide = false,
       -- show jump labels
-      jump_labels = false,
+      jump_labels = true,
       -- set to `false` to use the current line only
-      multi_line = true,
+      multi_line = false,
       -- When using jump labels, don't use these keys
       -- This allows using those keys directly after the motion
-      label = { exclude = "hjkliardc" },
+      label = { exclude = "hjkliardc", },
       -- by default all keymaps are enabled, but you can disable some of them,
       -- by removing them from the list.
       -- If you rather use another key, you can map them
@@ -196,7 +197,7 @@ require("flash").setup({
         }
       end,
       search = { wrap = false },
-      highlight = { backdrop = true },
+      highlight = { backdrop = false, matches = false, },
       jump = { register = false },
     },
     -- options used for treesitter selections
@@ -248,5 +249,55 @@ require("flash").setup({
     motion = false,
   },
 })
+
+
+-- flash keymaps:
+      -- { "<leader>j", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      -- { "<leader>ss", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+--test
+
+map({"n", "x", "o" }, "<leader>jp", function()
+  require("flash").jump({
+    pattern = ".", -- initialize pattern with any char
+    search = {
+      mode = function(pattern)
+        -- remove leading dot
+        if pattern:sub(1, 1) == "." then
+          pattern = pattern:sub(2)
+        end
+        -- return word pattern and proper skip pattern
+        return ([[\<%s\w*\>]]):format(pattern), ([[\<%s]]):format(pattern)
+      end,
+    },
+    -- select the range
+    jump = { pos = "range" },
+
+  })
+end, {desc = "Flash jump on search word", silent = true})
+
+
+map({"n", "x", "o" }, "<leader>jc", function()
+  require("flash").jump({
+    pattern = vim.fn.expand("<cword>"),
+  })
+end, {desc = "Flash jump word on cursor", silent = true})
+
+-- Enter a prompt and jump to any word
+map({"n", "x", "o" }, "<leader>jj", function()
+  require("flash").jump({
+    search = {
+      mode = function(str)
+        return "\\<" .. str
+      end,
+    },
+  })
+end, {desc = "Flash jump", silent = true})
+
+map({"n", "x", "o" }, "<leader>jt", function()
+  require("flash").treesitter()
+end, {desc = "Flash jump treesitter", silent = true})
 
 

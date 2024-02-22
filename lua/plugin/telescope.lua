@@ -15,8 +15,8 @@ telescope.setup {
         height = 0.55
       }
     },
+
     file_browser = {
-      -- theme = "tokyonight",
       path = vim.loop.cwd(),
       cwd = vim.loop.cwd(),
       cwd_to_path = false,
@@ -97,6 +97,7 @@ require("telescope").load_extension("notify")
 -- require("telescope").load_extension("persisted")
 require("telescope").load_extension("file_browser")
 local builtin = require('telescope.builtin')
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "Find Files"})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = "Live Grep"})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = "Find Buffers"})
@@ -104,6 +105,9 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "Find Help"})
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {desc = "Find Old Files"})
 vim.keymap.set('n', '<leader>fc', builtin.highlights, {desc = "Find Highlights"})
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, {desc = "Find Keymaps"})
+vim.keymap.set("n", "<leader>sb", function()
+  require("telescope.builtin").live_grep({ search_dirs = { vim.api.nvim_buf_get_name(0) } })
+end, { desc = "[🔭] Search current buffer" })
 
 -- filebrowser plugin:
 vim.api.nvim_set_keymap(

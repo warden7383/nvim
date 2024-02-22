@@ -100,4 +100,4 @@ autocmd({"TermClose"}, {
     vim.api.nvim_feedkeys("jk","t",false) --without this, closing terminals will leave you in insert mode
   end
 })
-
+-- 𝓳

@@ -1,3 +1,4 @@
+local map = vim.keymap.set
 require("todo-comments").setup({
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority
@@ -12,8 +13,8 @@ require("todo-comments").setup({
     TODO = { icon = " ", color = "info" },
     HACK = { icon = " ", color = "warning" },
     WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-    PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+    PERF = { icon = "󰓅 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+    NOTE = { icon = "󱞁 ", color = "hint", alt = { "INFO" } },
     TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
   },
   gui_style = {
@@ -62,3 +63,12 @@ require("todo-comments").setup({
     -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
   },
 })
+
+map("n", "]t", function()
+  require("todo-comments").jump_next()
+end, {desc = "Next todo comment"})
+
+map("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+

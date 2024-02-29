@@ -15,8 +15,16 @@ require("toggleterm").setup{
   end,
   hide_numbers = true,
   highlights = {
+    Normal = {
+
+      -- guibg = "#24283b"
+    },
+    NormalFloat = {
+      -- guibg = "#24273a"
+    },
     FloatBorder = {
       guifg = "#c6a0f6",
+      -- guibg = "#24273a" --#24273a  #24283b
     },
   },
   autochdir = true,

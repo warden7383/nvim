@@ -11,6 +11,7 @@ Usage:
 \[Insert eye candy here\]<br>
 ### Todo(features):
 - highlights
+- learn vim-fugitive, inc-rename, muren.nvim, telescope-file-browser, nvim-spectre, lazygit(maybe?)
 ### Fixes:
 - bufResize:
     - original split size not being restored unless its resize method is called and the windows are 

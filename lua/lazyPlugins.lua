@@ -339,7 +339,7 @@ return {
     end,
   },
 
-  {
+  { -- NOTE: START HERE
     "b0o/incline.nvim",
     lazy = true,
     event = {"BufReadPre", "BufAdd"},

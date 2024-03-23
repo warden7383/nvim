@@ -17,14 +17,14 @@ require'nvim-treesitter.configs'.setup {
     "php",
     "comment",
     "diff",
-    "dtd", 
+    --"dtd",  supports both xml and dtd files for highlighting?
     "jq",
     "luap", -- not the right name, look at specific usage
     "markdown",
     "markdown_inline",
     "regex",
     "scss",
-    "svelte",
+--    "svelte",
     "yaml",
     "xml"
 

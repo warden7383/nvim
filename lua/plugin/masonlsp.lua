@@ -4,7 +4,7 @@ require("mason-lspconfig").setup({
     "clangd",
     "cssls",
     "cssmodules_ls",
-    "efm",
+    --"efm",
     "html",
 --    "htmx", failed to install
     "jsonls",
@@ -17,7 +17,7 @@ require("mason-lspconfig").setup({
     "powershell_es",
     "pyright",
     "sqlls",
-    "svelte",
+    --"svelte", not needed yet
     "lemminx",
     "yamlls",
   },

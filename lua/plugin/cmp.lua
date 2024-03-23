@@ -112,7 +112,7 @@ cmp.setup({
     {name = "buffer", keyword_length = 2},
     -- {name = "path", keyword_length = 3, },
     {name = "calc"},
-    {name = "emoji", keyword_length = 2},
+    -- {name = "emoji", keyword_length = 2},
     -- {name = "cmdline"},
     -- {name = "async_path", keyword_length = 3,}
   }),

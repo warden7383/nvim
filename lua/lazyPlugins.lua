@@ -339,7 +339,7 @@ return {
     end,
   },
 
-  { -- NOTE: START HERE
+  { 
     "b0o/incline.nvim",
     lazy = true,
     event = {"BufReadPre", "BufAdd"},
@@ -516,15 +516,6 @@ return {
     -- end,
   -- },
 
-  -- {
-  --   'huy-hng/anyline.nvim',
-  --   dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  --   config = function()
-  --     require("plugin.anyline")
-  --   end,
-  --   event = 'VeryLazy',
-  --   lazy = true,
-  -- },
   { 
     "monaqa/dial.nvim",
     lazy = true,

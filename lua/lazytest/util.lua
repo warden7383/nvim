@@ -57,4 +57,85 @@ return {
   --   config = true
   -- },
 
+  {
+    'goolord/alpha-nvim',
+    lazy = true,
+    event = "VimEnter",
+    config = function ()
+      require("plugin.alpha")
+    end
+  },
+
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    config = function()
+      require("plugin.toggleterm")
+    end,
+  },
+
+  { 
+    "ziontee113/icon-picker.nvim" ,
+    config = function()
+      require("icon-picker").setup({ disable_legacy_commands = true })
+    end,
+    lazy = true,
+    event = "CmdlineEnter",
+    dependencies = {
+      'stevearc/dressing.nvim',
+    }
+  },
+
+  {
+    "olimorris/persisted.nvim",
+    lazy = true,
+    cmd = { "SessionLoadLast"  },
+    event = "VeryLazy",
+    config = function()
+      require("plugin.persisted")
+    end,
+    dependencies = {
+      "nvim-tree/nvim-tree.lua",
+    }
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    -- init = function()
+    --   vim.o.timeout = true
+    --   vim.o.timeoutlen = 1000
+    -- end,
+    -- opts = {
+    --   -- your configuration comes here
+    --   -- or leave it empty to use the default settings
+    --   -- refer to the configuration section below
+    -- }
+    config = function ()
+      require("plugin.which-key")
+    end
+  },
+
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    lazy = true,
+
+  },
+
+  {
+    "NStefan002/2048.nvim",
+    cmd = "Play2048",
+    config = true,
+    lazy = true,
+  },
+
+  {
+    "nanotee/zoxide.vim",
+    lazy = true,
+    cmd = {"Z", "Zi", "Lz", "Tz", "Lzi", "Tzi"},
+  },
+
 }

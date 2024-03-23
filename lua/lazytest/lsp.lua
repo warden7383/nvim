@@ -83,4 +83,18 @@ return {
     end,
   },
 
+  -- NOTE: prevents autostart from happening? (source: lua_ls lsps)
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   lazy = true,
+    -- opts = {},
+    -- dependencies = {
+    --   "neovim/nvim-lspconfig",
+    -- },
+    -- event = "VeryLazy",
+    -- config = function()
+    --   require("plugin.lsp_signature")
+    -- end,
+  -- },
+
 }

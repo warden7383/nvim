@@ -133,4 +133,108 @@ return {
     end,
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("plugin.treesitterObjects")
+    end,
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+        -- NOTE: More information on how to configure this plugin can be found in 
+        -- :h nvim-surround.configuration.
+      })
+    end
+  },
+
+  {
+    "folke/flash.nvim",
+    event = {"BufReadPre", "BufAdd"},
+    ---@type Flash.Config
+    -- opts = {},
+    -- stylua:
+    config = function()
+      require("plugin.flash")
+    end,
+    keys = {
+      -- { "<leader>j", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      -- { "<leader>ss", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  },
+
+  { 
+    "monaqa/dial.nvim",
+    lazy = true,
+    keys = {
+      {"<C-a>", desc = "increment in normal" },
+      {"<C-x>", desc = "decretment in normal" },
+      {"g<C-a>", desc = "increment in gnormal" },
+      {"g<C-x>", desc = "decrement in gnormal" },
+      {"<C-a>", desc = "increment in visual", mode = "v" },
+      {"<C-x>", desc = "increment in visual", mode = "v"},
+      {"g<C-a>", desc = "increment in gvisual", mode = "v"},
+      {"g<C-x>", desc = "decrement in gvisual", mode = "v"},
+    },
+    config = function()
+      require("plugin.dial")
+    end,
+  },
+
+  {
+    'nvim-pack/nvim-spectre',
+    lazy = true,
+    -- event = {"BufReadPre", "BufAdd"},
+    cmds = {"Spectre"},
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require("plugin.spectre")
+    end,
+  },
+
+  {
+    "smjonas/inc-rename.nvim",
+    lazy = true,
+    -- event = {"BufReadPre", "BufAdd"},
+    keys = {
+      {"<leader>wr"},
+      {"<leader>we"},
+    },
+    config = function()
+      require("inc_rename").setup()
+      vim.keymap.set("n", "<leader>wr", function()
+        return ":IncRename " .. vim.fn.expand("<cword>")
+      end, { expr = true })
+      vim.keymap.set("n", "<leader>we", ":IncRename ")
+    end,
+  },
+
+  {
+    'AckslD/muren.nvim',
+    lazy = true,
+    cmds = { "MurenToggle"},
+    keys = {
+      {"<leader>mt"},
+    },
+    config = function()
+      require("plugin.muren")
+    end,
+  },
+
 }

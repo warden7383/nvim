@@ -54,4 +54,110 @@ return {
     end,
   },
 
+  { 
+    "b0o/incline.nvim",
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    config = function()
+      require("plugin.incline")
+    end,
+  },
+
+  -- NOTE: required for icon-picker.nvim
+  {
+    'stevearc/dressing.nvim',
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    opts = {},
+    config = function()
+      require("plugin.dressing")
+    end,
+  },
+
+  -- NOTE: will create 2 statuscolumn icons when todo.nvim is at used
+  -- {
+  --   "luukvbaal/statuscol.nvim",
+  --   lazy = true,
+  --   event = "BufReadPre",
+  --   config = function()
+  --     require("plugin.statuscol")
+  --   end,
+  -- },
+
+  {
+    "rcarriga/nvim-notify",
+    lazy = true,
+    event = "VeryLazy",
+    config = function()
+      require("plugin.notify")
+    end,
+  },
+
+  {
+    "MunifTanjim/nui.nvim",
+    lazy = true,
+  },
+
+  {
+    "folke/noice.nvim",
+    lazy = true,
+    event = "VeryLazy", --default: VeryLazy
+    config = function()
+      require("plugin.noice")
+    end,
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+
+  {
+    'Bekaboo/dropbar.nvim',
+    -- optional, but required for fuzzy finder support
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    config = function()
+      require("plugin.dropbar")
+    end,
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim'
+    }
+  },
+
+-- NOTE: can be integrated with several terminal emulators such as wezterm for win
+  {
+    'mrjones2014/smart-splits.nvim',
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    config = function ()
+      require("plugin.smart-splits")
+    end,
+    dependencies = {
+      "kwkarlwang/bufresize.nvim",
+    },
+  },
+
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = function()
+      require('plugin.colorful-winsep')
+    end,
+    event = { "WinNew" },
+  },
+
+  { 
+    "kwkarlwang/bufresize.nvim",
+   lazy = true,
+   config = function()
+     require("plugin.bufresize")
+   end,
+  },
+
 }

@@ -25,7 +25,7 @@ return {
     lazy = true,
     dependencies = {
       "williamboman/mason.nvim",
-      'nvimdev/lspsaga.nvim',
+      -- 'nvimdev/lspsaga.nvim',
     },
     config = function()
       -- require("plugin.lsp") -- NOTE: this was being called on last line of cmp.lua as well.

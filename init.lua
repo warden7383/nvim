@@ -19,7 +19,7 @@ require("utilities")
 
 local lazyconfig = require("plugin.lazyconfig")
 
-require("lazy").setup("lazyPlugins",lazyconfig)
+require("lazy").setup("lazySpec",lazyconfig) --"lazytest"
 
 require("utilities.autocommands")
 

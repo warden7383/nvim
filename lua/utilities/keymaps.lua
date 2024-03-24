@@ -76,10 +76,12 @@ map({'v'}, '<M-d>', ":move'>+1<cr>gv=gv", {silent = true, desc = "Move a group o
 map( "n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]], {desc="Replace word on cursor"})
 map("v", "<leader>sr", function ()
   vim.ui.input({ prompt = 'Enter search string:' }, function(input)
-    vim.api.nvim_feedkeys(":'<,'>s/"..input.."/"..input.."/gIc", "!", false)
-    vim.cmd([[
-    call feedkeys("\<Left>\<Left>\<Left>\<Left>")
-    ]])
+    if input ~= nil then
+      vim.api.nvim_feedkeys(":'<,'>s/"..input.."/"..input.."/gIc", "!", false)
+      vim.cmd([[
+      call feedkeys("\<Left>\<Left>\<Left>\<Left>")
+      ]])
+    end
   end)
 end, {desc = "Replace selected words in visual mode"})
 

@@ -73,8 +73,8 @@ map({'v'}, '<M-u>', ":move'<-2<cr>gv=gv", {silent = true, desc = "Move a group o
 map({'v'}, '<M-d>', ":move'>+1<cr>gv=gv", {silent = true, desc = "Move a group of lines down"})
 
 --Word subsitution
-map( "n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]], {desc="Replace word on cursor"})
-map("v", "<C-s>", function ()
+map( "n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]], {desc="Replace word on cursor"})
+map("v", "<leader>sr", function ()
   vim.ui.input({ prompt = 'Enter search string:' }, function(input)
     vim.api.nvim_feedkeys(":'<,'>s/"..input.."/"..input.."/gIc", "!", false)
     vim.cmd([[
@@ -84,7 +84,7 @@ map("v", "<C-s>", function ()
 end, {desc = "Replace selected words in visual mode"})
 
 -- Split paragraphs into sentences
-map("n", "<M-s>", "<CMD>s/\\. /.\\r/e<CR><CMD>nohlsearch<CR>")
+map("n", "<leader>sp", "<CMD>s/\\. /.\\r/e<CR><CMD>nohlsearch<CR>")
 
 -- Toggle relative numbers off or on (for code presentation)
 map({ "n", "v" }, "<leader>tn", "<cmd>set rnu!<cr>", {})

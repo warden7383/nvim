@@ -46,7 +46,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --   end
 -- end
 --
--- TODO: do on_attach keybindings for goto definiition/hovers etc?
 for _, i in ipairs(lsp) do
   if i == "clangd" then
     lspconfig[i].setup{
@@ -62,12 +61,8 @@ for _, i in ipairs(lsp) do
     lspconfig[i].setup{
       -- on_attach = on_attach,
       capabilities = capabilities,
+      handlers = handlers
     }
   end
   -- NOTE: produced offset_encodin warnings for cpp clangd (see below)
-  --
-  -- lspconfig[i].setup{
-  --   -- on_attach = on_attach, -- use later
-  --   capabilities = capabilities,
-  -- }
 end

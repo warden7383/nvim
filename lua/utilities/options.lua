@@ -117,4 +117,7 @@ vim.diagnostic.config({
       [sign.INFO] = "𝓳", -- info = '»' 𝓳 󰙎
     },
   },
+  float = {
+    border = "rounded",
+  },
 }) 

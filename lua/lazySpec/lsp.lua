@@ -100,7 +100,8 @@ return {
   {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = {"BufReadPre", "BufAdd"},
     opts = {
       agressive_mode = false,
       excluded_lsp_clients = {

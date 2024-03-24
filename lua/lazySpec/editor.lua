@@ -231,7 +231,7 @@ return {
 
   {
     "kungfusheep/randomword.nvim",
-    event = "VeryLazy",
+    event = {"BufReadPre", "BufAdd"},
     config = function()
       require("plugin.randomword")
     end,

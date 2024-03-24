@@ -69,14 +69,28 @@ map("n", "<M-d>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
 map("n", "<M-u>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
 map("i", "<M-d>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move line down" })
 map("i", "<M-u>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move line up" })
-vim.keymap.set({'v'}, '<M-u>', ":move'<-2<cr>gv=gv", {silent = true, desc = "Move a group of lines up"}) -- <SPACE>k
-vim.keymap.set({'v'}, '<M-d>', ":move'>+1<cr>gv=gv", {silent = true, desc = "Move a group of lines down"}) -- <SPACE>j
+vim.keymap.set({'v'}, '<M-u>', ":move'<-2<cr>gv=gv", {silent = true, desc = "Move a group of lines up"}) 
+vim.keymap.set({'v'}, '<M-d>', ":move'>+1<cr>gv=gv", {silent = true, desc = "Move a group of lines down"})
 
---------------------Plugin specific Keymaps---------------------------
--- vim.keymap.set("n", "<C-s>", [[<cmd>%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left><cr>]], {silent = true, desc = "Subsitute words"})
-vim.keymap.set( "n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
-vim.keymap.set("v", "<C-s>", [[:%s/\%V\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
+--Word subsitution
+vim.keymap.set( "n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]], {desc="Replace word on cursor"})
+vim.keymap.set("v", "<C-s>", function ()
+  vim.ui.input({ prompt = 'Enter search string:' }, function(input)
+    vim.api.nvim_feedkeys(":'<,'>s/"..input.."/"..input.."/gIc", "!", false)
+    vim.cmd([[
+    call feedkeys("\<Left>\<Left>\<Left>\<Left>")
+    ]])
+  end)
+end, {desc = "Replace selected words in visual mode"})
 
 -- Split paragraphs into sentences
 vim.keymap.set("n", "<M-s>", "<CMD>s/\\. /.\\r/e<CR><CMD>nohlsearch<CR>")
 
+-- Toggle relative numbers off or on (for code presentation)
+vim.keymap.set({ "n", "v" }, "<leader>tn", "<cmd>set rnu!<cr>", {})
+
+vim.keymap.set("v", "<leader>(", "s()<esc>Pll", { desc = "wrap selection with parens"})
+vim.keymap.set("v", "<leader>[", "s[]<esc>Pll", { desc = "wrap selection with square braces"})
+vim.keymap.set("v", "<leader>{", "s{}<esc>Pll", { desc = "wrap selection with curly braces"})
+vim.keymap.set("v", "<leader>'", "s''<esc>Pll", { desc = "wrap selection with single quotes"})
+vim.keymap.set("v", '<leader>"', 's""<esc>Pll', { desc = "wrap selection with double quotes"})

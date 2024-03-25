@@ -105,7 +105,6 @@ return {
     'rmagatti/auto-session',
     lazy = true,
     event = {"BufReadPre", "BufAdd", "VeryLazy"},
-
     cmd = {"Autosession", "SessionRestore"},
     config = function()
       require("plugin.auto-session")
@@ -149,4 +148,23 @@ return {
     cmd = {"Z", "Zi", "Lz", "Tz", "Lzi", "Tzi"},
   },
 
+  {
+    'stevearc/oil.nvim',
+    event = "VeryLazy",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function ()
+      require("plugin.oil")
+    end,
+  },
+
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+    event = {"BufReadPre", "BufAdd"},
+    config = function ()
+      require("plugin.conform")
+    end,
+  },
 }

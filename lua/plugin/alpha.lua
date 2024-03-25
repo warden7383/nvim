@@ -5,9 +5,6 @@ local stats = require("lazy").stats()
 local autocmd = vim.api.nvim_create_autocmd
 
 dashboard.section.header.val = {
--- [[ _  _ ____ _    _    ____    _  _ ____ ____ _  _ _ _  _   / ]],
--- [[ |__| |___ |    |    |  |    |\ | |___ |  | |  | | |\/|  / ]],
--- [[ |  | |___ |___ |___ |__|    | \| |___ |__|  \/  | |  | . ]], 
 [[   ┌─────────────────────────────────────────────────────────────────────┐ ]],
 [[   │                                                                     │ ]],
 [[   │                                                                     │ ]],
@@ -26,15 +23,14 @@ dashboard.section.header.val = {
 [[                                       ⠀                        |、ﾞ ~ヽ  ]],
 [[                                                                じしf_,)ノ]],
 [[]],
--- [[]], 
 }
 
 dashboard.section.buttons.val = {
   dashboard.button("n", "    New file", "<cmd>ene<CR>"),
   -- dashboard.button("v", "    Load Recent Session", "<cmd>SessionLoadLast<CR>"),
-  dashboard.button("v", "    Load Recent Session", ":SessionRestore<CR>"),
+  dashboard.button("v", "    Load Session(cwd)", ":SessionRestore<CR>"),
   -- dashboard.button("s", "󱚄    Load Selected Session", "<cmd>Telescope persisted<CR>"),
-  dashboard.button("s", "󱚄    Load Selected Session", ":Autosession search<CR>"),
+  dashboard.button("s", "󱚄    Select Session", ":Autosession search<CR>"),
   dashboard.button("f", "    Find project file", "<cmd>Telescope find_files<CR>"),
   dashboard.button("r", "    Recent", "<cmd>Telescope oldfiles<CR>"),
   dashboard.button("g", "󰊄    Grep pattern", "<cmd>Telescope live_grep<CR>"),

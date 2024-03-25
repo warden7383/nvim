@@ -31,8 +31,10 @@ dashboard.section.header.val = {
 
 dashboard.section.buttons.val = {
   dashboard.button("n", "    New file", "<cmd>ene<CR>"),
-  dashboard.button("v", "    Load Recent Session", "<cmd>SessionLoadLast<CR>"),
-  dashboard.button("s", "󱚄    Load Selected Session", "<cmd>Telescope persisted<CR>"),
+  -- dashboard.button("v", "    Load Recent Session", "<cmd>SessionLoadLast<CR>"),
+  dashboard.button("v", "    Load Recent Session", ":SessionRestore<CR>"),
+  -- dashboard.button("s", "󱚄    Load Selected Session", "<cmd>Telescope persisted<CR>"),
+  dashboard.button("s", "󱚄    Load Selected Session", ":Autosession search<CR>"),
   dashboard.button("f", "    Find project file", "<cmd>Telescope find_files<CR>"),
   dashboard.button("r", "    Recent", "<cmd>Telescope oldfiles<CR>"),
   dashboard.button("g", "󰊄    Grep pattern", "<cmd>Telescope live_grep<CR>"),

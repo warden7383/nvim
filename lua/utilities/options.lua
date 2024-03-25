@@ -20,7 +20,6 @@ if osName == "Windows_NT" then
   end
 elseif osName == "Darwin" then
   print("MACOS")
-  -- TODO: set default shell to zsh by using the shell = ... option(?)
 else
   print("LINUX")
 end
@@ -81,6 +80,7 @@ opt.wrap = false
 opt.pumheight = 8
 opt.confirm = true
 opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]]
+opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- opt.smoothscroll = true
 -- opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})
 opt.fillchars = {
@@ -100,6 +100,7 @@ vim.opt.clipboard = 'unnamedplus'
 -- vim.cmd([[
 --    set clipboard+=unnamedplus 
 --]])
+
 ------Floating diagnostics message ----
 vim.diagnostic.config({
   virtual_text = {

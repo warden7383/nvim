@@ -88,17 +88,28 @@ return {
     }
   },
 
+  -- {
+  --   "olimorris/persisted.nvim",
+  --   lazy = true,
+  --   cmd = { "SessionLoadLast"  },
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("plugin.persisted")
+  --   end,
+  --   dependencies = {
+  --     "nvim-tree/nvim-tree.lua",
+  --   }
+  -- },
+
   {
-    "olimorris/persisted.nvim",
+    'rmagatti/auto-session',
     lazy = true,
-    cmd = { "SessionLoadLast"  },
-    event = "VeryLazy",
+    event = {"BufReadPre", "BufAdd", "VeryLazy"},
+
+    cmd = {"Autosession", "SessionRestore"},
     config = function()
-      require("plugin.persisted")
+      require("plugin.auto-session")
     end,
-    dependencies = {
-      "nvim-tree/nvim-tree.lua",
-    }
   },
 
   {

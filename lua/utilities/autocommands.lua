@@ -28,9 +28,16 @@ autocmd({"BufEnter"}, {
     elseif string.find(filename, "pwsh.EXE") then
 
     else
-      vim.cmd([[
-      lcd %:p:h
-      ]])
+      if(string.len(filename) == 0) then
+        --gets called in buffers without names, such as alpha and oil
+      else
+        vim.cmd([[
+        lcd %:p:h
+        ]])
+      end
+      -- vim.cmd([[
+      -- lcd %:p:h
+      -- ]])
     end
   end
 })

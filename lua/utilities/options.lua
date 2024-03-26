@@ -112,13 +112,26 @@ vim.diagnostic.config({
   underline = false,
   signs = {
     text = {
-      [sign.HINT] = "󰛨", --   hint = '⚑',
+      [sign.HINT] = "", --   hint = '⚑',󰛨
       [sign.ERROR] = "✘", --
       [sign.WARN] = "", --   warn = '▲',
-      [sign.INFO] = "𝓳", -- info = '»' 𝓳 󰙎
+      [sign.INFO] = "⚑", -- info = '»' 𝓳 󰙎
     },
   },
   float = {
     border = "rounded",
   },
 }) 
+-- diagnostics = {
+-- 			Error = '✘', --   ✘
+-- 			Warn  = '󰀪', --  󰀪 ▲󰳤 󱗓 
+-- 			Info  = 'ⁱ', --    󰋼 󰋽 ⚑ⁱ
+-- 			Hint  = '', --  󰌶 
+-- 			}
+
+-- possible statusline icons?
+-- --		error = ' ',
+-- 				warn  = ' ',
+-- 				info  = ' ',
+-- 				hint  = ' ',
+-- 			},

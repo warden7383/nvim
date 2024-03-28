@@ -9,16 +9,9 @@ telescope.setup {
 			case_mode = "smart_case",
 		},
 
-    persisted = {
-      layout_config = {
-        width = 0.55, 
-        height = 0.55
-      }
-    },
-
     file_browser = {
-      path = vim.loop.cwd(),
-      cwd = vim.loop.cwd(),
+      path = vim.uv.cwd(),
+      cwd = vim.uv.cwd(),
       cwd_to_path = false,
       grouped = false,
       files = true,
@@ -26,7 +19,7 @@ telescope.setup {
       depth = 1,
       auto_depth = false,
       select_buffer = false,
-      hidden = { file_browser = false, folder_browser = false },
+      hidden = { file_browser = true, folder_browser = true },
       respect_gitignore = vim.fn.executable "fd" == 1,
       no_ignore = false,
       follow_symlinks = false,
@@ -65,9 +58,9 @@ telescope.setup {
           ["r"] = fb_actions.rename,
           ["m"] = fb_actions.move,
           ["y"] = fb_actions.copy,
-          ["d"] = fb_actions.remove,
+          ["x"] = fb_actions.remove,
           ["o"] = fb_actions.open,
-          ["g"] = fb_actions.goto_parent_dir,
+          ["-"] = fb_actions.goto_parent_dir,
           ["e"] = fb_actions.goto_home_dir,
           ["w"] = fb_actions.goto_cwd,
           ["t"] = fb_actions.change_cwd,
@@ -81,31 +74,22 @@ telescope.setup {
 
 
 }
--- }require("telescope").setup {
--- 	extensions = {
--- 		fzf = {
--- 			fuzzy = true,
--- 			override_generic_sorter = true,
--- 			override_file_sorter = true,
--- 			case_mode = "smart_case",
--- 		}
--- 	}
--- }
 
 telescope.load_extension('fzf')
-require("telescope").load_extension("notify")
--- require("telescope").load_extension("persisted")
-require("telescope").load_extension("file_browser")
-local builtin = require('telescope.builtin')
+telescope.load_extension("notify")
+telescope.load_extension("file_browser")
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "Find Files"})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = "Live Grep"})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = "Find Buffers"})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "Find Help"})
-vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {desc = "Find Old Files"})
-vim.keymap.set('n', '<leader>fc', builtin.highlights, {desc = "Find Highlights"})
-vim.keymap.set('n', '<leader>fk', builtin.keymaps, {desc = "Find Keymaps"})
-vim.keymap.set("n", "<leader>sb", function()
+local builtin = require('telescope.builtin')
+local map = vim.keymap.set
+
+map('n', '<leader>ff', builtin.find_files, {desc = "Find Files"})
+map('n', '<leader>fg', builtin.live_grep, {desc = "Live Grep"})
+map('n', '<leader>fb', builtin.buffers, {desc = "Find Buffers"})
+map('n', '<leader>fh', builtin.help_tags, {desc = "Find Help"})
+map('n', '<leader>fo', builtin.oldfiles, {desc = "Find Old Files"})
+map('n', '<leader>fc', builtin.highlights, {desc = "Find Highlights"})
+map('n', '<leader>fk', builtin.keymaps, {desc = "Find Keymaps"})
+map("n", "<leader>sb", function()
   require("telescope.builtin").live_grep({ search_dirs = { vim.api.nvim_buf_get_name(0) } })
 end, { desc = "[🔭] Search current buffer" })
 
@@ -113,14 +97,14 @@ end, { desc = "[🔭] Search current buffer" })
 vim.api.nvim_set_keymap(
   "n",
   "<leader>fd",
-  ":Telescope file_browser<CR>",
+  "<cmd>Telescope file_browser<CR>",
   { noremap = true , desc = "Telescope file browser ", silent = true}
 )
 
 -- open file_browser with the path of the current buffer
 vim.api.nvim_set_keymap(
   "n",
-  "<space>fp",
-  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  "<leader>d",
+  "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
   { noremap = true , silent = true, desc = "Telescope file browser on current buffer path"}
 )

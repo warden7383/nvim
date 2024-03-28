@@ -9,17 +9,17 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
 
-  {
-    "nvim-tree/nvim-tree.lua",
-    event = { "BufReadPre", "CmdlineEnter", "BufAdd" }, -- Initial: BufEnter
-    cmd = {"NvimTree"},
-    keys = { "<leader>d", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle NvimTree (FileTree)"},
-    config = function()
-      require("plugin.nvimtree")
-    end,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = true, -- Initial: false
-  },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   event = { "BufReadPre", "CmdlineEnter", "BufAdd" }, -- Initial: BufEnter
+  --   cmd = {"NvimTree"},
+  --   keys = { "<leader>d", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle NvimTree (FileTree)"},
+  --   config = function()
+  --     require("plugin.nvimtree")
+  --   end,
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   lazy = true, -- Initial: false
+  -- },
 
   {
     "lukas-reineke/indent-blankline.nvim",

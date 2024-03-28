@@ -5,6 +5,8 @@ local glb = vim.g
 local sign = vim.diagnostic.severity
 
 local osName = vim.uv.os_uname().sysname
+
+-- Sets the following options to start as powershell for windows users
 if osName == "Windows_NT" then
   local powershell_options = {
     shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
@@ -19,9 +21,7 @@ if osName == "Windows_NT" then
     vim.opt[option] = value
   end
 elseif osName == "Darwin" then
-  print("MACOS")
 else
-  print("LINUX")
 end
 
 -- vim-waka api key: if you get a new key, find your wakatime.cfg file and replace the api key if the 
@@ -30,9 +30,6 @@ end
 -- windows 10/11 .wakatime.cfg file location: ~/wakatime.cfg (aka, C:\Users\YOUR_USERNAME\.wakatime.cfg) (see example below)
 -- example: "C:\Users\Andrew Ng\.wakatime.cfg"
 
---ENABLE WHEN nvim-tree IS INSTALLED
-glb.loaded_netrw = 1 -- for nvim-tree
-glb.loaded_netrwPlugin = 1 -- for nvim-tree
 glb.fsync = false
 -- testing did this save;
 -- Examples: >vim

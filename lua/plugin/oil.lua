@@ -58,12 +58,14 @@ require("oil").setup({
   keymaps = {
     ["g?"] = "actions.show_help",
     ["<CR>"] = "actions.select",
-    ["<C-s>"] = "actions.select_vsplit",
-    ["<C-h>"] = "actions.select_split",
+    --  ["<C-s>"] = "actions.select_vsplit",
+    -- ["<C-h>"] = "actions.select_split",
+   ["<leader>sv"] = "actions.select_vsplit",
+    ["<leader>sh"] = "actions.select_split",
     ["<C-t>"] = "actions.select_tab",
     ["<C-p>"] = "actions.preview",
-    ["<C-c>"] = "actions.close",
-    ["<C-l>"] = "actions.refresh",
+    ["q"] = "actions.close",
+    ["<C-r>"] = "actions.refresh",
     ["-"] = "actions.parent",
     ["_"] = "actions.open_cwd",
     ["`"] = "actions.cd",
@@ -78,10 +80,10 @@ require("oil").setup({
     border = "rounded",
   },
   -- Set to false to disable all of the above keymaps
-  use_default_keymaps = true,
+  use_default_keymaps = false,
   view_options = {
     -- Show files and directories that start with "."
-    show_hidden = false,
+    show_hidden = true,
     -- This function defines what is considered a "hidden" file
     is_hidden_file = function(name, bufnr)
       return vim.startswith(name, ".")
@@ -103,7 +105,7 @@ require("oil").setup({
   -- Configuration for the floating window in oil.open_float
   float = {
     -- Padding around the floating window
-    padding = 2,
+    padding = 10,
     max_width = 0,
     max_height = 0,
     border = "rounded",
@@ -113,6 +115,23 @@ require("oil").setup({
     -- This is the config that will be passed to nvim_open_win.
     -- Change values here to customize the layout
     override = function(conf)
+      local HEIGHT_RATIO = 0.8
+      local WIDTH_RATIO = 0.5
+
+      local screen_w = vim.opt.columns:get()
+      local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+      local window_w = screen_w * WIDTH_RATIO
+      local window_h = screen_h * HEIGHT_RATIO
+      local window_w_int = math.floor(window_w)
+      local window_h_int = math.floor(window_h)
+      local center_x = (screen_w - window_w)/2
+      local center_y = ((vim.opt.lines:get() - window_h) / 2 ) - vim.opt.cmdheight:get()
+
+      conf.row=center_y
+      conf.col=center_x
+      conf.width=window_w_int
+      conf.height=window_h_int
+      conf.relative='win'
       return conf
     end,
   },
@@ -160,3 +179,6 @@ require("oil").setup({
     border = "rounded",
   },
 })
+
+vim.keymap.set("n", "<leader>of", "<cmd>Oil --float<cr>", {desc = "Open Oil as Floating window"})
+vim.keymap.set("n", "<leader>ob", "<cmd>Oil<cr>", {desc = "Open Oil as Buffer"})

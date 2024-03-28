@@ -9,7 +9,6 @@ autocmd({"TextYankPost"}, {
 autocmd({"BufEnter"}, {
     pattern = {"*.cpp", "*.h"},
     callback = function()
-        -- map('t', ';r', 'g++ -pedantic -Wall -Wextra -std=c++17 -g ', {desc = "Compile cpp in terminal mode", buffer = 0})
         map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>',{desc = "Compile and run", buffer = 0})
     end,
 })
@@ -35,9 +34,6 @@ autocmd({"BufEnter"}, {
         lcd %:p:h
         ]])
       end
-      -- vim.cmd([[
-      -- lcd %:p:h
-      -- ]])
     end
   end
 })

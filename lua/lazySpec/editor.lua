@@ -5,6 +5,7 @@ return {
     config = function()
       require("plugin.treesitter")
     end,
+    -- Initial: lazy false, no lazy event
     lazy = true, 
     event = {"BufReadPre", "BufAdd"},
   },
@@ -26,7 +27,7 @@ return {
     build = 'make'
   },
 
-  -- FIX: does not work
+  --FIX does not work
   {
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
@@ -41,11 +42,15 @@ return {
     -- NOTE: a dependency for nvim-cmp when nvimlsp is loaded
     --
     event = {"BufReadPre", "BufAdd"},
+    opts = {}, -- this is equalent to setup({}) function
+    -- lazy = true,
   },
 
   {
     'numToStr/Comment.nvim',
     event = {"BufReadPre", "BufAdd"},
+    opts = {
+    },
     config = function()
       require('Comment').setup()
     end,
@@ -160,6 +165,8 @@ return {
     config = function()
       require("plugin.flash")
     end,
+    keys = {
+    },
   },
 
   { 
@@ -183,6 +190,7 @@ return {
   {
     'nvim-pack/nvim-spectre',
     lazy = true,
+    -- event = {"BufReadPre", "BufAdd"},
     cmds = {"Spectre"},
     dependencies = {
       'nvim-lua/plenary.nvim'
@@ -195,6 +203,7 @@ return {
   {
     "smjonas/inc-rename.nvim",
     lazy = true,
+    -- event = {"BufReadPre", "BufAdd"},
     keys = {
       {"<leader>wr"},
       {"<leader>we"},
@@ -223,7 +232,6 @@ return {
   {
     "kungfusheep/randomword.nvim",
     event = {"BufReadPre", "BufAdd"},
-    lazy = true,
     config = function()
       require("plugin.randomword")
     end,

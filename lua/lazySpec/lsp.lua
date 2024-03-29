@@ -25,8 +25,10 @@ return {
     lazy = true,
     dependencies = {
       "williamboman/mason.nvim",
+      -- 'nvimdev/lspsaga.nvim',
     },
     config = function()
+      -- require("plugin.lsp") -- NOTE: this was being called on last line of cmp.lua as well.
     end,
   },
 
@@ -98,6 +100,7 @@ return {
   {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
+    -- event = "VeryLazy",
     event = {"BufReadPre", "BufAdd"},
     opts = {
       agressive_mode = false,

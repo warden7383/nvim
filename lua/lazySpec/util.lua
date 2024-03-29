@@ -108,6 +108,9 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     lazy = true,
+    keys = {
+      {"<leader>d", desc ="Telescope file browser on current buffer path"},
+    },
   },
 
   {
@@ -122,11 +125,12 @@ return {
     lazy = true,
     cmd = {"Z", "Zi", "Lz", "Tz", "Lzi", "Tzi"},
   },
-
+  
   {
     'stevearc/oil.nvim',
     lazy = true,
-    cmd = "Oil",
+    cmd = {"Oil"},
+    event = {"BufReadPre", "BufAdd", "CmdLineEnter"},
     keys = {
       {"<leader>of", desc = "Open Oil as Floating window"},
       {"<leader>ob", desc = "Open Oil as Buffer"}

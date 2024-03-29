@@ -17,7 +17,7 @@ return {
       require("plugin.mason")
     end,
     cmd = "Mason",
-    event = {"BufReadPre", "BufAdd"},
+    event = {"BufReadPre", "BufAdd", "VeryLazy"},
   },
 
   {
@@ -34,7 +34,7 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
-    event = {"BufReadPre", "BufAdd", "CmdLineEnter"},
+    event = {"BufReadPre", "BufAdd", "CmdLineEnter", "VeryLazy"},
     dependencies = {
       "williamboman/mason.nvim",
     },
@@ -76,7 +76,7 @@ return {
       'windwp/nvim-autopairs',
     },
     lazy = true,
-    event = { "InsertEnter", "CmdLineEnter" },
+    event = { "InsertEnter", "CmdLineEnter", "VeryLazy" },
     config = function()
       require("plugin.cmp")
     end,

@@ -12,7 +12,8 @@ return {
     "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
     lazy = true,
-    event = {"BufReadPre", "BufAdd"},
+    -- event = {"BufReadPre", "BufAdd"},
+    cmd = {"LazyGit", "LazyGitCurrentFile", "LazyGitFilter", "LazyGitFilterCurrentFile"},
     config = function ()
       require("plugin.lazygit")
     end,

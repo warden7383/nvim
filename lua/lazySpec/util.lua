@@ -20,6 +20,7 @@ return {
 
   {
     'famiu/bufdelete.nvim',
+    lazy = true,
     keys = {
       {"<leader>q", ":Bdelete<CR>", desc = "Delete the buffer without losing layout",},
     },
@@ -37,8 +38,6 @@ return {
     end,
   },
 
-  --under testing, possibly may replace with https://github.com/ethanholz/nvim-lastplace?tab=readme-ov-file
-  -- TESTING: attempting to lazyload
   {
     "farmergreg/vim-lastplace",
     lazy = true,
@@ -82,7 +81,8 @@ return {
       require("icon-picker").setup({ disable_legacy_commands = true })
     end,
     lazy = true,
-    event = "CmdlineEnter",
+    -- event = "CmdlineEnter",
+    cmd = {"IconPickerYank", "IconPickerInsert", "IconPickerNormal"},
     dependencies = {
       'stevearc/dressing.nvim',
     }
@@ -100,16 +100,11 @@ return {
 
   {
     "folke/which-key.nvim",
-    event = "VeryLazy",
-    -- init = function()
-    --   vim.o.timeout = true
-    --   vim.o.timeoutlen = 1000
-    -- end,
-    -- opts = {
-    --   -- your configuration comes here
-    --   -- or leave it empty to use the default settings
-    --   -- refer to the configuration section below
-    -- }
+    event = {"BufReadPre", "BufAdd"},
+    lazy = true,
+    keys = {
+      {"<leader>" },
+    },
     config = function ()
       require("plugin.which-key")
     end
@@ -119,7 +114,10 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     lazy = true,
-
+    keys = {
+      {"<leader>fd", desc = "Telescope file browser"},
+      {"<leader>d", desc = "Telescope file browser on current buffer path"}
+    },
   },
 
   {
@@ -137,8 +135,14 @@ return {
 
   {
     'stevearc/oil.nvim',
-    event = "VeryLazy",
-    opts = {},
+    lazy = true,
+    event = {"BufReadPre", "BufAdd", "CmdlineEnter"},
+    -- event = "VeryLazy",
+    -- opts = {},
+    keys = {
+      {"<leader>of", desc = "Open Oil as Floating window"},
+      {"<leader>ob", desc = "Open Oil as Buffer"},
+    },
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function ()
@@ -148,10 +152,11 @@ return {
 
   {
     'stevearc/conform.nvim',
-    opts = {},
+    -- opts = {},
     event = {"BufReadPre", "BufAdd"},
     config = function ()
       require("plugin.conform")
     end,
+    lazy = true,
   },
 }

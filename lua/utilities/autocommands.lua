@@ -9,7 +9,7 @@ autocmd({"TextYankPost"}, {
 autocmd({"BufEnter"}, {
     pattern = {"*.cpp", "*.h"},
     callback = function()
-        map('n', '<leader>r', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>',{desc = "Compile and run", buffer = 0})
+        map('n', '<leader>rr', '<CMD>TermExec go_back=0 cmd="g++ -pedantic -Wall -Wextra -std=c++17 -g %"<CR>',{desc = "Compile and run", buffer = 0})
     end,
 })
 

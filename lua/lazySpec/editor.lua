@@ -49,8 +49,6 @@ return {
   {
     'numToStr/Comment.nvim',
     event = {"BufReadPre", "BufAdd"},
-    opts = {
-    },
     config = function()
       require('Comment').setup()
     end,
@@ -113,7 +111,7 @@ return {
 
   {
     "karb94/neoscroll.nvim",
-    event = {"BufReadPre", "BufAdd"},
+    -- event = {"BufReadPre", "BufAdd"},
     keys = { 
       { "<C-d>", desc = "Neoscroll down" },
       { "<C-u>", desc = "Neoscroll up" },
@@ -161,12 +159,16 @@ return {
 
   {
     "folke/flash.nvim",
-    event = {"BufReadPre", "BufAdd"},
+    -- event = {"BufReadPre", "BufAdd"},
+    keys = {
+      {"<leader>jp", desc = "Flash jump on search word"},
+      {"<leader>jc", desc = "Flash jump word on cursor"},
+      {"<leader>jj", desc = "Flash jump"},
+      {"<leader>jt", desc = "Flash jump treesitter"},
+    },
     config = function()
       require("plugin.flash")
     end,
-    keys = {
-    },
   },
 
   { 

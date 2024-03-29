@@ -9,23 +9,11 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
 
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   event = { "BufReadPre", "CmdlineEnter", "BufAdd" }, -- Initial: BufEnter
-  --   cmd = {"NvimTree"},
-  --   keys = { "<leader>d", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle NvimTree (FileTree)"},
-  --   config = function()
-  --     require("plugin.nvimtree")
-  --   end,
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   lazy = true, -- Initial: false
-  -- },
-
   {
     "lukas-reineke/indent-blankline.nvim",
     event = {"BufReadPre", "BufAdd"},
     main = "ibl",
-    opts = {},
+    -- opts = {},
     config = function()
       require("plugin.indent-blankline")
     end,
@@ -63,12 +51,11 @@ return {
     end,
   },
 
-  -- NOTE: required for icon-picker.nvim
   {
     'stevearc/dressing.nvim',
     lazy = true,
     event = {"BufReadPre", "BufAdd"},
-    opts = {},
+    -- opts = {},
     config = function()
       require("plugin.dressing")
     end,
@@ -105,9 +92,9 @@ return {
     config = function()
       require("plugin.noice")
     end,
-    opts = {
-      -- add any options here
-    },
+    -- opts = {
+    --   -- add any options here
+    -- },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",

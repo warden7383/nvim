@@ -15,6 +15,16 @@ return {
     lazy = true,
     event = {"BufReadPre", "BufAdd"},
     cmd = "Telescope",
+    keys = {
+      {"<leader>ff", desc = "Find Files"},
+      {"<leader>fg", desc = "Live Grep"},
+      {"<leader>fb", desc = "Find Buffers"},
+      {"<leader>fh", desc = "Find Help"},
+      {"<leader>fo", desc = "Find Old Files"},
+      {"<leader>fc", desc = "Find Highlights"},
+      {"<leader>fk", desc = "Find Keymaps"},
+      {"<leader>sb", desc = "Search current buffer"},
+    },
     config = function()
       require("plugin.telescope")
     end,
@@ -165,6 +175,8 @@ return {
       {"<leader>jc", desc = "Flash jump word on cursor"},
       {"<leader>jj", desc = "Flash jump"},
       {"<leader>jt", desc = "Flash jump treesitter"},
+      {"F"},
+      {"f"},
     },
     config = function()
       require("plugin.flash")

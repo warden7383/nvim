@@ -96,6 +96,9 @@ return {
     config = function()
       require("plugin.auto-session")
     end,
+    dependencies = {
+      'stevearc/dressing.nvim',
+    },
   },
 
   {

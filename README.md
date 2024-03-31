@@ -12,6 +12,11 @@ Usage:
 `git clone https://github.com/warden7383/.config/`
 > [!TIP]
 > Run a ```:checkhealth``` to see what else you need
+Formatters:
+`MasonInstall stylua clang_format`
+- clang_format may not be needed if you have the .exe from LLVM
+> [!NOTE]
+> As of writing this readme, formatters must be escaped with quotations if the cmd path has spaces
 ##### Eye Candy
 \[Insert eye candy here\]<br>
 ### Todo(features):

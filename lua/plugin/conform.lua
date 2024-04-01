@@ -24,5 +24,11 @@ require("conform").setup({
       -- WARN: spaces in directorys must be escaped with quotes
       command = 'C:/Users/\'Andrew Ng\'/AppData/Local/nvim-data/mason/bin/stylua',
     },
+    clang_format = {
+      command = "clang-format",
+      args = {
+        "-style=file",
+      },
+    },
   },
 })

@@ -75,12 +75,12 @@ require('incline').setup {
       horizontal = "right",
       vertical = "top",
     }, 
-    -- NOTE: see https://github.com/b0o/incline.nvim/pull/44 for updates (feature not released)
-    -- TODO: implement the code below and possibly diagnostics/gitsign integration into incline
-    -- overlap = {
-    --   winbar = false,
-    --   tabline = false,
-    -- },
+    overlap = {
+      borders = true,
+      statusline = false,
+      winbar = true,
+      tabline = false,
+    },
     width = "fit",
     winhighlight = {
       active = {

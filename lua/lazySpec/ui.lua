@@ -127,7 +127,7 @@ return {
       require("plugin.smart-splits")
     end,
     dependencies = {
-      "kwkarlwang/bufresize.nvim",
+      -- "kwkarlwang/bufresize.nvim",
     },
   },
 

@@ -63,8 +63,8 @@ autocmd({"TermOpen"},{
   callback = function ()
     local opt = vim.opt_local
 
-    require("bufresize").block_register()
-    require("bufresize").resize_open()
+    -- require("bufresize").block_register()
+    -- require("bufresize").resize_open()
     map({"t"}, "<C-q>", "exit<CR>", {silent = true, desc = "Quit terminal", buffer = 0}) -- buffer = 0, use in current buffer
     map({"n"}, "<C-q>", "Aexit<CR>", { desc = "Quit terminal", buffer = 0})
 
@@ -88,8 +88,8 @@ autocmd({"TermOpen"},{
 autocmd({"TermClose"}, {
   pattern = "term://*",
   callback = function ()
-    require("bufresize").block_register()
-    require("bufresize").resize_close()
+    -- require("bufresize").block_register()
+    -- require("bufresize").resize_close()
 
     if vim.bo.filetype == "toggleterm" then
     else

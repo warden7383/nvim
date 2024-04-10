@@ -3,6 +3,8 @@ local bufferline = require("bufferline")
 
 bufferline.setup{ --some of these features may not work based on terminal type. See :h bufferline-configuration for docs. (or plugin github)
   highlights = {
+    background = {
+    },
     --hover event close button
     close_button = {
       fg = '#f7768e',
@@ -11,21 +13,64 @@ bufferline.setup{ --some of these features may not work based on terminal type. 
     --active buffers in a split window
     close_button_visible = {
       fg = '#f7768e',
-      bg = '#414057',
+      bg = '#24273a',
     },
     --the active buffer's close button (the currently active buffer)
     close_button_selected = {
       fg = '#f7768e',
-      bg = '#414057',
+      bg = '#24273a',
     },
     --the selected active buffer (close_button_selected must have the same color as this)
     buffer_selected = {
-      fg = '#7de1ff', --#79b1b5 #7de1ff
-      bg = '#414057',
+      -- fg = '#7de1ff', --#79b1b5 #7de1ff
+      fg = '#cad3f5',
+      bg = '#24273a',
       bold = true,
       italic = true,
       underline = false,
     },
+    tab_selected = {
+      fg = '#7de1ff', --#79b1b5 #7de1ff
+      bg = '#24273a',
+      bold = true,
+      italic = true,
+      underline = false,
+    },
+
+    tab_close = {
+      fg = '#f7768e',
+      bg = '#24273a',
+    },
+    numbers_selected = {
+      fg = '#7de1ff', --#79b1b5 #7de1ff
+      bg = '#24273a',
+      bold = true,
+      italic = true,
+      underline = false,
+
+    },
+    tab_separator = {
+    },
+    tab_separator_selected = {
+    },
+    -- separator_selected = {
+    --
+    --   fg = "#000000",
+    --   bg = "#000000",
+    -- },
+    -- separator_visible = {
+    --
+    --   fg = "#000000",
+    --   bg = "#000000",
+    -- },
+    -- indicator_visible = {
+    --   fg = "#000000",
+    --   bg = "#000000",
+    -- },
+    -- indicator_selected = {
+    --   bg = "#000000",
+    --   fg = "#000000"
+    -- },
     -- adding colors to this results in changing all buffers that are modified
     modified = {
       -- fg = '',
@@ -33,8 +78,12 @@ bufferline.setup{ --some of these features may not work based on terminal type. 
     },
     modified_selected = {
       -- fg = '',
-      bg = '#414057',
+      bg = '#24273a',
     },
+
+    -- offset_separator = {
+    --   bg = "#000000"
+    -- }
   },
 
   options = {
@@ -70,9 +119,13 @@ bufferline.setup{ --some of these features may not work based on terminal type. 
       delay = 100,
       reveal = {'close'}
     },
+    numbers = function(opts)
+      return string.format('')
+    end,
     show_tab_indicators = true,
     separator_style = {},
-    always_show_bufferline = true
+    always_show_bufferline = true,
+    -- max_name_length = 15,
   }
 }
 

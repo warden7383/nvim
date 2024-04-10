@@ -31,16 +31,16 @@ return {
     lazy = true,
   },
 
-  {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    lazy = true,
-    event = {"BufReadPre", "BufAdd"},
-    config = function()
-      require("plugin.bufferline")
-    end,
-  },
+  -- {
+  --   'akinsho/bufferline.nvim',
+  --   version = "*",
+  --   dependencies = 'nvim-tree/nvim-web-devicons',
+  --   lazy = true,
+  --   event = {"BufReadPre", "BufAdd"},
+  --   config = function()
+  --     require("plugin.bufferline")
+  --   end,
+  -- },
 
   { 
     "b0o/incline.nvim",
@@ -105,18 +105,18 @@ return {
     }
   },
 
-  {
-    'Bekaboo/dropbar.nvim',
-    -- optional, but required for fuzzy finder support
-    lazy = true,
-    event = {"BufReadPre", "BufAdd"},
-    config = function()
-      require("plugin.dropbar")
-    end,
-    dependencies = {
-      'nvim-telescope/telescope-fzf-native.nvim'
-    }
-  },
+  -- {
+  --   'Bekaboo/dropbar.nvim',
+  --   -- optional, but required for fuzzy finder support
+  --   lazy = true,
+  --   event = {"BufReadPre", "BufAdd"},
+  --   config = function()
+  --     require("plugin.dropbar")
+  --   end,
+  --   dependencies = {
+  --     'nvim-telescope/telescope-fzf-native.nvim'
+  --   }
+  -- },
 
 -- NOTE: can be integrated with several terminal emulators such as wezterm for win
   {
@@ -139,12 +139,12 @@ return {
     event = { "WinNew" },
   },
 
-  { 
-    "kwkarlwang/bufresize.nvim",
-   lazy = true,
-   config = function()
-     require("plugin.bufresize")
-   end,
-  },
+  -- { 
+  --   "kwkarlwang/bufresize.nvim",
+  --  lazy = true,
+  --  config = function()
+  --    require("plugin.bufresize")
+  --  end,
+  -- },
 
 }

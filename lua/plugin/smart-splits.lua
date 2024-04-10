@@ -64,8 +64,8 @@ require('smart-splits').setup({
       -- on_enter = function()
       --   vim.notify("Entering resize mode...")
       -- end,
-      -- on_leave = nil,
-      on_leave = require("bufresize").register
+      on_leave = nil,
+      -- on_leave = require("bufresize").register
     },
   },
   -- ignore these autocmd events (via :h eventignore) while processing

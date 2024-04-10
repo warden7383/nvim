@@ -96,21 +96,21 @@ return {
     -- end,
   -- },
 
-  {
-    "zeioth/garbage-day.nvim",
-    dependencies = "neovim/nvim-lspconfig",
-    -- event = "VeryLazy",
-    event = {"BufReadPre", "BufAdd"},
-    opts = {
-      agressive_mode = false,
-      excluded_lsp_clients = {
-        "jdtls",
-      },
-      grace_period = 60*15,
-      wakeup_delay = 0,
-      notifications = true,
-      retries = 3,
-      timeout = 1000
-    },
-  }
+  -- {
+  --   "zeioth/garbage-day.nvim",
+  --   dependencies = "neovim/nvim-lspconfig",
+  --   -- event = "VeryLazy",
+  --   event = {"BufReadPre", "BufAdd"},
+  --   opts = {
+  --     agressive_mode = false,
+  --     excluded_lsp_clients = {
+  --       "jdtls",
+  --     },
+  --     grace_period = 60*15,
+  --     wakeup_delay = 0,
+  --     notifications = true,
+  --     retries = 3,
+  --     timeout = 1000
+  --   },
+  -- }
 }

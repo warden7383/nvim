@@ -31,16 +31,16 @@ return {
     lazy = true,
   },
 
-  -- {
-  --   'akinsho/bufferline.nvim',
-  --   version = "*",
-  --   dependencies = 'nvim-tree/nvim-web-devicons',
-  --   lazy = true,
-  --   event = {"BufReadPre", "BufAdd"},
-  --   config = function()
-  --     require("plugin.bufferline")
-  --   end,
-  -- },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    lazy = true,
+    event = {"BufReadPre", "BufAdd"},
+    config = function()
+      require("plugin.bufferline")
+    end,
+  },
 
   { 
     "b0o/incline.nvim",

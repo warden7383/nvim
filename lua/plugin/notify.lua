@@ -123,22 +123,32 @@ local severity = {
 vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
              vim.notify(method.message, severity[params.type])
 end
---
-
-
-
-
-
-
-
-
 
 local notify = require("notify")
 
 notify.setup({
+  background_colour = "NotifyBackground",
+  fps = 60,
   stages = "fade_in_slide_out",
-  -- max_width = "100",
+  icons = {
+    DEBUG = "",
+    ERROR = "",
+    INFO = "",
+    TRACE = "✎",
+    WARN = ""
+  },
+  level = 2,
+  minimum_width = 50,
+  -- render = "default",
+  render = "wrapped-compact",
+  stages = "fade_in_slide_out",
+  time_formats = {
+    notification = "%T",
+    notification_history = "%FT%T"
+  },
+  timeout = 5000,
+  top_down = true,
+  max_width =  50,
+  max_height = 20,
 })
-
 vim.notify = notify
--- vim.api.nvim_set_keymap("n", "<leader>p", "", { callback = notify.dismiss, silent = true })

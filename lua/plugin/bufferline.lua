@@ -7,17 +7,17 @@ bufferline.setup{ --some of these features may not work based on terminal type. 
     },
     --hover event close button
     close_button = {
-      fg = '#f7768e',
+      fg = '#ed8796',
       bg = '',
     },
     --active buffers in a split window
     close_button_visible = {
-      fg = '#f7768e',
+      fg = '#ed8796',
       bg = '#24273a',
     },
     --the active buffer's close button (the currently active buffer)
     close_button_selected = {
-      fg = '#f7768e',
+      fg = '#ed8796',
       bg = '#24273a',
     },
     --the selected active buffer (close_button_selected must have the same color as this)
@@ -30,7 +30,7 @@ bufferline.setup{ --some of these features may not work based on terminal type. 
       underline = false,
     },
     tab_selected = {
-      fg = '#7de1ff', --#79b1b5 #7de1ff
+      fg = '#8bd5ca', --#79b1b5 #7de1ff
       bg = '#24273a',
       bold = true,
       italic = true,
@@ -38,11 +38,11 @@ bufferline.setup{ --some of these features may not work based on terminal type. 
     },
 
     tab_close = {
-      fg = '#f7768e',
+      fg = '#ed8796',
       bg = '#24273a',
     },
     numbers_selected = {
-      fg = '#7de1ff', --#79b1b5 #7de1ff
+      fg = '#cad3f5', --#79b1b5 #7de1ff
       bg = '#24273a',
       bold = true,
       italic = true,

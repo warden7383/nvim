@@ -120,3 +120,9 @@ autocmd("LspAttach", {
     map("n", "ga", vim.lsp.buf.code_action, {desc = "Goto code Action", buffer = event.buf})
   end,
 })
+
+autocmd("Filetype", {
+  desc = "Disable Cursorline for Telescope",
+  pattern = "TelescopePrompt",
+  command = "setlocal nocursorline"
+})

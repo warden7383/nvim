@@ -36,12 +36,22 @@ api(0, 'LineNrBelow', { fg = '#8087a2', bold = true })  --#FB508F #80bd9c #68ded
 api(0, 'WinSeparator', { fg = '#8aadf4', bold = true }) --#FB508F #80bd9c #68ded8 #f5d3ba
 api(0, 'SignColumn', { fg = '#8aadf4', bold = true })
 
-api(0, 'TelescopeBorder', { fg = "#80b7ff" })
+api(0, 'FloatBorder', {fg = '#363a4f'})
+
+
+api(0, 'TelescopePromptBorder', {link = "TelescopeBorder"})
+api(0, 'TelescopeBorder', { fg = "#363a4f" }) -- #80b7ff
+api(0, 'TelescopePromptTitle', {bg = "#8bd5ca", fg = "#1e2030", bold = true})
+api(0, 'TelescopeResultsTitle', {bg = "#7dc4e4", fg = "#1e2030", bold = true})
+api(0, 'TelescopePreviewTitle', {bg = "#ee99a0", fg = "#1e2030", bold = true})
+api(0, 'TelescopePromptCounter', {fg = "#b7bdf8", bold = true})
+api(0, 'TelescopeSelection', {bg = "#363a4f"})
+
 api(0, 'IncSearch', { bg = "#f5a97f", fg = "#24273a" })
 api(0, 'Search', { bg = "#b5a5fa", fg = "#24273a" })
 ------------------------------CMP Highlights ---------------------------------------------------------
 -- Customization for Pmenu
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#8bd5ca", fg = "#1e2030" }) --DEFAULT: bg = "#282C34", fg = "NONE" #29a4bd
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#8bd5ca", fg = "#1e2030", bold = true }) --DEFAULT: bg = "#282C34", fg = "NONE" #29a4bd
 
 -- vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
 --

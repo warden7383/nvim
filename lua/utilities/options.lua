@@ -103,15 +103,15 @@ vim.diagnostic.config({
   virtual_text = {
     severity = {
       min = vim.diagnostic.severity.ERROR
-    }, --󰝥
-    prefix = "",
+    }, -- 󰝥    󱓻 ◼  ◼️ ■
+    prefix = "",
   },
   underline = false,
   signs = {
     text = {
       [sign.HINT] = "", --   hint = '⚑',󰛨
       [sign.ERROR] = "✘", --
-      [sign.WARN] = "", --   warn = '▲',
+      [sign.WARN] = "", --   warn = '▲',    
       [sign.INFO] = "⚑", -- info = '»' 𝓳 󰙎
     },
   },

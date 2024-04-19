@@ -78,7 +78,7 @@ opt.pumheight = 8
 opt.confirm = true
 opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]]
 opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
--- opt.smoothscroll = true
+-- opt.smoothscroll = true -- 04-09-2024: not working?
 -- opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})
 opt.fillchars = {
   foldopen = "",
@@ -103,15 +103,15 @@ vim.diagnostic.config({
   virtual_text = {
     severity = {
       min = vim.diagnostic.severity.ERROR
-    }, --󰝥
-    prefix = "",
+    }, -- 󰝥    󱓻 ◼  ◼️ ■
+    prefix = "",
   },
   underline = false,
   signs = {
     text = {
       [sign.HINT] = "", --   hint = '⚑',󰛨
       [sign.ERROR] = "✘", --
-      [sign.WARN] = "", --   warn = '▲',
+      [sign.WARN] = "", --   warn = '▲',    
       [sign.INFO] = "⚑", -- info = '»' 𝓳 󰙎
     },
   },

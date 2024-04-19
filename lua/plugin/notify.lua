@@ -1,45 +1,40 @@
-
 local function notify_output(command, opts)
-  local output = ""
-  local notification
-  local notify = function(msg, level)
-    local notify_opts = vim.tbl_extend(
-      "keep",
-      opts or {},
-      { title = table.concat(command, " "), replace = notification }
-    )
-    notification = vim.notify(msg, level, notify_opts)
-  end
-  local on_data = function(_, data)
-    output = output .. table.concat(data, "\n")
-    notify(output, "info")
-  end
-  vim.fn.jobstart(command, {
-    on_stdout = on_data,
-    on_stderr = on_data,
-    on_exit = function(_, code)
-      if #output == 0 then
-        notify("No output of command, exit code: " .. code, "warn")
-      end
-    end,
-  })
+	local output = ""
+	local notification
+	local notify = function(msg, level)
+		local notify_opts =
+			vim.tbl_extend("keep", opts or {}, { title = table.concat(command, " "), replace = notification })
+		notification = vim.notify(msg, level, notify_opts)
+	end
+	local on_data = function(_, data)
+		output = output .. table.concat(data, "\n")
+		notify(output, "info")
+	end
+	vim.fn.jobstart(command, {
+		on_stdout = on_data,
+		on_stderr = on_data,
+		on_exit = function(_, code)
+			if #output == 0 then
+				notify("No output of command, exit code: " .. code, "warn")
+			end
+		end,
+	})
 end
 -- Utility functions shared between progress reports for LSP and DAP
 
 local client_notifs = {}
 
 local function get_notif_data(client_id, token)
- if not client_notifs[client_id] then
-   client_notifs[client_id] = {}
- end
+	if not client_notifs[client_id] then
+		client_notifs[client_id] = {}
+	end
 
- if not client_notifs[client_id][token] then
-   client_notifs[client_id][token] = {}
- end
+	if not client_notifs[client_id][token] then
+		client_notifs[client_id][token] = {}
+	end
 
- return client_notifs[client_id][token]
+	return client_notifs[client_id][token]
 end
-
 
 -- local spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
 --
@@ -84,7 +79,7 @@ end
 --
 --  local notif_data = get_notif_data(client_id, result.token)
 
- -- if val.kind == "begin" then
+-- if val.kind == "begin" then
 --    local message = format_message(val.message, val.percentage)
 --
 --    notif_data.notification = vim.notify(message, "info", {
@@ -115,30 +110,40 @@ end
 
 -- table from lsp severity to vim severity.
 local severity = {
-  "error",
-  "warn",
-  "info",
-  "hint", -- map both hint and info to info?
+	"error",
+	"warn",
+	"info",
+	"hint", -- map both hint and info to info?
 }
 vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
-             vim.notify(method.message, severity[params.type])
+	vim.notify(method.message, severity[params.type])
 end
---
-
-
-
-
-
-
-
-
 
 local notify = require("notify")
 
 notify.setup({
-  stages = "fade_in_slide_out",
-  -- max_width = "100",
+	background_colour = "NotifyBackground",
+	fps = 60,
+	stages = "fade_in_slide_out",
+	icons = {
+		DEBUG = "",
+		ERROR = "",
+		INFO = "",
+		TRACE = "✎",
+		WARN = "",
+	},
+	level = 2,
+	minimum_width = 50,
+	-- render = "default",
+	render = "wrapped-compact",
+	stages = "fade_in_slide_out",
+	time_formats = {
+		notification = "%T",
+		notification_history = "%FT%T",
+	},
+	timeout = 5000,
+	top_down = true,
+	max_width = 50,
+	max_height = 20,
 })
-
 vim.notify = notify
--- vim.api.nvim_set_keymap("n", "<leader>p", "", { callback = notify.dismiss, silent = true })

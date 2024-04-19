@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
+local hl = vim.api.nvim_set_hl
 
 autocmd({"TextYankPost"}, {
     command = "lua vim.highlight.on_yank {timeout=700}"
@@ -54,7 +55,8 @@ autocmd("User", {
 --resize windows when Vim's window size changes
 --also keeps the split window sizes when terminal exits
 autocmd({ "VimResized" }, { --TermLeave?
-  command = "lua require('bufresize').resize()",
+  -- command = "lua require('bufresize').resize()",
+  command = "wincmd =",
 })
 
 -- when terminal is opened, do not alter split size of other buffers and set keymaps to quit
@@ -63,8 +65,8 @@ autocmd({"TermOpen"},{
   callback = function ()
     local opt = vim.opt_local
 
-    require("bufresize").block_register()
-    require("bufresize").resize_open()
+    -- require("bufresize").block_register()
+    -- require("bufresize").resize_open()
     map({"t"}, "<C-q>", "exit<CR>", {silent = true, desc = "Quit terminal", buffer = 0}) -- buffer = 0, use in current buffer
     map({"n"}, "<C-q>", "Aexit<CR>", { desc = "Quit terminal", buffer = 0})
 
@@ -88,8 +90,8 @@ autocmd({"TermOpen"},{
 autocmd({"TermClose"}, {
   pattern = "term://*",
   callback = function ()
-    require("bufresize").block_register()
-    require("bufresize").resize_close()
+    -- require("bufresize").block_register()
+    -- require("bufresize").resize_close()
 
     if vim.bo.filetype == "toggleterm" then
     else
@@ -119,4 +121,26 @@ autocmd("LspAttach", {
     map("n", "]d", vim.diagnostic.goto_next, {desc = "Goto next Diagnostic", buffer = event.buf})
     map("n", "ga", vim.lsp.buf.code_action, {desc = "Goto code Action", buffer = event.buf})
   end,
+})
+
+autocmd("Filetype", {
+  desc = "Disable Cursorline for Telescope",
+  pattern = "TelescopePrompt",
+  command = "setlocal nocursorline"
+})
+
+-- Fixes issue (that seems to appear on windows 11) when wezterm is used with nvim and noice.nvim cmdline is used
+-- Cursor changes from the used cursor color in wezterm to white upon exiting noice.nvim's cmdline
+-- (Does not happen when noice.nvim is not loaded) (`:verbose set guicursor` returns "guicursor=a:NoiceHiddenCursor Last set from Lua")
+autocmd("CmdlineLeave", {
+  callback = function ()
+    hl(0, 'NoiceHiddenCursor', {link = "Cursor"})
+  end
+})
+
+autocmd("CmdlineEnter", {
+  callback = function ()
+    -- set the default hl from noice.nvim
+    vim.cmd([[hi NoiceHiddenCursor cterm=nocombine gui=nocombine blend=100]])
+  end
 })

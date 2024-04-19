@@ -119,18 +119,18 @@ return {
     end,
   },
 
-  {
-    "karb94/neoscroll.nvim",
-    -- event = {"BufReadPre", "BufAdd"},
-    keys = { 
-      { "<C-d>", desc = "Neoscroll down" },
-      { "<C-u>", desc = "Neoscroll up" },
-    },
-    config = function ()
-      require("plugin.neoscroll")
-    end,
-    lazy = true,
-  },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   -- event = {"BufReadPre", "BufAdd"},
+  --   keys = { 
+  --     { "<C-d>", desc = "Neoscroll down" },
+  --     { "<C-u>", desc = "Neoscroll up" },
+  --   },
+  --   config = function ()
+  --     require("plugin.neoscroll")
+  --   end,
+  --   lazy = true,
+  -- },
 
   {
     "RRethy/vim-illuminate",

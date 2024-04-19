@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
+local hl = vim.api.nvim_set_hl
 
 autocmd({"TextYankPost"}, {
     command = "lua vim.highlight.on_yank {timeout=700}"
@@ -126,4 +127,20 @@ autocmd("Filetype", {
   desc = "Disable Cursorline for Telescope",
   pattern = "TelescopePrompt",
   command = "setlocal nocursorline"
+})
+
+-- Fixes issue (that seems to appear on windows 11) when wezterm is used with nvim and noice.nvim cmdline is used
+-- Cursor changes from the used cursor color in wezterm to white upon exiting noice.nvim's cmdline
+-- (Does not happen when noice.nvim is not loaded) (`:verbose set guicursor` returns "guicursor=a:NoiceHiddenCursor Last set from Lua")
+autocmd("CmdlineLeave", {
+  callback = function ()
+    hl(0, 'NoiceHiddenCursor', {link = "Cursor"})
+  end
+})
+
+autocmd("CmdlineEnter", {
+  callback = function ()
+    -- set the default hl from noice.nvim
+    vim.cmd([[hi NoiceHiddenCursor cterm=nocombine gui=nocombine blend=100]])
+  end
 })

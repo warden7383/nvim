@@ -19,9 +19,9 @@ map("v", ">", ">gv", { desc = "Stay in visual mode, indent right", silent = true
 map('n', 'J', 'mzJ`z:delmarks z<cr>', {desc = "keep cursor position when joining code", silent = true})
 
 --Center scrolling (neoscroll override)
-map("n", "<C-u>", "<C-u>zz", {})
+map("n", "<C-u>", "<C-u>zz", {desc = "Center scroll up"})
 -- map("n", "<C-u>", "<C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>", {}) -- smooth scrolling. (see tips.txt)
-map("n", "<C-d>", "<C-d>zz", {})
+map("n", "<C-d>", "<C-d>zz", {desc = "Center scroll down"})
 -- map("n", "<C-d>", "<C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>", {})
 map("n", "<C-b>", "<C-b>zz", {})
 map("n", "<C-f>", "<C-f>zz", {})

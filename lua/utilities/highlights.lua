@@ -44,12 +44,6 @@ api(0, 'DiagnosticVirtualTextWarn', {bg = "NONE", fg = "#e0af68", italic = true}
 api(0, 'DiagnosticVirtualTextHint', {bg = "NONE", fg = "#1abc9c", italic = true})
 api(0, 'DiagnosticVirtualTextError', {bg = "NONE", fg = "#db4b4b", italic = true}) -- #ed8796  #db4b4b (default)
 
--- api(0, 'DiagnosticVirtualTextInfo', {bg = "NONE" })
--- api(0, 'DiagnosticVirtualTextWarn', {bg = "NONE" })
--- api(0, 'DiagnosticVirtualTextHint', {bg = "NONE" })
--- api(0, 'DiagnosticVirtualTextError', {bg = "NONE"})
-
-
 
 api(0, 'TelescopePromptBorder', {link = "TelescopeBorder"})
 api(0, 'TelescopeBorder', { fg = "#363a4f" }) -- #80b7ff

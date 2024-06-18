@@ -56,14 +56,14 @@ return {
     -- lazy = true,
   },
 
-  {
-    'numToStr/Comment.nvim',
-    event = {"BufReadPre", "BufAdd"},
-    config = function()
-      require('Comment').setup()
-    end,
-    lazy = true,
-  },
+  -- { -- testing the builtin (mini.comment) that was implemented into v0.10
+  --   'numToStr/Comment.nvim',
+  --   event = {"BufReadPre", "BufAdd"},
+  --   config = function()
+  --     require('Comment').setup()
+  --   end,
+  --   lazy = true,
+  -- },
 
   {
     'JoosepAlviste/nvim-ts-context-commentstring',

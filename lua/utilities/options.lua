@@ -80,6 +80,7 @@ opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]]
 opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- opt.smoothscroll = true -- 04-09-2024: not working?
 -- opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})
+opt.foldtext = ""
 opt.fillchars = {
   foldopen = "",
   foldclose = "",
@@ -89,6 +90,8 @@ opt.fillchars = {
   -- diff = "╱",
   eob = " ",
 }
+opt.grepformat = "%f:%l:%c:%m"
+opt.grepprg = "rg --vimgrep"
 vim.opt.clipboard = 'unnamedplus'
   -- listchars=tab:> ,trail:-,nbsp:+
 -- opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,winsize,options" --each word enables saving and restoring something -- WARN: cursor disappears/creates a ton of weird buffers indicating path does not exist?

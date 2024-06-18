@@ -15,7 +15,7 @@ require("nvim-treesitter.configs").setup({
 		"sql",
 		"bash",
 		"php",
-		"comment",
+		-- "comment", slow on large files of any language
 		"diff",
 		--"dtd",  supports both xml and dtd files for highlighting?
 		"jq",

@@ -8,23 +8,23 @@ local osName = vim.uv.os_uname().sysname
 
 -- Sets the following options to start as powershell for windows users
 if osName == "Windows_NT" then
-  local powershell_options = {
-    shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
-    shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-    shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-    shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-    shellquote = "",
-    shellxquote = "",
-  }
+	local powershell_options = {
+		shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
+		shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+		shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+		shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+		shellquote = "",
+		shellxquote = "",
+	}
 
-  for option, value in pairs(powershell_options) do
-    vim.opt[option] = value
-  end
+	for option, value in pairs(powershell_options) do
+		vim.opt[option] = value
+	end
 elseif osName == "Darwin" then
 else
 end
 
--- vim-waka api key: if you get a new key, find your wakatime.cfg file and replace the api key if the 
+-- vim-waka api key: if you get a new key, find your wakatime.cfg file and replace the api key if the
 -- WakaTimeAPI.... throws 104 incorrect api key. (very likely the .cfg file is appending the api key instead of)
 -- replacing it
 -- windows 10/11 .wakatime.cfg file location: ~/wakatime.cfg (aka, C:\Users\YOUR_USERNAME\.wakatime.cfg) (see example below)
@@ -63,65 +63,65 @@ opt.expandtab = true
 opt.scrolloff = 8 -- check this
 opt.sidescrolloff = 8 -- als chehck this
 opt.numberwidth = 4
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 opt.ignorecase = true
 opt.cursorline = true
 opt.smartcase = true
 opt.autoindent = true
 opt.number = true
 opt.relativenumber = true
-opt.encoding = 'utf-8' -- encoding, fileencoding, mousemovement, numbers, wrap may not be converted to lua
-opt.fileencoding = 'utf-8'
+opt.encoding = "utf-8" -- encoding, fileencoding, mousemovement, numbers, wrap may not be converted to lua
+opt.fileencoding = "utf-8"
 opt.mousemoveevent = true
 opt.wrap = false
 opt.pumheight = 8
 opt.confirm = true
 opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]]
-opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- opt.smoothscroll = true -- 04-09-2024: not working?
 -- opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})
 opt.foldtext = ""
 opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  -- fold = "⸱",
-  fold = " ",
-  foldsep = " ",
-  -- diff = "╱",
-  eob = " ",
+	foldopen = "",
+	foldclose = "",
+	-- fold = "⸱",
+	fold = " ",
+	foldsep = " ",
+	-- diff = "╱",
+	eob = " ",
 }
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
-vim.opt.clipboard = 'unnamedplus'
-  -- listchars=tab:> ,trail:-,nbsp:+
+vim.opt.clipboard = "unnamedplus"
+-- listchars=tab:> ,trail:-,nbsp:+
 -- opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,winsize,options" --each word enables saving and restoring something -- WARN: cursor disappears/creates a ton of weird buffers indicating path does not exist?
 -- opt.laststatus = 3
 -- opt.clipboard=unnamedplus; -- does not allow to copy to system clipboard
 -- vim.cmd([[
---    set clipboard+=unnamedplus 
+--    set clipboard+=unnamedplus
 --]])
 
 ------Floating diagnostics message ----
 vim.diagnostic.config({
-  virtual_text = {
-    severity = {
-      min = vim.diagnostic.severity.ERROR
-    }, -- 󰝥    󱓻 ◼  ◼️ ■
-    prefix = "",
-  },
-  underline = false,
-  signs = {
-    text = {
-      [sign.HINT] = "", --   hint = '⚑',󰛨
-      [sign.ERROR] = "✘", --
-      [sign.WARN] = "", --   warn = '▲',    
-      [sign.INFO] = "⚑", -- info = '»' 𝓳 󰙎
-    },
-  },
-  float = {
-    border = "rounded",
-  },
-}) 
+	virtual_text = {
+		severity = {
+			min = vim.diagnostic.severity.ERROR,
+		}, -- 󰝥    󱓻 ◼  ◼️ ■
+		prefix = "",
+	},
+	underline = false,
+	signs = {
+		text = {
+			[sign.HINT] = "", --   hint = '⚑',󰛨
+			[sign.ERROR] = "✘", --
+			[sign.WARN] = "", --   warn = '▲',    
+			[sign.INFO] = "⚑", -- info = '»' 𝓳 󰙎
+		},
+	},
+	float = {
+		border = "rounded",
+	},
+})
 -- diagnostics = {
 -- 			Error = '✘', --   ✘
 -- 			Warn  = '󰀪', --  󰀪 ▲󰳤 󱗓 

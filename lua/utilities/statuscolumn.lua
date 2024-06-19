@@ -1,4 +1,6 @@
--- NOTE: all credits goes to folke's LazyVim/lua/lazyvim/util /ui.lua
+-- NOTE: all credits goes to folke's LazyVim/lua/lazyvim/util/ui.lua
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/util/ui.lua#L171
+
 ---@class lazyvim.util.ui
 local M = {}
 
@@ -26,21 +28,37 @@ function M.get_signs(buf, lnum)
 	end
 
 	-- Get extmark signs
-	local extmarks = vim.api.nvim_buf_get_extmarks(
-		buf,
-		-1,
-		{ lnum - 1, 0 },
-		{ lnum - 1, -1 },
-		{ details = true, type = "sign" }
-	)
-	for _, extmark in pairs(extmarks) do
-		signs[#signs + 1] = {
-			name = extmark[4].sign_hl_group or "",
-			text = extmark[4].sign_text,
-			texthl = extmark[4].sign_hl_group,
-			priority = extmark[4].priority,
-		}
-	end
+	-- local extmarks = vim.api.nvim_buf_get_extmarks(
+	-- 	buf,
+	-- 	-1,
+	-- 	{ lnum - 1, 0 },
+	-- 	{ lnum - 1, -1 },
+	-- 	{ details = true, type = "sign" }
+	-- )
+	-- for _, extmark in pairs(extmarks) do
+	-- 	signs[#signs + 1] = {
+	-- 		name = extmark[4].sign_hl_group or "",
+	-- 		text = extmark[4].sign_text,
+	-- 		texthl = extmark[4].sign_hl_group,
+	-- 		priority = extmark[4].priority,
+	-- 	}
+	-- end
+
+  local extmarks = vim.api.nvim_buf_get_extmarks(
+    buf,
+    -1,
+    { lnum - 1, 0 },
+    { lnum - 1, -1 },
+    { details = true, type = "sign" }
+  )
+  for _, extmark in pairs(extmarks) do
+    signs[#signs + 1] = {
+      name = extmark[4].sign_hl_group or extmark[4].sign_name or "",
+      text = extmark[4].sign_text,
+      texthl = extmark[4].sign_hl_group,
+      priority = extmark[4].priority,
+    }
+  end
 
 	-- Sort by priority
 	table.sort(signs, function(a, b)
@@ -79,7 +97,7 @@ function M.foldtext()
 	if not ret or type(ret) == "string" then
 		ret = { { vim.api.nvim_buf_get_lines(0, vim.v.lnum - 1, vim.v.lnum, false)[1], {} } }
 	end
-	table.insert(ret, { " " .. require("lazyvim.config").icons.misc.dots })
+	table.insert(ret, { " " .. "󰇘" })
 
 	if not vim.treesitter.foldtext then
 		return table.concat(
@@ -100,29 +118,63 @@ function M.statuscolumn()
 
 	local components = { "", "", "" } -- left, middle, right
 
-	if show_signs then
-		---@type Sign?,Sign?,Sign?
-		local left, right, fold
-		for _, s in ipairs(M.get_signs(buf, vim.v.lnum)) do
-			if s.name and s.name:find("GitSign") then
-				right = s
-			else
-				left = s
-			end
-		end
-		if vim.v.virtnum ~= 0 then
-			left = nil
-		end
-		vim.api.nvim_win_call(win, function()
-			if vim.fn.foldclosed(vim.v.lnum) >= 0 then
-				fold = { text = vim.opt.fillchars:get().foldclose or "", texthl = "Folded" }
-			end
-		end)
-		-- Left: mark or non-git sign
-		components[1] = M.icon(M.get_mark(buf, vim.v.lnum) or left)
-		-- Right: fold icon or git sign (only if file)
-		components[3] = is_file and M.icon(fold or right) or ""
-	end
+	-- if show_signs then
+	-- 	---@type Sign?,Sign?,Sign?
+	-- 	local left, right, fold
+	-- 	for _, s in ipairs(M.get_signs(buf, vim.v.lnum)) do
+	-- 		if s.name and s.name:find("GitSign") then
+	-- 			right = s
+	-- 		else
+	-- 			left = s
+	-- 		end
+	-- 	end
+	-- 	if vim.v.virtnum ~= 0 then
+	-- 		left = nil
+	-- 	end
+	-- 	vim.api.nvim_win_call(win, function()
+	-- 		if vim.fn.foldclosed(vim.v.lnum) >= 0 then
+	-- 			fold = { text = vim.opt.fillchars:get().foldclose or "", texthl = "Folded" }
+	-- 		end
+	-- 	end)
+	-- 	-- Left: mark or non-git sign
+	-- 	components[1] = M.icon(M.get_mark(buf, vim.v.lnum) or left)
+	-- 	-- Right: fold icon or git sign (only if file)
+	-- 	components[3] = is_file and M.icon(fold or right) or ""
+	-- end
+
+  if show_signs then
+    local signs = M.get_signs(buf, vim.v.lnum)
+
+    ---@type Sign?,Sign?,Sign?
+    local left, right, fold, githl
+    for _, s in ipairs(signs) do
+      if s.name and (s.name:find("GitSign") or s.name:find("MiniDiffSign")) then
+        right = s
+        if use_githl then
+          githl = s["texthl"]
+        end
+      else
+        left = s
+      end
+    end
+
+    vim.api.nvim_win_call(win, function()
+      if vim.fn.foldclosed(vim.v.lnum) >= 0 then
+        fold = { text = vim.opt.fillchars:get().foldclose or "", texthl = githl or "Folded" }
+      elseif
+        show_open_folds
+        and not LazyVim.ui.skip_foldexpr[buf]
+        and vim.treesitter.foldexpr(vim.v.lnum):sub(1, 1) == ">"
+      then -- fold start
+        fold = { text = vim.opt.fillchars:get().foldopen or "", texthl = githl }
+      end
+    end)
+    -- Left: mark or non-git sign
+    components[1] = M.icon(M.get_mark(buf, vim.v.lnum) or left)
+    -- Right: fold icon or git sign (only if file)
+    components[3] = is_file and M.icon(fold or right) or ""
+  end
+
 
 	-- Numbers in Neovim are weird
 	-- They show when either number or relativenumber is true
@@ -161,14 +213,41 @@ function M.statuscolumn()
 	return table.concat(components, "")
 end
 
+-- function M.fg(name)
+-- 	---@type {foreground?:number}?
+-- 	---@diagnostic disable-next-line: deprecated
+-- 	local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name })
+-- 		or vim.api.nvim_get_hl_by_name(name, true)
+-- 	---@diagnostic disable-next-line: undefined-field
+-- 	local fg = hl and (hl.fg or hl.foreground)
+-- 	return fg and { fg = string.format("#%06x", fg) } or nil
+-- end
+
+---@return {fg?:string}?
 function M.fg(name)
-	---@type {foreground?:number}?
-	---@diagnostic disable-next-line: deprecated
-	local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name })
-		or vim.api.nvim_get_hl_by_name(name, true)
-	---@diagnostic disable-next-line: undefined-field
-	local fg = hl and (hl.fg or hl.foreground)
-	return fg and { fg = string.format("#%06x", fg) } or nil
+  local color = M.color(name)
+  return color and { fg = color } or nil
+end
+
+---@param name string
+---@param bg? boolean
+---@return string?
+function M.color(name, bg)
+  ---@type {foreground?:number}?
+  ---@diagnostic disable-next-line: deprecated
+  local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name, link = false })
+    or vim.api.nvim_get_hl_by_name(name, true)
+  ---@diagnostic disable-next-line: undefined-field
+  ---@type string?
+  local color = nil
+  if hl then
+    if bg then
+      color = hl.bg or hl.background
+    else
+      color = hl.fg or hl.foreground
+    end
+  end
+  return color and string.format("#%06x", color) or nil
 end
 
 M.skip_foldexpr = {} ---@type table<number,boolean>

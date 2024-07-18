@@ -138,15 +138,6 @@ return {
     end,
     event = { "WinNew" },
   },
-
-  -- { 
-  --   "kwkarlwang/bufresize.nvim",
-  --  lazy = true,
-  --  config = function()
-  --    require("plugin.bufresize")
-  --  end,
-  -- },
-
 }
 
 

@@ -135,7 +135,7 @@ notify.setup({
 	level = 2,
 	minimum_width = 50,
 	-- render = "default",
-	render = "wrapped-compact",
+	render = "default",
 	stages = "fade_in_slide_out",
 	time_formats = {
 		notification = "%T",

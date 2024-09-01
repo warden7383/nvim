@@ -59,9 +59,12 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 		include_match_words = true,
 	},
-	autotag = {
-		enable = true,
-	},
+
+  -- NOTE: depreciated (see nvim ts autotag plugin)
+	-- autotag = {
+	-- 	enable = true,
+	-- },
+
 	-- indent = {
 	--     enable = true
 	-- },

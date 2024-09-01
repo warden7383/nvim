@@ -37,10 +37,11 @@ return {
     build = 'make'
   },
 
-  --FIX does not work
+  --Nvim Treesitter Setup is deprecated, use `require('nvim-ts-autotag').setup()` instead.
+  -- Feature will be removed in nvim-ts-autotag 1.0.0
   {
     "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
+    event = "InsertEnter", --from docs, the known methods to lazyload this is BufReadPre BufNewFile
     config = function()
       require("nvim-ts-autotag").setup()
     end,

@@ -26,7 +26,7 @@ local lsp = {
 	"yamlls",
 }
 
-require("neodev").setup({})
+-- require("neodev").setup({})
 
 local handlers = {
 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),

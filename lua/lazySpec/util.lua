@@ -156,7 +156,9 @@ return {
   {
     'stevearc/conform.nvim',
     -- opts = {},
-    event = {"BufReadPre", "BufAdd"},
+    -- event = {"BufReadPre", "BufAdd"},
+    event = {"BufWritePre"}, -- Recommended by conform docs
+    cmd = {"ConformInfo"},
     config = function ()
       require("plugin.conform")
     end,

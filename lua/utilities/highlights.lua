@@ -29,34 +29,34 @@
 local api = vim.api.nvim_set_hl
 
 --line column
-api(0, 'LineNrAbove', { fg = '#8087a2', bold = true })
-api(0, 'LineNr', { fg = '#8087a2', bold = true })
-api(0, 'CursorLineNr', { fg = '#c6a0f6', bold = true }) -- #eed49f
-api(0, 'LineNrBelow', { fg = '#8087a2', bold = true })  --#FB508F #80bd9c #68ded8 #f5d3ba
-api(0, 'WinSeparator', { fg = '#8aadf4', bold = true }) --#FB508F #80bd9c #68ded8 #f5d3ba
-api(0, 'SignColumn', { fg = '#8aadf4', bold = true })
+api(0, "LineNrAbove", { fg = "#8087a2", bold = true })
+api(0, "LineNr", { fg = "#8087a2", bold = true })
+api(0, "CursorLineNr", { fg = "#c6a0f6", bold = true }) -- #eed49f
+api(0, "LineNrBelow", { fg = "#8087a2", bold = true }) --#FB508F #80bd9c #68ded8 #f5d3ba
+api(0, "WinSeparator", { fg = "#8aadf4", bold = true }) --#FB508F #80bd9c #68ded8 #f5d3ba
+api(0, "SignColumn", { fg = "#8aadf4", bold = true })
 
-api(0, 'FloatBorder', {fg = '#363a4f'})
+api(0, "FloatBorder", { fg = "#363a4f" })
 
 -- remove background from diagnostic virtual messages and set italic
-api(0, 'DiagnosticVirtualTextInfo', {bg = "NONE", fg = "#0db9d7", italic = true})
-api(0, 'DiagnosticVirtualTextWarn', {bg = "NONE", fg = "#e0af68", italic = true})
-api(0, 'DiagnosticVirtualTextHint', {bg = "NONE", fg = "#1abc9c", italic = true})
-api(0, 'DiagnosticVirtualTextError', {bg = "NONE", fg = "#db4b4b", italic = true}) -- #ed8796  #db4b4b (default)
+api(0, "DiagnosticVirtualTextInfo", { bg = "NONE", fg = "#0db9d7", italic = true })
+api(0, "DiagnosticVirtualTextWarn", { bg = "NONE", fg = "#e0af68", italic = true })
+api(0, "DiagnosticVirtualTextHint", { bg = "NONE", fg = "#1abc9c", italic = true })
+api(0, "DiagnosticVirtualTextError", { bg = "NONE", fg = "#db4b4b", italic = true }) -- #ed8796  #db4b4b (default)
 
 -- Indent blankline
-api(0, 'IblScope', {fg = "#c6a0f6"})
+api(0, "IblScope", { fg = "#c6a0f6" })
 
-api(0, 'TelescopePromptBorder', {link = "TelescopeBorder"})
-api(0, 'TelescopeBorder', { fg = "#363a4f" }) -- #80b7ff
-api(0, 'TelescopePromptTitle', {bg = "#8bd5ca", fg = "#1e2030", bold = true})
-api(0, 'TelescopeResultsTitle', {bg = "#7dc4e4", fg = "#1e2030", bold = true})
-api(0, 'TelescopePreviewTitle', {bg = "#ee99a0", fg = "#1e2030", bold = true})
-api(0, 'TelescopePromptCounter', {fg = "#b7bdf8", bold = true})
-api(0, 'TelescopeSelection', {bg = "#363a4f"})
+api(0, "TelescopePromptBorder", { link = "TelescopeBorder" })
+api(0, "TelescopeBorder", { fg = "#363a4f" }) -- #80b7ff
+api(0, "TelescopePromptTitle", { bg = "#8bd5ca", fg = "#1e2030", bold = true })
+api(0, "TelescopeResultsTitle", { bg = "#7dc4e4", fg = "#1e2030", bold = true })
+api(0, "TelescopePreviewTitle", { bg = "#ee99a0", fg = "#1e2030", bold = true })
+api(0, "TelescopePromptCounter", { fg = "#b7bdf8", bold = true })
+api(0, "TelescopeSelection", { bg = "#363a4f" })
 
-api(0, 'IncSearch', { bg = "#f5a97f", fg = "#24273a" })
-api(0, 'Search', { bg = "#b5a5fa", fg = "#24273a" })
+api(0, "IncSearch", { bg = "#f5a97f", fg = "#24273a" })
+api(0, "Search", { bg = "#b5a5fa", fg = "#24273a" })
 ------------------------------CMP Highlights ---------------------------------------------------------
 -- Customization for Pmenu
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#8bd5ca", fg = "#1e2030", bold = true }) --DEFAULT: bg = "#282C34", fg = "NONE" #29a4bd
@@ -125,15 +125,15 @@ highlight link NotifyDEBUGBody Normal
 highlight link NotifyTRACEBody Normal
 ]])
 
-api(0, 'WinBar', { bg = "NONE", fg = "#a9b1d6" })   -- used for dropbar.nvim
-api(0, 'WinBarNC', { bg = "NONE", fg = "#3b4261" }) -- used for dropbar.nvim
+api(0, "WinBar", { bg = "NONE", fg = "#a9b1d6" }) -- used for dropbar.nvim
+api(0, "WinBarNC", { bg = "NONE", fg = "#3b4261" }) -- used for dropbar.nvim
 
 --------------------Illuminate------------------------------
-vim.cmd [[hi illuminatedWord gui=underline guibg=NONE]]
-vim.cmd [[hi illuminatedWordWrite gui=underline guibg=NONE]]
-vim.cmd [[hi illuminatedWordText gui=underline guibg=NONE]]
-vim.cmd [[hi illuminatedWordRead gui=underline guibg=NONE]]
-vim.cmd [[hi illuminatedCurWord gui=underline guibg=NONE]]
+vim.cmd([[hi illuminatedWord gui=underline guibg=NONE]])
+vim.cmd([[hi illuminatedWordWrite gui=underline guibg=NONE]])
+vim.cmd([[hi illuminatedWordText gui=underline guibg=NONE]])
+vim.cmd([[hi illuminatedWordRead gui=underline guibg=NONE]])
+vim.cmd([[hi illuminatedCurWord gui=underline guibg=NONE]])
 
 -- api(0, 'DiffAdd', {bg="#8bd5ca"})
 -- api(0, 'DiffText', bg=)
@@ -141,23 +141,23 @@ vim.cmd [[hi illuminatedCurWord gui=underline guibg=NONE]]
 -- api(0, 'DiffDelete', bg=)
 
 --overwritten by terminal cursor settings first
-api(0, 'CursorIM', { fg = "#24283b", bg = "#c6a0f6" })
-api(0, 'Cursor', { fg = "#24283b", bg = "#c6a0f6" })
-api(0, 'lCursor', { fg = "#24283b", bg = "#c6a0f6" })
-api(0, 'TermCursor', {fg = "#24283b", bg = "#c6a0f6"  })
+api(0, "CursorIM", { fg = "#24283b", bg = "#c6a0f6" })
+api(0, "Cursor", { fg = "#24283b", bg = "#c6a0f6" })
+api(0, "lCursor", { fg = "#24283b", bg = "#c6a0f6" })
+api(0, "TermCursor", { fg = "#24283b", bg = "#c6a0f6" })
 
-api(0, 'ScrollViewCursor', { fg = "#c6a0f6", bg = "#c6a0f6" })
+api(0, "ScrollViewCursor", { fg = "#c6a0f6", bg = "#c6a0f6" })
 
 ----Alpha (landing page)
-api(0, 'AlphaHeader', { fg = "#5eb9ff" }) -- #7dc4e4 #5eb9ff
-api(0, 'AlphaButtons', { fg = "#8bd5ca", bg = "" })
-api(0, 'AlphaShortcut', { fg = "#ed8796", bg = "" })
-api(0, 'AlphaFooter', { fg = "#c6a0f6", bg = "" })
+api(0, "AlphaHeader", { fg = "#5eb9ff" }) -- #7dc4e4 #5eb9ff
+api(0, "AlphaButtons", { fg = "#8bd5ca", bg = "" })
+api(0, "AlphaShortcut", { fg = "#ed8796", bg = "" })
+api(0, "AlphaFooter", { fg = "#c6a0f6", bg = "" })
 
 -----Incline
-api(0, 'InclineNormal', { fg = "#181926", bg = "#c6a0f6" })
-api(0, 'InclineNormalNC', { fg = "#363a4f", bg = "#8aadf4" })
+api(0, "InclineNormal", { fg = "#181926", bg = "#c6a0f6" })
+api(0, "InclineNormalNC", { fg = "#363a4f", bg = "#8aadf4" })
 
 ----Flash.nvim
-api(0, 'FlashLabel', { bg = "#ed8796", fg = "#181926", italic = true }) --#ee99a0 #f5bde6 #ed8796 #f4dbd6
-api(0, 'FlashMatch', { bg = "#cad3f5", fg = "#181926" })                --#ee99a0 #f5bde6 #ed8796
+api(0, "FlashLabel", { bg = "#ed8796", fg = "#181926", italic = true }) --#ee99a0 #f5bde6 #ed8796 #f4dbd6
+api(0, "FlashMatch", { bg = "#cad3f5", fg = "#181926" }) --#ee99a0 #f5bde6 #ed8796

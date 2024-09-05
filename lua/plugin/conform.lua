@@ -1,7 +1,3 @@
--- local data = vim.fn.stdpath("data") .. "/mason/bin/stylua"
--- print(data)
-
--- stylua ready (lua) C:\Users\Andrew Ng\AppData\Local\nvim-data\mason\bin\stylua.CMD
 require("conform").setup({
 	log_level = vim.log.levels.DEBUG,
 	formatters_by_ft = {
@@ -29,10 +25,6 @@ require("conform").setup({
 			-- NOTE: explosing the formatter to the .exe while adding the formatter to the system
 			-- PATH seems to help instead of just exposing conform to the "stylua" command
 			command = "stylua.exe",
-
-			-- command = "C:\\Users\\'Andrew Ng'\\AppData\\Local\\nvim-data\\mason\\packages\\stylua\\stylua.exe",
-			-- WARN: spaces in directorys must be escaped with quotes
-			-- command = 'C:/Users/\'Andrew Ng\'/AppData/Local/nvim-data/mason/packages/stylua/stylua.exe',
 		},
 		clang_format = {
 			command = "clang-format",

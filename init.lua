@@ -23,6 +23,6 @@ require("lazy").setup("lazySpec", lazyconfig) --"lazytest"
 
 require("utilities.autocommands")
 
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme tokyonight-night]])
 
 require("utilities.highlights")

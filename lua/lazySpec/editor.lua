@@ -268,4 +268,13 @@ return {
 			require("plugin.harpoon")
 		end,
 	},
+
+	{
+		"otavioschwanck/arrow.nvim",
+		lazy = true,
+		event = { "BufReadPre", "BufAdd" },
+		config = function()
+			require("plugin.arrow")
+		end,
+	},
 }

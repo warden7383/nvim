@@ -12,6 +12,13 @@ local function lspStatus ()
   return name
 end
 
+-- For markdown or txt files to get wordcount (maybe get the characters too next?)
+-- TODO: get characters as well and put into lualine for .md an .txt files?
+function wordCount()
+  local x = vim.fn.wordcount()
+  print(x.words)
+end
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,

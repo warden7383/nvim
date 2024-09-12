@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local filetype = require("mason-lspconfig.mappings.filetype")
 
 -- sets the 'LspInfo' ui to have rounded borders (and possibly other things?)
 require("lspconfig.ui.windows").default_options.border = "rounded"
@@ -22,6 +23,7 @@ local lsp = {
 	"pyright",
 	"sqlls",
 	--"svelte",
+	"textlsp",
 	"lemminx",
 	"yamlls",
 }
@@ -64,4 +66,10 @@ for _, i in ipairs(lsp) do
 		})
 	end
 	-- NOTE: produced offset_encodin warnings for cpp clangd (see below)
+
+	-- if i == "textlsp" then
+	-- 	lspconfig[i].setup({
+	-- 		filetypes = { "text", "markdown", "txt", "md" },
+	-- 	})
+	-- end
 end

@@ -19,6 +19,7 @@ require("mason-lspconfig").setup({
 		"sqlls",
 		--"svelte", not needed yet
 		"lemminx",
+		"textlsp",
 		"yamlls",
 	},
 })

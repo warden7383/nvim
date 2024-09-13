@@ -1,23 +1,25 @@
-local function lspStatus ()
-  local lspName = vim.lsp.get_clients({ bufnr = 0 })
-  local name = ""
-  local icon = " "
+local function lspStatus()
+	local lspName = vim.lsp.get_clients({ bufnr = 0 })
+	local name = ""
+	local icon = " "
 
-  if lspName[1] == nil then
-    name = icon.."No Active LSP"
-  else
-    name = icon..lspName[1].name
-  end
+	if lspName[1] == nil then
+		name = icon .. "No Active LSP"
+	else
+		name = icon .. lspName[1].name
+	end
 
-  return name
+	return name
 end
 
 -- For markdown or txt files to get wordcount (maybe get the characters too next?)
 -- TODO: get characters as well and put into lualine for .md an .txt files?
 function wordCount()
-  local x = vim.fn.wordcount()
-  print(x.words)
+	local x = vim.fn.wordcount()
+	print(x.words)
 end
+
+local function wordStats() end
 
 require("lualine").setup({
 	options = {
@@ -44,8 +46,8 @@ require("lualine").setup({
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { "filename" },
-		lualine_x = { "encoding", "fileformat", "filetype", lspStatus  },
-		lualine_y = { "progress", "selectioncount"},
+		lualine_x = { "encoding", "fileformat", "filetype", lspStatus },
+		lualine_y = { "progress", "selectioncount" },
 		lualine_z = { "location" },
 	},
 	inactive_sections = {

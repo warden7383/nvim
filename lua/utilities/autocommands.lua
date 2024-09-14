@@ -23,17 +23,17 @@ autocmd({"BufEnter"}, {
   callback = function()
     local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
 
-    if string.find(filename, "pwsh;#toggleterm") then
+    if string.find(filename, "pwsh;#toggleterm") or string.find(filename, "zsh;#toggleterm") then
 
-    elseif string.find(filename, "pwsh.EXE") then
+    elseif string.find(filename, "pwsh.EXE") or string.find(filename, "zsh") then
 
     else
       if(string.len(filename) == 0) then
         --gets called in buffers without names, such as alpha and oil
       else
-        vim.cmd([[
-        lcd %:p:h
-        ]])
+        -- vim.cmd([[
+        -- lcd %:p:h
+        -- ]])
       end
     end
   end
@@ -90,9 +90,6 @@ autocmd({"TermOpen"},{
 autocmd({"TermClose"}, {
   pattern = "term://*",
   callback = function ()
-    -- require("bufresize").block_register()
-    -- require("bufresize").resize_close()
-
     if vim.bo.filetype == "toggleterm" then
     else
       require('bufdelete').bufdelete(0, true)

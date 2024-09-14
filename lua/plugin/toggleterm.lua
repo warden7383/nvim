@@ -43,7 +43,13 @@ require("toggleterm").setup({
 
 map("n", "<leader>tt", ":ToggleTerm<CR>", { silent = true })
 map("n", "<leader>ta", ":ToggleTermToggleAll<CR>", { silent = true })
-map("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { silent = true })
+-- map("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { silent = true })
+map("n", "<leader>tf", function ()
+  vim.cmd([[
+  lcd %:p:h
+  ]])
+  vim.cmd([[ToggleTerm direction=float]])
+end, { silent = true })
 map("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", { silent = true })
 map("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", { silent = true })
 map("t", "jk", "<C-\\><C-n>", { desc = "Exit insert mode(Terminal)", silent = true })

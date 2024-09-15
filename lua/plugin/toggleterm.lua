@@ -1,10 +1,16 @@
-local height = math.floor(vim.o.lines - (vim.o.lines * 0.2))
-local width = math.floor(vim.o.columns - (vim.o.columns * 0.2))
-local xCoord = vim.o.lines * 0.1
-local yCoord = vim.o.columns * 0.1
+local window = {}
+
+local function winStats()
+	return {
+		height = math.floor(vim.o.lines - (vim.o.lines * 0.2)),
+		width = math.floor(vim.o.columns - (vim.o.columns * 0.2)),
+		xCoord = vim.o.lines * 0.1,
+		yCoord = vim.o.columns * 0.1,
+	}
+end
 
 local map = vim.keymap.set
--- TODO: config toggle term
+
 require("toggleterm").setup({
 	size = function(term)
 		if term.direction == "horizontal" then
@@ -16,7 +22,6 @@ require("toggleterm").setup({
 	hide_numbers = true,
 	highlights = {
 		Normal = {
-
 			-- guibg = "#24283b"
 		},
 		NormalFloat = {
@@ -32,10 +37,10 @@ require("toggleterm").setup({
 	shading_factor = "30",
 	float_opts = {
 		border = "curved",
-		width = width,
-		height = height,
-		row = xCoord,
-		col = yCoord,
+		width = window.width,
+		height = window.height,
+		row = window.xCoord,
+		col = window.yCoord,
 		winblend = 0,
 		title_pos = "center",
 	},
@@ -43,13 +48,29 @@ require("toggleterm").setup({
 
 map("n", "<leader>tt", ":ToggleTerm<CR>", { silent = true })
 map("n", "<leader>ta", ":ToggleTermToggleAll<CR>", { silent = true })
--- map("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { silent = true })
-map("n", "<leader>tf", function ()
-  vim.cmd([[
+
+map("n", "<leader>tf", function()
+	window = winStats()
+	vim.cmd([[
   lcd %:p:h
+  ToggleTerm direction=float
   ]])
-  vim.cmd([[ToggleTerm direction=float]])
 end, { silent = true })
-map("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", { silent = true })
-map("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", { silent = true })
+
+map("n", "<leader>tv", function()
+	window = winStats()
+	vim.cmd([[
+  lcd %:p:h
+  ToggleTerm direction=vertical
+  ]])
+end, { silent = true })
+
+map("n", "<leader>th", function()
+	window = winStats()
+	vim.cmd([[
+  lcd %:p:h
+  ToggleTerm direction=horizontal
+  ]])
+end, { silent = true })
+
 map("t", "jk", "<C-\\><C-n>", { desc = "Exit insert mode(Terminal)", silent = true })

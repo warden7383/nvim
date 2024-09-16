@@ -19,12 +19,65 @@ function wordCount()
 	print(x.words)
 end
 
-local function wordStats() end
+local function wordStats()
+	local words = vim.fn.wordcount().words
+	local chars = vim.fn.wordcount().chars
+
+	return "󰦨 " .. words .. " 󰀫 " .. chars -- 󰦨   󰀬 󰀫
+end
+
+local function leftMode()
+	return ""
+end
+
+local function fileModified()
+	return ""
+end
+
+local function filename()
+	return {
+		{
+			"filename",
+			file_status = true,
+			symbols = {
+				modified = "",
+				readonly = "[RO]",
+				unnamed = "[No Name]",
+				newfile = "[New]",
+			},
+			separator = "",
+			padding = { left = 1, right = 0 },
+		},
+		{
+			fileModified,
+			cond = function()
+				if vim.bo.modified then
+					return true
+				else
+					return false
+				end
+			end,
+			color = { fg = "#9ece6a" },
+			padding = { left = 0, right = 1 },
+		},
+		-- "filename",
+		-- file_status = true,
+		-- symbols = {
+		-- 	modified = "",
+		-- 	readonly = "[RO]",
+		-- 	unnamed = "[No Name]",
+		-- 	newfile = "[New]",
+		-- },
+	}
+end
+
+local catppuccin = require("utilities.catppuccinLualine")
 
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+		-- theme = "auto",
+		theme = catppuccin,
 		-- component_separators = { left = "", right = "" },
 		component_separators = { left = "|", right = "|" },
 		-- section_separators = { left = "", right = "" },
@@ -43,9 +96,22 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = {
+			{
+				leftMode,
+				separator = "",
+				padding = 0,
+			},
+			{
+				"mode",
+				-- separator = { left = "[[]]", right = "[[]]" },
+				separator = { left = "", right = "" },
+			},
+		},
+
 		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = { "filename" },
+		-- lualine_c = { "filename" },
+		lualine_c = filename(),
 		lualine_x = { "encoding", "fileformat", "filetype", lspStatus },
 		lualine_y = { "progress", "selectioncount" },
 		lualine_z = { "location" },
@@ -53,7 +119,8 @@ require("lualine").setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { "filename" },
+		-- lualine_c = { "filename" },
+		lualine_c = filename(),
 		lualine_x = { "location" },
 		lualine_y = {},
 		lualine_z = {},

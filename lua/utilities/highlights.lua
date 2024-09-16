@@ -163,4 +163,5 @@ api(0, "FlashLabel", { bg = "#ed8796", fg = "#181926", italic = true }) --#ee99a
 api(0, "FlashMatch", { bg = "#cad3f5", fg = "#181926" }) --#ee99a0 #f5bde6 #ed8796
 
 ----Bufferline.nvim (highlights duplicate buffers that have the same filename but the path is different)
-api(0, "BufferLineDuplicateSelected", { bg = "#24273a", fg = "#cad3f5" })
+-- api(0, "BufferLineDuplicateSelected", { bg = "#24273a", fg = "#cad3f5" })
+api(0, "BufferLineDuplicateSelected", { link = "BufferLineBufferSelected" })

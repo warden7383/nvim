@@ -165,3 +165,13 @@ api(0, "FlashMatch", { bg = "#cad3f5", fg = "#181926" }) --#ee99a0 #f5bde6 #ed87
 ----Bufferline.nvim (highlights duplicate buffers that have the same filename but the path is different)
 -- api(0, "BufferLineDuplicateSelected", { bg = "#24273a", fg = "#cad3f5" })
 api(0, "BufferLineDuplicateSelected", { link = "BufferLineBufferSelected" })
+
+----Lualine highlights + custom highlights
+api(0, "SelfLualineDiagnosticError", { fg = "#ed8796", bg = "#16161e" })
+api(0, "SelfLualineDiagnosticWarn", { fg = "#eed49f", bg = "#16161e" })
+api(0, "SelfLualineDiagnosticInfo", { fg = "#8aadf4", bg = "#16161e" })
+api(0, "SelfLualineDiagnosticHint", { fg = "#8bd5ca", bg = "#16161e" })
+
+api(0, "SelfLualineDiffAdd", { fg = "#a6da95", bg = "#363a4f", bold = true })
+api(0, "SelfLualineDiffModified", { fg = "#8aadf4", bg = "#363a4f", bold = true })
+api(0, "SelfLualineDiffRemoved", { fg = "#ed8796", bg = "#363a4f", bold = true })

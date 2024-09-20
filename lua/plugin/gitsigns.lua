@@ -11,6 +11,7 @@ require("gitsigns").setup({
 		changedelete = { text = "│" },
 		untracked = { text = "┆" },
 	},
+	signs_staged_enable = true,
 	signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 	numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 	linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
@@ -43,7 +44,4 @@ require("gitsigns").setup({
 	},
 	trouble = true,
 	word_diff = false,
-	yadm = {
-		enable = false,
-	},
 })

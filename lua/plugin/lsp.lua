@@ -23,7 +23,7 @@ local lsp = {
 	"pyright",
 	"sqlls",
 	--"svelte",
-	"textlsp",
+	"ltex",
 	"lemminx",
 	"yamlls",
 }

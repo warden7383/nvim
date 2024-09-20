@@ -18,8 +18,8 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"sqlls",
 		--"svelte", not needed yet
+		"ltex",
 		"lemminx",
-		"textlsp",
 		"yamlls",
 	},
 })

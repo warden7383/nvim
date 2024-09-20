@@ -33,80 +33,6 @@ local colors = {
 	text1 = "#a9b1d6",
 }
 
--- Copyright (c) 2020-2021 hoob3rt
--- MIT license, see LICENSE for more details.
-local Mode = {}
-
--- stylua: ignore
-Mode.map = {
-  -- ['n']      = 'NORMAL',
-  -- ['no']     = 'O-PENDING',
-  -- ['nov']    = 'O-PENDING',
-  -- ['noV']    = 'O-PENDING',
-  -- ['no\22'] = 'O-PENDING',
-  -- ['niI']    = 'NORMAL',
-  -- ['niR']    = 'NORMAL',
-  -- ['niV']    = 'NORMAL',
-  -- ['nt']     = 'NORMAL',
-  -- ['ntT']    = 'NORMAL',
-  -- ['v']      = 'VISUAL',
-  -- ['vs']     = 'VISUAL',
-  -- ['V']      = 'V-LINE',
-  -- ['Vs']     = 'V-LINE',
-  -- ['\22']   = 'V-BLOCK',
-  ['\22s']  = 'V-BLOCK',
-  -- ['s']      = 'SELECT',
-  -- ['S']      = 'S-LINE',
-  -- ['\19']   = 'S-BLOCK',
-  -- ['i']      = 'INSERT',
-  -- ['ic']     = 'INSERT',
-  -- ['ix']     = 'INSERT',
-  -- ['R']      = 'REPLACE',
-  -- ['Rc']     = 'REPLACE',
-  -- ['Rx']     = 'REPLACE',
-  -- ['Rv']     = 'V-REPLACE',
-  -- ['Rvc']    = 'V-REPLACE',
-  -- ['Rvx']    = 'V-REPLACE',
-  -- ['c']      = 'COMMAND',
-  -- ['cv']     = 'EX',
-  -- ['ce']     = 'EX',
-  -- ['r']      = 'REPLACE',
-  -- ['rm']     = 'MORE',
-  -- ['r?']     = 'CONFIRM',
-  -- ['!']      = 'SHELL',
-  -- ['t']      = 'TERMINAL',
-}
-
----@return string current mode name
-function Mode.get_mode()
-  local mode_code = vim.api.nvim_get_mode().mode
-  if Mode.map[mode_code] == nil then
-    print("TRUE NIL")
-    return mode_code
-  end
-  print("MODE: " .. mode_code)
-  return Mode.map[mode_code]
-end
-
-function matchMode()
-  
-  if Mode.get_mode() == "^V" then
-    print("matched ^V")
-  else
-  end
-end
-
-
-
-function filetype()
-	if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
-		print("TRUE ")
-	else
-		print("FALSE ")
-	end
-	print(vim.bo.filetype)
-end
-
 local function lspStatus()
 	local lspName = vim.lsp.get_clients({ bufnr = 0 })
 	local name = ""
@@ -121,30 +47,17 @@ local function lspStatus()
 	return name
 end
 
--- For markdown or txt files to get wordcount (maybe get the characters too next?)
--- TODO: get characters as well and put into lualine for .md an .txt files?
-function wordCount()
-	local x = vim.fn.wordcount()
-	print(x.words)
-end
-
--- TODO: try to perform a check on the mode that returns "^V" whjen pressing CTRL-Q or CTRL-V to go into
--- visual block mode
 local function wordStats()
 	local mode = vim.api.nvim_get_mode().mode
 
-	if mode == "v" or mode == "vs" or mode == "V" or mode == "Vs" then
-		print("TRUE")
+	if mode == "v" or mode == "vs" or mode == "V" or mode == "Vs" or mode == "\22" or mode == "\22s" then
+		return vim.fn.wordcount().visual_words .. " words " .. vim.fn.wordcount().visual_chars .. " chars"
+	else
+		local words = vim.fn.wordcount().words
+		local chars = vim.fn.wordcount().chars
+		return words .. " words " .. chars .. " chars"
 	end
-	local words = vim.fn.wordcount().words
-	local chars = vim.fn.wordcount().chars
-
 	-- return "󰦨 " .. words .. " 󰀫 " .. chars -- 󰦨   󰀬 󰀫
-	return words .. " words " .. chars .. " chars"
-end
-
-local function textStats()
-	return wordStats()
 end
 
 local function leftMode()
@@ -186,13 +99,6 @@ local function filename()
 		},
 		{
 			fileModified,
-			-- cond = function()
-			-- 	if vim.bo.modified then
-			-- 		return true
-			-- 	else
-			-- 		return false
-			-- 	end
-			-- end,
 			color = { fg = "#9ece6a" },
 			padding = 0,
 		},
@@ -286,9 +192,6 @@ require("lualine").setup({
 		-- lualine_c = { "filename" },
 		lualine_c = filename(),
 		lualine_x = {
-      {
-        Mode.get_mode,
-      },
 			{
 				wordStats,
 				cond = function()

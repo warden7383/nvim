@@ -1,3 +1,24 @@
+local hostname = vim.uv.os_uname().sysname
+
+-- function test()
+--   print(hostname)
+-- end
+
+-- TODO: find the hostname to windows 11 to check for a windows machine (part fix for %userprofile% dir with spaces)
+local function formatterCommand()
+	if hostname == "Darwin" then
+		return {
+			stylua = "stylua",
+			test = "testing",
+		}
+	else
+		return {
+			"stylua.exe",
+		}
+		-- elseif hostname ==
+	end
+end
+
 require("conform").setup({
 	log_level = vim.log.levels.DEBUG,
 	formatters_by_ft = {
@@ -24,7 +45,8 @@ require("conform").setup({
 		stylua = {
 			-- NOTE: explosing the formatter to the .exe while adding the formatter to the system
 			-- PATH seems to help instead of just exposing conform to the "stylua" command
-			command = "stylua.exe",
+			-- command = "stylua.exe",
+			command = formatterCommand().stylua,
 		},
 		clang_format = {
 			command = "clang-format",

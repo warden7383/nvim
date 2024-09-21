@@ -1,9 +1,5 @@
 local hostname = vim.uv.os_uname().sysname
 
--- function test()
---   print(hostname)
--- end
-
 -- TODO: find the hostname to windows 11 to check for a windows machine (part fix for %userprofile% dir with spaces)
 local function formatterCommand()
 	if hostname == "Darwin" then
@@ -11,11 +7,14 @@ local function formatterCommand()
 			stylua = "stylua",
 			test = "testing",
 		}
-	else
+	elseif hostname == "Windows_NT" then
 		return {
-			"stylua.exe",
+			stylua = "stylua.exe",
 		}
-		-- elseif hostname ==
+	else -- linux os
+		return {
+			stylua = "stylua",
+		}
 	end
 end
 

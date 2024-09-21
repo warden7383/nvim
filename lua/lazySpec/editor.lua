@@ -83,24 +83,42 @@ return {
 
 	{
 		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-		keys = {
-			{ "DD", ":TroubleToggle document_diagnostics<CR>", desc = "toggle diagnostics", silent = true },
-		},
-		config = function()
-			vim.keymap.set(
-				"n",
-				"DD",
-				":TroubleToggle document_diagnostics<CR>",
-				{ silent = true, desc = "Toggle diagnostics" }
-			) -- enable when trouble.nvim exists
-		end,
 		lazy = true,
+		-- opts = {}, -- for default options, refer to the configuration section for custom setup.
+		opts = require("plugin.trouble"),
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xb",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>xl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xp",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xq",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
 	},
 
 	{
@@ -276,41 +294,40 @@ return {
 		config = function()
 			require("plugin.arrow")
 		end,
-	   -- opts = {
-	   --   show_icons = true,
-	   --   leader_key = ';', -- Recommended to be a single key
-	   --   buffer_leader_key = 'm', -- Per Buffer Mappings
-	   -- }
+		-- opts = {
+		--   show_icons = true,
+		--   leader_key = ';', -- Recommended to be a single key
+		--   buffer_leader_key = 'm', -- Per Buffer Mappings
+		-- }
 	},
 
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    lazy = true,
-    -- ft = {"md", "markdown", "txt" },
-    event = { "BufReadPre", "BufAdd" },
-    config = function ()
-      require("plugin.render-markdown")
-    end,
-    opt = {},
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter', 
-      'nvim-tree/nvim-web-devicons'
-    }, -- if you prefer nvim-web-devicons
-  },
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		lazy = true,
+		-- ft = {"md", "markdown", "txt" },
+		event = { "BufReadPre", "BufAdd" },
+		config = function()
+			require("plugin.render-markdown")
+		end,
+		opt = {},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		}, -- if you prefer nvim-web-devicons
+	},
 
--- {
---     "OXY2DEV/markview.nvim",
---     lazy = false,      -- Recommended
---     -- ft = "markdown" -- If you decide to lazy-load anyway
---
---     dependencies = {
---         -- You will not need this if you installed the
---         -- parsers manually
---         -- Or if the parsers are in your $RUNTIMEPATH
---         "nvim-treesitter/nvim-treesitter",
---
---         "nvim-tree/nvim-web-devicons"
---     }
--- }
-
+	-- {
+	--     "OXY2DEV/markview.nvim",
+	--     lazy = false,      -- Recommended
+	--     -- ft = "markdown" -- If you decide to lazy-load anyway
+	--
+	--     dependencies = {
+	--         -- You will not need this if you installed the
+	--         -- parsers manually
+	--         -- Or if the parsers are in your $RUNTIMEPATH
+	--         "nvim-treesitter/nvim-treesitter",
+	--
+	--         "nvim-tree/nvim-web-devicons"
+	--     }
+	-- }
 }

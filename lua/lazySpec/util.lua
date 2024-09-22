@@ -94,19 +94,20 @@ return {
 		},
 	},
 
-	{
-		"rmagatti/auto-session",
-		lazy = true,
-		event = { "BufReadPre", "BufAdd" },
-		-- cmd = { "Autosession", "SessionRestore" },
-		cmd = { "SessionSearch", "SessionRestore" },
-		config = function()
-			require("plugin.auto-session")
-		end,
-		-- dependencies = {
-		-- 	"stevearc/dressing.nvim",
-		-- },
-	},
+	-- BUG: alpha file tyupe being saved despite excluded
+	-- {
+	-- 	"rmagatti/auto-session",
+	-- 	lazy = true,
+	-- 	event = { "BufReadPre", "BufAdd" },
+	-- 	-- cmd = { "Autosession", "SessionRestore" },
+	-- 	cmd = { "SessionSearch", "SessionRestore" },
+	-- 	config = function()
+	-- 		require("plugin.auto-session")
+	-- 	end,
+	-- 	-- dependencies = {
+	-- 	-- 	"stevearc/dressing.nvim",
+	-- 	-- },
+	-- },
 
 	{
 		"folke/which-key.nvim",
@@ -229,4 +230,18 @@ return {
 	--     },
 	--   },
 	-- }
+
+	{
+		"Shatur/neovim-session-manager",
+		lazy = true,
+		event = { "BufReadPre", "BufAdd" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"stevearc/dressing.nvim",
+		},
+		cmd = { "SessionManager" },
+		config = function()
+			require("plugin.neovim-session-manager")
+		end,
+	},
 }

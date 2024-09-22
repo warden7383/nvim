@@ -38,8 +38,6 @@ return {
 		build = "make",
 	},
 
-	--Nvim Treesitter Setup is deprecated, use `require('nvim-ts-autotag').setup()` instead.
-	-- Feature will be removed in nvim-ts-autotag 1.0.0
 	{
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter", --from docs, the known methods to lazyload this is BufReadPre BufNewFile
@@ -226,18 +224,18 @@ return {
 		end,
 	},
 
-	{
-		"nvim-pack/nvim-spectre",
-		lazy = true,
-		-- event = {"BufReadPre", "BufAdd"},
-		cmds = { "Spectre" },
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			require("plugin.spectre")
-		end,
-	},
+	-- {
+	-- 	"nvim-pack/nvim-spectre",
+	-- 	lazy = true,
+	-- 	-- event = {"BufReadPre", "BufAdd"},
+	-- 	cmds = { "Spectre" },
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugin.spectre")
+	-- 	end,
+	-- },
 
 	{
 		"smjonas/inc-rename.nvim",
@@ -256,34 +254,23 @@ return {
 		end,
 	},
 
-	{
-		"AckslD/muren.nvim",
-		lazy = true,
-		cmds = { "MurenToggle" },
-		keys = {
-			{ "<leader>mt" },
-		},
-		config = function()
-			require("plugin.muren")
-		end,
-	},
+	-- {
+	-- 	"AckslD/muren.nvim",
+	-- 	lazy = true,
+	-- 	cmds = { "MurenToggle" },
+	-- 	keys = {
+	-- 		{ "<leader>mt" },
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugin.muren")
+	-- 	end,
+	-- },
 
 	{
 		"kungfusheep/randomword.nvim",
 		event = { "BufReadPre", "BufAdd" },
 		config = function()
 			require("plugin.randomword")
-		end,
-	},
-
-	{
-		"ThePrimeagen/harpoon",
-		lazy = true,
-		event = { "BufReadPre", "BufAdd" },
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-		config = function()
-			require("plugin.harpoon")
 		end,
 	},
 
@@ -315,19 +302,4 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		}, -- if you prefer nvim-web-devicons
 	},
-
-	-- {
-	--     "OXY2DEV/markview.nvim",
-	--     lazy = false,      -- Recommended
-	--     -- ft = "markdown" -- If you decide to lazy-load anyway
-	--
-	--     dependencies = {
-	--         -- You will not need this if you installed the
-	--         -- parsers manually
-	--         -- Or if the parsers are in your $RUNTIMEPATH
-	--         "nvim-treesitter/nvim-treesitter",
-	--
-	--         "nvim-tree/nvim-web-devicons"
-	--     }
-	-- }
 }

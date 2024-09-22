@@ -4,7 +4,6 @@ local stats = require("lazy").stats()
 
 local autocmd = vim.api.nvim_create_autocmd
 
-
 dashboard.section.header.val = {
 	[[   ┌─────────────────────────────────────────────────────────────────────┐ ]],
 	[[   │                                                                     │ ]],
@@ -31,7 +30,8 @@ dashboard.section.buttons.val = {
 	-- dashboard.button("v", "    Load Recent Session", "<cmd>SessionLoadLast<CR>"),
 	dashboard.button("v", "    Load Session(cwd)", ":SessionRestore<CR>"),
 	-- dashboard.button("s", "󱚄    Load Selected Session", "<cmd>Telescope persisted<CR>"),
-	dashboard.button("s", "󱚄    Select Session", ":Autosession search<CR>"),
+	-- dashboard.button("s", "󱚄    Select Session", ":Autosession search<CR>"),
+	dashboard.button("s", "󱚄    Select Session", ":SessionSearch<CR>"),
 	dashboard.button("f", "    Find project file", "<cmd>Telescope find_files<CR>"),
 	dashboard.button("r", "    Recent", "<cmd>Telescope oldfiles<CR>"),
 	dashboard.button("g", "󰊄    Grep pattern", "<cmd>Telescope live_grep<CR>"),

@@ -98,35 +98,36 @@ return {
 		"rmagatti/auto-session",
 		lazy = true,
 		event = { "BufReadPre", "BufAdd" },
-		cmd = { "Autosession", "SessionRestore" },
+		-- cmd = { "Autosession", "SessionRestore" },
+		cmd = { "SessionSearch", "SessionRestore" },
 		config = function()
 			require("plugin.auto-session")
 		end,
-		dependencies = {
-			"stevearc/dressing.nvim",
-		},
+		-- dependencies = {
+		-- 	"stevearc/dressing.nvim",
+		-- },
 	},
 
-  {
-    "folke/which-key.nvim",
-    event = { "BufReadPre", "BufAdd" },
-    lazy = true,
-    -- keys = {
-    -- 	{ "<leader>" },
-    -- },
-    keys = {
-      {
-        "<leader>?",
-        function ()
-          require("which-key").show({ global = false })
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
-      }
-    },
-    config = function()
-      require("plugin.which-key")
-    end,
-  },
+	{
+		"folke/which-key.nvim",
+		event = { "BufReadPre", "BufAdd" },
+		lazy = true,
+		-- keys = {
+		-- 	{ "<leader>" },
+		-- },
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+		config = function()
+			require("plugin.which-key")
+		end,
+	},
 
 	{
 		"nvim-telescope/telescope-file-browser.nvim",

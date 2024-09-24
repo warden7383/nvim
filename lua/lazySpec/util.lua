@@ -95,19 +95,19 @@ return {
 	},
 
 	-- BUG: alpha file tyupe being saved despite excluded
-	-- {
-	-- 	"rmagatti/auto-session",
-	-- 	lazy = true,
-	-- 	event = { "BufReadPre", "BufAdd" },
-	-- 	-- cmd = { "Autosession", "SessionRestore" },
-	-- 	cmd = { "SessionSearch", "SessionRestore" },
-	-- 	config = function()
-	-- 		require("plugin.auto-session")
-	-- 	end,
-	-- 	-- dependencies = {
-	-- 	-- 	"stevearc/dressing.nvim",
-	-- 	-- },
-	-- },
+	{
+		"rmagatti/auto-session",
+		lazy = true,
+		event = { "BufReadPre", "BufAdd" },
+		-- cmd = { "Autosession", "SessionRestore" },
+		cmd = { "SessionSearch", "SessionRestore", "Autosession" },
+		config = function()
+			require("plugin.auto-session")
+		end,
+		-- dependencies = {
+		-- 	"stevearc/dressing.nvim",
+		-- },
+	},
 
 	{
 		"folke/which-key.nvim",
@@ -231,17 +231,59 @@ return {
 	--   },
 	-- }
 
-	{
-		"Shatur/neovim-session-manager",
-		lazy = true,
-		event = { "BufReadPre", "BufAdd" },
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim",
-		},
-		cmd = { "SessionManager" },
-		config = function()
-			require("plugin.neovim-session-manager")
-		end,
-	},
+	-- {
+	-- 	"Shatur/neovim-session-manager",
+	-- 	lazy = true,
+	-- 	event = { "BufReadPre", "BufAdd" },
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"stevearc/dressing.nvim",
+	-- 	},
+	-- 	cmd = { "SessionManager" },
+	-- 	config = function()
+	-- 		require("plugin.neovim-session-manager")
+	-- 	end,
+	-- },
+
+	-- {
+	-- 	"stevearc/resession.nvim",
+	-- 	-- opts = {},
+	-- 	lazy = true,
+	-- 	-- event = { "BufReadPre", "BufAdd", "CmdlineEnter" },
+	-- 	event = "VeryLazy",
+	-- 	cmd = { "ResessionSave", "ResessionLoad", "ResessionDelete" },
+	-- 	config = function()
+	-- 		require("plugin.resession")
+	-- 	end,
+	-- 	dependencies = {
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 		"nvim-telescope/telescope-fzf-native.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"otavioschwanck/arrow.nvim",
+	-- 		"akinsho/bufferline.nvim",
+	-- 		"stevearc/dressing.nvim",
+	-- 		"lewis6991/gitsigns.nvim",
+	-- 		"b0o/incline.nvim",
+	-- 		"lukas-reineke/indent-blankline.nvim",
+	-- 		"nvim-lualine/lualine.nvim",
+	-- 		"dstein64/nvim-scrollview",
+	-- 		"kylechui/nvim-surround",
+	-- 		"nvim-treesitter/nvim-treesitter-textobjects",
+	-- 		"windwp/nvim-ts-autotag",
+	-- 		"JoosepAlviste/nvim-ts-context-commentstring",
+	-- 		"kungfusheep/randomword.nvim",
+	-- 		"MeanderingProgrammer/render-markdown.nvim",
+	-- 		"mrjones2014/smart-splits.nvim",
+	-- 		"nvim-telescope/telescope-file-browser.nvim",
+	-- 		"folke/todo-comments.nvim",
+	-- 		"akinsho/toggleterm.nvim",
+	-- 		"tpope/vim-fugitive",
+	-- 		"RRethy/vim-illuminate",
+	-- 		"farmergreg/vim-lastplace",
+	-- 		"andymass/vim-matchup",
+	-- 		"wakatime/vim-wakatime",
+	-- 		"folke/which-key.nvim",
+	-- 	},
+	-- },
 }

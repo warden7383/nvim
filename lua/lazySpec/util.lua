@@ -94,7 +94,6 @@ return {
 		},
 	},
 
-	-- BUG: alpha file tyupe being saved despite excluded
 	{
 		"rmagatti/auto-session",
 		lazy = true,

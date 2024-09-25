@@ -149,7 +149,8 @@ autocmd({ "BufAdd", "BufReadPost" }, {
 	callback = function() -- Called twice?
 		-- vim.api.nvim_set_option_value({ "linebreak" }, { true }, { "local" })
 		-- vim.api.nvim_set_option_value({ "wrap" }, { true }, { "local" })
-		-- vim.api.nvim_set_option_value("wrap", "true", "local")
+		-- vim.api.nvim_set_option_value("linebreak", true, vim.bo)
+		-- vim.api.nvim_set_option_value("wrap", true, vim.bo)
 		vim.cmd([[
 		    setlocal linebreak
 		    setlocal wrap

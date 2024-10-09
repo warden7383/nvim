@@ -24,7 +24,8 @@ return {
 		"dstein64/nvim-scrollview",
 		event = { "BufReadPre", "BufAdd" },
 		config = function()
-			require("scrollview").setup({})
+			-- require("scrollview").setup({})
+			require("plugin.scrollview")
 		end,
 		lazy = true,
 	},

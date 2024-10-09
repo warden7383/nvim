@@ -18,9 +18,9 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 cmp.setup({
 	performance = {
-		throttle = 50, -- 550 -- 10
-		fetching_timeout = 50, --80 --10
-		debounce = 50, -- 150 --10
+		throttle = 10, -- 550 -- 10
+		fetching_timeout = 10, --80 --10
+		debounce = 10, -- 150 --10
 	},
 	enabled = function()
 		-- disable completion in comments

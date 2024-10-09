@@ -18,9 +18,9 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 cmp.setup({
 	performance = {
-		throttle = 550,
-		fetching_timeout = 80,
-		debounce = 150,
+		throttle = 50, -- 550 -- 10
+		fetching_timeout = 50, --80 --10
+		debounce = 50, -- 150 --10
 	},
 	enabled = function()
 		-- disable completion in comments
@@ -111,20 +111,19 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 2 },
 		-- {name = "path", keyword_length = 3, },
 		{ name = "calc" },
-    { name = "lazydev" },
+		{ name = "lazydev" },
 		-- {name = "emoji", keyword_length = 2},
 		-- {name = "cmdline"},
 		-- {name = "async_path", keyword_length = 3,}
 	}),
 })
-  --   "hrsh7th/nvim-cmp",
-  --   opts = function(_, opts)
-  --     opts.sources = opts.sources or {}
-  --     table.insert(opts.sources, {
-  --       name = "lazydev",
-  --       group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-  --     })
-
+--   "hrsh7th/nvim-cmp",
+--   opts = function(_, opts)
+--     opts.sources = opts.sources or {}
+--     table.insert(opts.sources, {
+--       name = "lazydev",
+--       group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+--     })
 
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({

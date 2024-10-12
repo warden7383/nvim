@@ -26,6 +26,7 @@ require("nvim-treesitter.configs").setup({
 		"scss",
 		--    "svelte",
 		"yaml",
+		"rust",
 		"xml",
 	},
 	-- DTD and xml parsers are the same i think(?)
@@ -60,7 +61,7 @@ require("nvim-treesitter.configs").setup({
 		include_match_words = true,
 	},
 
-  -- NOTE: depreciated (see nvim ts autotag plugin)
+	-- NOTE: depreciated (see nvim ts autotag plugin)
 	-- autotag = {
 	-- 	enable = true,
 	-- },

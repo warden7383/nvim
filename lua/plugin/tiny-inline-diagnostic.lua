@@ -1,5 +1,7 @@
 -- Default configuration
-require("tiny-inline-diagnostic").setup({
+local inlineDiag = require("tiny-inline-diagnostic")
+
+inlineDiag.setup({
 	signs = {
 		left = "",
 		right = "",
@@ -77,3 +79,19 @@ require("tiny-inline-diagnostic").setup({
 		overwrite_events = nil,
 	},
 })
+
+vim.api.nvim_create_user_command(
+	"TinyInlineDiagnosticDisable",
+	inlineDiag.disable,
+	{ desc = "Disable tiny-inline-diagnostic" }
+)
+vim.api.nvim_create_user_command(
+	"TinyInlineDiagnosticEnable",
+	inlineDiag.enable,
+	{ desc = "Enable tiny-inline-diagnostic" }
+)
+vim.api.nvim_create_user_command(
+	"TinyInlineDiagnosticToggle",
+	inlineDiag.toggle,
+	{ desc = "Toggle tiny-inline-diagnostic" }
+)

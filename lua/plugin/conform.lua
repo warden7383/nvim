@@ -31,6 +31,8 @@ require("conform").setup({
 		cpp = {
 			"clang_format",
 		},
+		-- rust = { "rustfmt", lsp_format = "fallback" },
+		rust = { "rustfmt" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()

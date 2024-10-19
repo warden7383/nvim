@@ -106,17 +106,21 @@ vim.diagnostic.config({
 	virtual_text = {
 		severity = {
 			min = vim.diagnostic.severity.ERROR,
-		}, -- 󰝥    󱓻 ◼  ◼️ ■
+		}, -- ● 󰝥    󱓻 ◼  ◼️ ■
 		prefix = "",
 	},
 	-- virtual_text = false, -- for tiny-inline-diagnostic
 	underline = true,
 	signs = {
 		text = {
-			[sign.HINT] = "", --   hint = '⚑',󰛨
-			[sign.ERROR] = "✘", --
-			[sign.WARN] = "", --   warn = '▲',    
-			[sign.INFO] = "⚑", -- info = '»' 𝓳 󰙎
+			-- [sign.HINT] = "", --   hint = '⚑',󰛨
+			-- [sign.ERROR] = "✘", --
+			-- [sign.WARN] = "", --   warn = '▲',    
+			-- [sign.INFO] = "⚑", -- info = '»' 𝓳 󰙎
+			[sign.HINT] = "●",
+			[sign.ERROR] = "●",
+			[sign.WARN] = "●",
+			[sign.INFO] = "●",
 		},
 	},
 	float = {

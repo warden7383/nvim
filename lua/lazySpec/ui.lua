@@ -138,13 +138,13 @@ return {
 		event = { "WinNew" },
 	},
 
-	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "VeryLazy", -- Or `LspAttach` WARN: lsp attach event does not properly
-		-- load this plugin properly on certain filetypes such as .cpp
-		config = function()
-			-- require("tiny-inline-diagnostic").setup()
-			require("plugin.tiny-inline-diagnostic")
-		end,
-	},
+	-- {
+	-- 	"rachartier/tiny-inline-diagnostic.nvim",
+	-- 	event = "VeryLazy", -- Or `LspAttach` WARN: lsp attach event does not properly
+	-- 	-- load this plugin properly on certain filetypes such as .cpp
+	-- 	config = function()
+	-- 		-- require("tiny-inline-diagnostic").setup()
+	-- 		require("plugin.tiny-inline-diagnostic")
+	-- 	end,
+	-- },
 }

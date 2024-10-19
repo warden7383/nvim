@@ -49,6 +49,7 @@
   "plenary.nvim": { "branch": "master", "commit": "ec289423a1693aeae6cd0d503bac2856af74edaa" },
   "randomword.nvim": { "branch": "master", "commit": "e81680ac98870ca56e4b9b0600172b0f5f6ffa0c" },
   "render-markdown.nvim": { "branch": "main", "commit": "a5e2d0b1215814c3d033be1fd8eccf59ce366399" },
+  "rustaceanvim": { "branch": "master", "commit": "6eb1c41463a0ad02a4fe799321cc7f651b87e576" },
   "smart-splits.nvim": { "branch": "master", "commit": "aee30930689ae427729aad41568ccaae57c167fe" },
   "tailwindcss-colorizer-cmp.nvim": { "branch": "main", "commit": "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "a46780830b576049c675680650f773bedfa8677a" },

@@ -75,4 +75,14 @@ return {
 			require("plugin.cmp")
 		end,
 	},
+
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^5", -- Recommended
+		lazy = true, -- This plugin is already lazy
+		event = "VeryLazy",
+		config = function()
+			require("plugin.rustaceanvim")
+		end,
+	},
 }

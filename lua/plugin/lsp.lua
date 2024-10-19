@@ -26,6 +26,7 @@ local lsp = {
 	"ltex",
 	"lemminx",
 	"yamlls",
+	-- "rust_analyzer",
 }
 
 -- require("neodev").setup({})
@@ -75,28 +76,33 @@ for _, i in ipairs(lsp) do
 end
 
 -- NOTE: install rust_analyzer from the rust docs instead of throuigh mason before troubleshooting this
-lspconfig.rust_analyzer.setup({
-	capabilities = capabilities,
-	handlers = handlers,
-	settings = {
-		["rust-analyzer"] = {
-			imports = {
-				granularity = {
-					group = "module",
-				},
-				prefix = "self",
-			},
-			cargo = {
-				buildScripts = {
-					enable = true,
-				},
-			},
-			procMacro = {
-				enable = true,
-			},
-			diagnostics = {
-				enable = true,
-			},
-		},
-	},
-})
+-- lspconfig.rust_analyzer.setup({
+-- 	capabilities = capabilities,
+-- 	handlers = handlers,
+-- 	on_attach = function(client, bufnr)
+-- 		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+-- 	end,
+-- 	single_file_support = true,
+-- 	settings = {
+-- 		["rust-analyzer"] = {
+-- 			imports = {
+-- 				granularity = {
+-- 					group = "module",
+-- 				},
+-- 				prefix = "self",
+-- 			},
+-- 			checkOnSave = true, -- runs `cargo check` to check diagnostics of file upon save.
+-- 			cargo = {
+-- 				buildScripts = {
+-- 					enable = true,
+-- 				},
+-- 			},
+-- 			procMacro = {
+-- 				enable = true,
+-- 			},
+-- 			diagnostics = {
+-- 				enable = true,
+-- 			},
+-- 		},
+-- 	},
+-- })

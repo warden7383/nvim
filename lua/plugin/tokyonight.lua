@@ -2,7 +2,7 @@ require("tokyonight").setup({
 	transparent = true,
 	terminal_colors = true,
 	styles = {
-		floats = "transparent",
+		floats = "dark",
 		sidebars = "transparent",
 		comments = { italic = true },
 		keywords = { italic = true },

@@ -21,5 +21,8 @@ Formatters:
 \[Insert eye candy here\]<br>
 ### Todo:
 - highlights
-- learn vim-fugitive, inc-rename, muren.nvim, telescope-file-browser, nvim-spectre, lazygit(maybe?)
+- learn vim-fugitive, inc-rename, telescope-file-browser, 
 
+
+> [!NOTE]
+> If [leetcode.nvim](https://github.com/kawre/leetcode.nvim) is returning an error related to curl, check curl version as you may need to update curl to a newer version

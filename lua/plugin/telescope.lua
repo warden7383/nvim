@@ -1,6 +1,26 @@
 local fb_actions = require("telescope._extensions.file_browser.actions")
 local telescope = require("telescope")
+local actions = require("telescope.actions")
+
 telescope.setup({
+	defaults = {
+		prompt_prefix = " ",
+		selection_caret = "󱡁   ", --󱡁  
+		entry_prefix = "    ",
+		multi_icon = " 󰣉 ", --✔ 󰣉
+		border = true,
+		dynamic_preview_title = false,
+	},
+	mappings = {
+		i = {
+			-- ["<ESC>"] = require("telescope.actions").close,
+		},
+		n = {
+			-- ["<C-h>"] = actions.results_scrolling_left,
+			-- ["<C-l>"] = actions.results_scrolling_right,
+		},
+	},
+
 	extensions = {
 		fzf = {
 			fuzzy = true,

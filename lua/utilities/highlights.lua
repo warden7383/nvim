@@ -87,6 +87,7 @@ api(0, "TelescopeResultsTitle", { bg = "#7dc4e4", fg = "#1e2030", bold = true })
 api(0, "TelescopeResultsBorder", { fg = "#363a4f", bg = colors.black, bold = true })
 api(0, "TelescopePreviewTitle", { bg = "#ee99a0", fg = "#1e2030", bold = true })
 api(0, "TelescopePreviewBorder", { fg = "#363a4f", bg = colors.black, bold = true })
+api(0, "TelescopeSelectionCaret", { fg = colors.mauve, bg = "#363a4f", bold = true })
 api(0, "TelescopePromptCounter", { fg = "#b7bdf8", bold = true })
 api(0, "TelescopeSelection", { bg = "#363a4f" })
 

@@ -2,6 +2,9 @@ local fb_actions = require("telescope._extensions.file_browser.actions")
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 
+-- NOTE: <C-f> and <C-k> to scroll left and right respectively in preview window won't be available till telescope 2.0 release
+-- (currently avail in nightly telescope)
+-- https://github.com/nvim-telescope/telescope.nvim/issues/3110
 telescope.setup({
 	defaults = {
 		prompt_prefix = " ",
@@ -13,7 +16,7 @@ telescope.setup({
 	},
 	mappings = {
 		i = {
-			-- ["<ESC>"] = require("telescope.actions").close,
+			-- ["<ESC>"] = actions.close,
 		},
 		n = {
 			-- ["<C-h>"] = actions.results_scrolling_left,

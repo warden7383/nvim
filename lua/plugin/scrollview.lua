@@ -2,8 +2,8 @@ require("scrollview").setup({
 	character = " ",
 	base = "right",
 	column = 1,
-	current_only = false,
-	floating_windows = true, -- experimental
+	current_only = true,
+	floating_windows = false, -- experimental
 	hover = true,
 	mode = "auto",
 	winblend_gui = 0, -- experimental

@@ -92,7 +92,8 @@ opt.fillchars = {
 }
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
-vim.opt.clipboard = "unnamedplus"
+opt.clipboard = "unnamedplus"
+opt.colorcolumn = "80"
 -- listchars=tab:> ,trail:-,nbsp:+
 -- opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,winsize,options" --each word enables saving and restoring something -- WARN: cursor disappears/creates a ton of weird buffers indicating path does not exist?
 -- opt.laststatus = 3

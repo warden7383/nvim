@@ -68,6 +68,7 @@ api(0, "CursorLineNr", { fg = "#c6a0f6", bold = true }) -- #eed49f
 api(0, "LineNrBelow", { fg = "#8087a2", bold = true }) --#FB508F #80bd9c #68ded8 #f5d3ba
 api(0, "WinSeparator", { fg = "#8aadf4", bold = true }) --#FB508F #80bd9c #68ded8 #f5d3ba
 api(0, "SignColumn", { fg = "#8aadf4", bold = true })
+api(0, "ColorColumn", { link = "CursorColumn" })
 
 api(0, "FloatBorder", { fg = "#363a4f" })
 

@@ -1,3 +1,7 @@
+> [!CAUTION]
+> ```telescope-file-browser``` returns stacktrace error for folders with '[]' as 
+of current version of the lock-file (and possibly my own nightly config)
+> will not run with folders containing [] anywhere
 # Warden7383's personal nvim config
 This is my personal nvim config that is personalized for my needs.<br>
 ## Requirements:

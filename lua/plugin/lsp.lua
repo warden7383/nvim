@@ -14,7 +14,7 @@ local lsp = {
 	--"htmx",
 	"jsonls",
 	"jdtls",
-	"tsserver",
+	"ts_ls",
 	"jqls",
 	"lua_ls",
 	"marksman",

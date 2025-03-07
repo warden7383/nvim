@@ -70,6 +70,8 @@ api(0, "WinSeparator", { fg = "#8aadf4", bold = true }) --#FB508F #80bd9c #68ded
 api(0, "SignColumn", { fg = "#8aadf4", bold = true })
 api(0, "ColorColumn", { link = "CursorColumn" })
 
+api(0, "TabLineFill", { bg = colors.transparent_bg }) -- tabline background
+
 api(0, "FloatBorder", { fg = "#363a4f" })
 
 -- remove background from diagnostic virtual messages and set italic

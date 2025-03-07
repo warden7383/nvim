@@ -9,7 +9,25 @@ local config = {
 	-- C-k: Toggle signature help
 	--
 	-- See the full "keymap" documentation for information on defining your own keymap.
-	keymap = { preset = "default" },
+	keymap = {
+		preset = "default",
+		["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
+		["<C-e>"] = { "hide" }, -- hides completion
+		["<Tab>"] = { "select_and_accept" },
+
+		["<Up>"] = { "select_prev", "fallback" },
+		["<Down>"] = { "select_next", "fallback" },
+		["<C-p>"] = { "snippet_forward", "select_prev", "fallback_to_mappings" },
+		["<C-n>"] = { "snippet_backward", "select_next", "fallback_to_mappings" },
+
+		["<C-b>"] = { "scroll_documentation_up", "fallback" },
+		["<C-f>"] = { "scroll_documentation_down", "fallback" },
+
+		-- ["<Tab>"] = { "snippet_forward", "fallback" },
+		-- ["<S-Tab>"] = { "snippet_backward", "fallback" },
+
+		["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+	},
 
 	appearance = {
 		-- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -21,11 +39,44 @@ local config = {
 		nerd_font_variant = "mono",
 	},
 
-	completion = {},
+	completion = {
+		trigger = {
+			show_on_keyword = true, -- what does this do
+		},
+
+		accept = {
+			auto_brackets = { enabled = true },
+		},
+
+		list = {
+			selection = { preselect = true, auto_insert = true },
+		},
+
+		menu = {
+			auto_show = true,
+			draw = {
+				columns = {
+					{ "kind_icon", "label", "label_description", gap = 2 },
+					-- { "kind_icon", "kind" },
+					{ "kind" },
+				},
+			},
+		},
+		documentation = { auto_show = true, auto_show_delay_ms = 500 },
+		ghost_text = { enabled = true },
+	},
 
 	-- Default list of enabled providers defined so that you can extend it
 	-- elsewhere in your config, without redefining it, due to `opts_extend`
-	sources = {},
+	sources = {
+		-- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
+		default = { "lsp", "path", "snippets", "buffer" },
+		-- providers = {
+		-- 	"snippets",
+		-- },
+	},
+
+	signature = { enabled = true }, -- experimental
 
 	cmdline = {
 		enabled = true,

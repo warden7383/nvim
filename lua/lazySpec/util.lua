@@ -304,4 +304,40 @@ return {
 			-- configuration goes here
 		},
 	},
+
+	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		---@type snacks.Config
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+			-- bigfile = { enabled = true },
+			-- dashboard = { enabled = true },  -- TODO: after shower: modualize these plugins into multiple files
+			-- explorer = { enabled = true },
+			-- indent = { enabled = true },
+			-- input = { enabled = true },
+			-- picker = { enabled = true },
+			-- notifier = { enabled = true },
+			-- quickfile = { enabled = true },
+			-- scope = { enabled = true },
+			-- scroll = { enabled = true },
+			-- statuscolumn = { enabled = true },
+			-- words = { enabled = true },
+			-- bigfile = require("plugin.snacksPlugins.bigfile"),
+			-- dashboard = require("plugin.snacksPlugins.dashboard"),
+			-- explorer = require("plugin.snacksPlugins.explorer"),
+			-- indent = require("plugin.snacksPlugins.indent"),
+			-- input = require("plugin.snacksPlugins.input"),
+			-- picker = require("plugin.snacksPlugins.picker"),
+			-- notifier = require("plugin.snacksPlugins.notifier"),
+			-- quickfile = require("plugin.snacksPlugins.quickfile"),
+			-- scope = require("plugin.snacksPlugins.scope"),
+			-- scroll = require("plugin.snacksPlugins.scroll"),
+			-- statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
+			-- words = require("plugin.snacksPlugins.words"),
+		},
+	},
 }

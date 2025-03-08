@@ -83,7 +83,10 @@ return {
 		lazy = true,
 		event = { "InsertEnter", "CmdLineEnter", "VeryLazy" },
 		-- optional: provides snippets for the snippet source
-		dependencies = "rafamadriz/friendly-snippets",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"onsails/lspkind.nvim",
+		},
 
 		-- use a release tag to download pre-built binaries
 		version = "*",

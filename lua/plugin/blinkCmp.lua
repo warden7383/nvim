@@ -13,7 +13,7 @@ local config = {
 		preset = "default",
 		["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
 		["<C-e>"] = { "hide" }, -- hides completion
-		["<Tab>"] = { "select_and_accept" },
+		["<Tab>"] = { "select_and_accept", "fallback" },
 
 		["<Up>"] = { "select_prev", "fallback" },
 		["<Down>"] = { "select_next", "fallback" },

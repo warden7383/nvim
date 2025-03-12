@@ -326,6 +326,7 @@ return {
 			-- scroll = { enabled = true },
 			-- statuscolumn = { enabled = true },
 			-- words = { enabled = true },
+			-- animate = require("plugin.snacksPlugins.animate")
 			-- bigfile = require("plugin.snacksPlugins.bigfile"),
 			-- dashboard = require("plugin.snacksPlugins.dashboard"),
 			-- explorer = require("plugin.snacksPlugins.explorer"),

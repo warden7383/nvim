@@ -18,22 +18,22 @@ return {
 		lazy = true,
 	},
 
-	{
-		"famiu/bufdelete.nvim",
-		lazy = true,
-		keys = {
-			{ "<leader>q", ":Bdelete<CR>", desc = "Delete the buffer without losing layout" },
-		},
-		config = function()
-			vim.keymap.set(
-				"n",
-				"<leader>q",
-				":Bdelete<CR>",
-				{ silent = true },
-				{ desc = "Delete buffer without losing layout" }
-			)
-		end,
-	},
+	-- {
+	-- 	"famiu/bufdelete.nvim",
+	-- 	lazy = true,
+	-- 	keys = {
+	-- 		{ "<leader>q", ":Bdelete<CR>", desc = "Delete the buffer without losing layout" },
+	-- 	},
+	-- 	config = function()
+	-- 		vim.keymap.set(
+	-- 			"n",
+	-- 			"<leader>q",
+	-- 			":Bdelete<CR>",
+	-- 			{ silent = true },
+	-- 			{ desc = "Delete buffer without losing layout" }
+	-- 		)
+	-- 	end,
+	-- },
 
 	{
 		"NvChad/nvim-colorizer.lua",
@@ -326,8 +326,9 @@ return {
 			-- scroll = { enabled = true },
 			-- statuscolumn = { enabled = true },
 			-- words = { enabled = true },
-			-- animate = require("plugin.snacksPlugins.animate")
+			-- animate = require("plugin.snacksPlugins.animate"),
 			-- bigfile = require("plugin.snacksPlugins.bigfile"),
+			bufdelete = require("plugin.snacksPlugins.bufdelete"),
 			-- dashboard = require("plugin.snacksPlugins.dashboard"),
 			-- explorer = require("plugin.snacksPlugins.explorer"),
 			-- indent = require("plugin.snacksPlugins.indent"),
@@ -339,6 +340,15 @@ return {
 			-- scroll = require("plugin.snacksPlugins.scroll"),
 			-- statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
 			-- words = require("plugin.snacksPlugins.words"),
+		},
+		keys = {
+			{
+				"<Leader>q",
+				function()
+					Snacks.bufdelete()
+				end,
+				desc = "Delete buffer without losing layout",
+			},
 		},
 	},
 }

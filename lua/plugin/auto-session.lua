@@ -44,6 +44,7 @@ local config = {
 			-- 	width = 0.2, -- percent of window
 			-- 	height = 0.2,
 			-- },
+			border = true,
 		},
 		previewer = true, -- File preview for session picker
 

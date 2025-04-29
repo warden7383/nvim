@@ -62,14 +62,14 @@ return {
 	--   config = true
 	-- },
 
-	{
-		"goolord/alpha-nvim",
-		lazy = true,
-		event = "VimEnter",
-		config = function()
-			require("plugin.alpha")
-		end,
-	},
+	-- {
+	-- 	"goolord/alpha-nvim",
+	-- 	lazy = true,
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("plugin.alpha")
+	-- 	end,
+	-- },
 
 	{
 		"akinsho/toggleterm.nvim",
@@ -329,7 +329,7 @@ return {
 			-- animate = require("plugin.snacksPlugins.animate"),
 			-- bigfile = require("plugin.snacksPlugins.bigfile"),
 			bufdelete = require("plugin.snacksPlugins.bufdelete"),
-			-- dashboard = require("plugin.snacksPlugins.dashboard"),
+			dashboard = require("plugin.snacksPlugins.dashboard"),
 			-- explorer = require("plugin.snacksPlugins.explorer"),
 			-- indent = require("plugin.snacksPlugins.indent"),
 			-- input = require("plugin.snacksPlugins.input"),

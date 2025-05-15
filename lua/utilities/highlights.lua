@@ -237,3 +237,11 @@ api(0, "BlinkCmpDocSeparator", { fg = "#363a4f", bg = colors.black, bold = true 
 api(0, "BlinkCmpSignatureHelp", { fg = colors.text, bg = colors.black })
 api(0, "BlinkCmpSignatureHelpBorder", { fg = "#363a4f", bg = colors.black })
 api(0, "BlinkCmpSignatureHelpActiveParameter", { bg = "#283457", bold = true })
+
+-- Snacks.dashboard
+api(0, "SnacksDashboardKey", { fg = colors.red, bg = "" })
+api(0, "SnacksDashboardDesc", { fg = colors.blue, bg = "" })
+api(0, "SnacksDashboardIcon", { fg = colors.teal, bg = "" })
+api(0, "SnacksDashboardSpecial", { fg = colors.mauve, bg = "" })
+api(0, "SnacksDashboardFooter", { fg = colors.mauve, bg = "" })
+api(0, "SnacksDashboardNormal", { fg = colors.text, bg = "" })

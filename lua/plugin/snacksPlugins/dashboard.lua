@@ -47,7 +47,7 @@ local config = {
 		keys = {
 			{ icon = "   ", key = "n", desc = "New File", action = ":ene | startinsert" },
 			{ icon = "   ", key = "v", desc = "Load Session(cwd)", action = ":SessionRestore" },
-			{ icon = "󱚄   ", key = "s", desc = "Select Session", acion = ":SessionSearch" },
+			{ icon = "󱚄   ", key = "s", desc = "Select Session", action = ":SessionSearch" },
 			{ icon = "   ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
 			{
 				icon = "   ",
@@ -177,7 +177,7 @@ local config = {
 				}, cmd)
 			end, cmds)
 		end,
-		{ section = "startup" },
+		{ section = "startup", icon = "󱐋 " },
 	},
 }
 

@@ -340,6 +340,7 @@ return {
 			-- scroll = require("plugin.snacksPlugins.scroll"),
 			-- statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
 			-- words = require("plugin.snacksPlugins.words"),
+			styles = require("plugin.snacksPlugins.stylesConfig"),
 		},
 		keys = {
 			{

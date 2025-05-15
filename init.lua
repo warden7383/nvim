@@ -26,5 +26,3 @@ require("utilities.autocommands")
 vim.cmd([[colorscheme tokyonight-night]])
 
 require("utilities.highlights")
-
---- testing

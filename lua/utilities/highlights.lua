@@ -245,3 +245,7 @@ api(0, "SnacksDashboardIcon", { fg = colors.teal, bg = "" })
 api(0, "SnacksDashboardSpecial", { fg = colors.mauve, bg = "" })
 api(0, "SnacksDashboardFooter", { fg = colors.mauve, bg = "" })
 api(0, "SnacksDashboardNormal", { fg = colors.text, bg = "" })
+
+-- Snacks.indent
+api(0, "SnacksIndentScope", { fg = "#c6a0f6", bold = true })
+api(0, "SnacksIndent", { fg = "#3b4261", bold = true })

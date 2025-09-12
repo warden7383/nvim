@@ -91,7 +91,7 @@ autocmd({ "TermClose" }, {
 	callback = function()
 		if vim.bo.filetype == "toggleterm" then
 		else
-			require("bufdelete").bufdelete(0, true)
+			-- require("bufdelete").bufdelete(0, true) -- BUG: require(bufdelete) does not exist and causes error
 			-- vim.api.nvim_feedkeys(" q", "n", false)
 		end
 

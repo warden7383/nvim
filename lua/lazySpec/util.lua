@@ -333,6 +333,7 @@ return {
 			debug = { enabled = false },
 			dim = { enabled = false },
 			explorer = require("plugin.snacksPlugins.explorer"),
+			gitbrowse = require("plugin.snacksPlugins.gitbrowse"),
 			-- indent = require("plugin.snacksPlugins.indent"),
 			-- input = require("plugin.snacksPlugins.input"),
 			picker = require("plugin.snacksPlugins.picker"),

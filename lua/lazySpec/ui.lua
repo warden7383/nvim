@@ -9,16 +9,16 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPre", "BufAdd" },
-		main = "ibl",
-		-- opts = {},
-		config = function()
-			require("plugin.indent-blankline")
-		end,
-		lazy = true,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	event = { "BufReadPre", "BufAdd" },
+	-- 	main = "ibl",
+	-- 	-- opts = {},
+	-- 	config = function()
+	-- 		require("plugin.indent-blankline")
+	-- 	end,
+	-- 	lazy = true,
+	-- },
 
 	{
 		"dstein64/nvim-scrollview",

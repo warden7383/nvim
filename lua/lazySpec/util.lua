@@ -334,6 +334,7 @@ return {
 			dim = { enabled = false },
 			explorer = require("plugin.snacksPlugins.explorer"),
 			gitbrowse = require("plugin.snacksPlugins.gitbrowse"),
+			image = {}, -- running defaults, no file currently
 			-- indent = require("plugin.snacksPlugins.indent"),
 			-- input = require("plugin.snacksPlugins.input"),
 			picker = require("plugin.snacksPlugins.picker"),

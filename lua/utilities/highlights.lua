@@ -249,3 +249,8 @@ api(0, "SnacksDashboardNormal", { fg = colors.text, bg = "" })
 -- Snacks.indent
 api(0, "SnacksIndentScope", { fg = "#c6a0f6", bold = true })
 api(0, "SnacksIndent", { fg = "#3b4261", bold = true })
+
+-- Snacks.input
+api(0, "SnacksInputNormal", { fg = "#363a4f", bg = colors.black })
+api(0, "SnacksInputBorder", { fg = "#363a4f", bg = colors.black, bold = true })
+api(0, "SnacksInputTitle", { fg = colors.mantle, bg = "#e0af68", bold = true })

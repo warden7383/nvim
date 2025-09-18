@@ -338,6 +338,7 @@ return {
 			indent = require("plugin.snacksPlugins.indent"),
 			input = require("plugin.snacksPlugins.input"),
 			layout = require("plugin.snacksPlugins.layout"), -- BUG: has errors with the utilization of snack layouts
+			lazygit = require("plugin.snacksPlugins.lazygit"), -- lazygit needs to be installed
 			picker = require("plugin.snacksPlugins.picker"),
 			-- notifier = require("plugin.snacksPlugins.notifier"),
 			-- quickfile = require("plugin.snacksPlugins.quickfile"),

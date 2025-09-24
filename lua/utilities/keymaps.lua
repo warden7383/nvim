@@ -27,7 +27,8 @@ map("n", "<C-b>", "<C-b>zz", {})
 map("n", "<C-f>", "<C-f>zz", {})
 
 map("n", "<leader>c", function()
-	require("notify").dismiss()
+	-- require("notify").dismiss() -- for rcarriga/nvim-notify
+	vim.cmd("lua Snacks.notifier.hide()")
 	vim.cmd("nohlsearch")
 end, { silent = true, desc = "Clear highlight search and dismiss Notify Notifications" })
 

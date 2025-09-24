@@ -70,14 +70,15 @@ return {
 	--   end,
 	-- },
 
-	{
-		"rcarriga/nvim-notify",
-		lazy = true,
-		event = "VeryLazy",
-		config = function()
-			require("plugin.notify")
-		end,
-	},
+	-- NOTE: replaced with snacks notify
+	-- {
+	-- 	"rcarriga/nvim-notify",
+	-- 	lazy = true,
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("plugin.notify")
+	-- 	end,
+	-- },
 
 	{
 		"MunifTanjim/nui.nvim",

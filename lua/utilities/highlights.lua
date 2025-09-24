@@ -251,6 +251,14 @@ api(0, "SnacksIndentScope", { fg = "#c6a0f6", bold = true })
 api(0, "SnacksIndent", { fg = "#3b4261", bold = true })
 
 -- Snacks.input
-api(0, "SnacksInputNormal", { fg = "#363a4f", bg = colors.black })
+api(0, "SnacksInputNormal", { fg = colors.text, bg = colors.black })
 api(0, "SnacksInputBorder", { fg = "#363a4f", bg = colors.black, bold = true })
 api(0, "SnacksInputTitle", { fg = colors.mantle, bg = "#e0af68", bold = true })
+
+-- Snacks.notify
+api(0, "SnacksNotifierTitleInfo", { bg = "#0db9d7", fg = "#1e2030", bold = true })
+api(0, "SnacksNotifierTitleWarn", { bg = "#e0af68", fg = "#1e2030", bold = true })
+api(0, "SnacksNotifierTitleDebug", { bg = "#565f89", fg = colors.text, bold = true })
+api(0, "SnacksNotifierTitleError", { bg = "#db4b4b", fg = "#1e2030", bold = true })
+api(0, "SnacksNotifierTitleTrace", { bg = "#9d7cd8", fg = "#1e2030", bold = true })
+api(0, "SnacksNotifierHistory", { bg = colors.black, bold = true })

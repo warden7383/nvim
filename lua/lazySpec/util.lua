@@ -341,6 +341,7 @@ return {
 			lazygit = require("plugin.snacksPlugins.lazygit"), -- lazygit needs to be installed
 			notifier = require("plugin.snacksPlugins.notifier"),
 			picker = require("plugin.snacksPlugins.picker"), -- using defaults, due to telescope
+			profiler = require("plugin.snacksPlugins.profiler"),
 			-- quickfile = require("plugin.snacksPlugins.quickfile"),
 			-- scope = require("plugin.snacksPlugins.scope"),
 			-- scroll = require("plugin.snacksPlugins.scroll"),

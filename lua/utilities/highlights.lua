@@ -94,8 +94,8 @@ api(0, "TelescopeSelectionCaret", { fg = colors.mauve, bg = "#363a4f", bold = tr
 api(0, "TelescopePromptCounter", { fg = "#b7bdf8", bold = true })
 api(0, "TelescopeSelection", { bg = "#363a4f" })
 
-api(0, "IncSearch", { bg = "#f5a97f", fg = "#24273a" })
-api(0, "Search", { bg = "#b5a5fa", fg = "#24273a" })
+api(0, "IncSearch", { bg = "#4285F4", fg = colors.text })
+api(0, "Search", { bg = "#cfcc63", fg = "#24273a" })
 ------------------------------CMP Highlights ---------------------------------------------------------
 -- Customization for Pmenu
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#8bd5ca", fg = "#1e2030", bold = true }) --DEFAULT: bg = "#282C34", fg = "NONE" #29a4bd

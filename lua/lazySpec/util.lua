@@ -340,7 +340,7 @@ return {
 			layout = require("plugin.snacksPlugins.layout"), -- BUG: has errors with the utilization of snack layouts
 			lazygit = require("plugin.snacksPlugins.lazygit"), -- lazygit needs to be installed
 			notifier = require("plugin.snacksPlugins.notifier"),
-			picker = require("plugin.snacksPlugins.picker"),
+			picker = require("plugin.snacksPlugins.picker"), -- using defaults, due to telescope
 			-- quickfile = require("plugin.snacksPlugins.quickfile"),
 			-- scope = require("plugin.snacksPlugins.scope"),
 			-- scroll = require("plugin.snacksPlugins.scroll"),

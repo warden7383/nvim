@@ -342,7 +342,7 @@ return {
 			notifier = require("plugin.snacksPlugins.notifier"),
 			picker = require("plugin.snacksPlugins.picker"), -- using defaults, due to telescope
 			profiler = require("plugin.snacksPlugins.profiler"),
-			-- quickfile = require("plugin.snacksPlugins.quickfile"),
+			quickfile = require("plugin.snacksPlugins.quickfile"),
 			-- scope = require("plugin.snacksPlugins.scope"),
 			-- scroll = require("plugin.snacksPlugins.scroll"),
 			-- statuscolumn = require("plugin.snacksPlugins.statuscolumn"),

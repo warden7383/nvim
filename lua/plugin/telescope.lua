@@ -97,7 +97,7 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
-telescope.load_extension("notify")
+-- telescope.load_extension("notify") -- using snacks notifier
 telescope.load_extension("file_browser")
 
 local builtin = require("telescope.builtin")

@@ -297,7 +297,7 @@ return {
 
 			-- optional
 			"nvim-treesitter/nvim-treesitter",
-			"rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify", -- using snacks notifier
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {

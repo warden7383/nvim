@@ -344,6 +344,7 @@ return {
 			profiler = require("plugin.snacksPlugins.profiler"),
 			quickfile = require("plugin.snacksPlugins.quickfile"),
 			scope = require("plugin.snacksPlugins.scope"),
+			scratch = require("plugin.snacksPlugins.scratch"),
 			-- scroll = require("plugin.snacksPlugins.scroll"),
 			-- statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
 			-- words = require("plugin.snacksPlugins.words"),

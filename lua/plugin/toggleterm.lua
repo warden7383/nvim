@@ -73,4 +73,4 @@ map("n", "<leader>th", function()
   ]])
 end, { silent = true })
 
-map("t", "jk", "<C-\\><C-n>", { desc = "Exit insert mode(Terminal)", silent = true })
+map("t", "<esc><esc>", "<C-\\><C-n>", { desc = "Exit insert mode(Terminal)", silent = true })

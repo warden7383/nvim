@@ -347,6 +347,7 @@ return {
 			scratch = require("plugin.snacksPlugins.scratch"),
 			scroll = require("plugin.snacksPlugins.scroll"), -- disabled
 			statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
+			terminal = require("plugin.snacksPlugins.terminal"), -- disabled
 			-- words = require("plugin.snacksPlugins.words"),
 			styles = require("plugin.snacksPlugins.stylesConfig"),
 		},

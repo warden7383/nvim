@@ -1,5 +1,6 @@
+-- disabled not using
 local config = {
-	enabled = true,
+	enabled = false,
 }
 
 return config

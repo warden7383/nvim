@@ -76,7 +76,7 @@ opt.mousemoveevent = true
 opt.wrap = false
 opt.pumheight = 8
 opt.confirm = true
-opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]]
+-- opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]] -- NOTE: using snacks status column module
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- opt.smoothscroll = true -- 04-09-2024: not working?
 -- opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})

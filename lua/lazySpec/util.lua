@@ -346,7 +346,7 @@ return {
 			scope = require("plugin.snacksPlugins.scope"),
 			scratch = require("plugin.snacksPlugins.scratch"),
 			scroll = require("plugin.snacksPlugins.scroll"), -- disabled
-			-- statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
+			statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
 			-- words = require("plugin.snacksPlugins.words"),
 			styles = require("plugin.snacksPlugins.stylesConfig"),
 		},

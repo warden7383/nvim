@@ -349,7 +349,8 @@ return {
 			statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
 			terminal = require("plugin.snacksPlugins.terminal"), -- disabled
 			toggle = require("plugin.snacksPlugins.toggle"),
-			-- words = require("plugin.snacksPlugins.words"),
+			win = { enabled = true },
+			words = require("plugin.snacksPlugins.words"),
 			styles = require("plugin.snacksPlugins.stylesConfig"),
 		},
 		keys = {

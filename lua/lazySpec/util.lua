@@ -351,6 +351,7 @@ return {
 			toggle = require("plugin.snacksPlugins.toggle"),
 			win = { enabled = true },
 			words = require("plugin.snacksPlugins.words"),
+			zen = require("plugin.snacksPlugins.zen"),
 			styles = require("plugin.snacksPlugins.stylesConfig"),
 		},
 		keys = {

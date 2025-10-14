@@ -181,4 +181,17 @@ usrAutocmd("Snacks", function(opts)
 	if opts.fargs[1] == "gitbrowse" then
 		vim.cmd("lua Snacks.gitbrowse()")
 	end
-end, { nargs = "*" })
+end, {
+	nargs = "*",
+	-- custom completion for after the first arg (which is `Snacks`)
+	complete = function(ArgLead, CmdLine, CursorPos)
+		local completionCandidates = { "scratch", "picker", "notify", "git", "blame", "root", "gitbrowse" }
+		local completionResult = {}
+		for _, completion in ipairs(completionCandidates) do
+			if completion:sub(1, #ArgLead) == ArgLead then
+				table.insert(completionResult, completion)
+			end
+		end
+		return completionResult
+	end,
+})

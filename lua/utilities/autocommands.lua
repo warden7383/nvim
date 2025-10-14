@@ -1,4 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
+local usrAutocmd = vim.api.nvim_create_user_command
 local map = vim.keymap.set
 local hl = vim.api.nvim_set_hl
 
@@ -91,7 +92,7 @@ autocmd({ "TermClose" }, {
 	callback = function()
 		if vim.bo.filetype == "toggleterm" then
 		else
-			require("bufdelete").bufdelete(0, true)
+			-- require("bufdelete").bufdelete(0, true) -- BUG: require(bufdelete) does not exist and causes error
 			-- vim.api.nvim_feedkeys(" q", "n", false)
 		end
 
@@ -151,5 +152,46 @@ autocmd({ "BufAdd", "BufReadPost" }, {
 		    setlocal linebreak
 		    setlocal wrap
 		  ]])
+	end,
+})
+
+usrAutocmd("Snacks", function(opts)
+	-- fargs[0] is the command name which is Snacks
+	if opts.fargs[1] == "scratch" then
+		vim.cmd("lua Snacks.scratch()")
+	end
+
+	if opts.fargs[1] == "picker" then
+		vim.cmd("lua Snacks.picker()")
+	end
+
+	if opts.fargs[1] == "notify" and opts.fargs[2] == "msgs" then
+		vim.cmd("lua Snacks.notifier.show_history()")
+	end
+
+	if opts.fargs[1] == "git" then
+		if opts.fargs[2] == "blame" then
+			vim.cmd("lua Snacks.git.blame_line()")
+		end
+		if opts.fargs[2] == "root" then
+			vim.cmd("lua Snacks.git.get_root()")
+		end
+	end
+
+	if opts.fargs[1] == "gitbrowse" then
+		vim.cmd("lua Snacks.gitbrowse()")
+	end
+end, {
+	nargs = "*",
+	-- custom completion for after the first arg (which is `Snacks`)
+	complete = function(ArgLead, CmdLine, CursorPos)
+		local completionCandidates = { "scratch", "picker", "notify", "git", "blame", "root", "gitbrowse" }
+		local completionResult = {}
+		for _, completion in ipairs(completionCandidates) do
+			if completion:sub(1, #ArgLead) == ArgLead then
+				table.insert(completionResult, completion)
+			end
+		end
+		return completionResult
 	end,
 })

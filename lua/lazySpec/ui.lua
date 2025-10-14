@@ -9,16 +9,16 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPre", "BufAdd" },
-		main = "ibl",
-		-- opts = {},
-		config = function()
-			require("plugin.indent-blankline")
-		end,
-		lazy = true,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	event = { "BufReadPre", "BufAdd" },
+	-- 	main = "ibl",
+	-- 	-- opts = {},
+	-- 	config = function()
+	-- 		require("plugin.indent-blankline")
+	-- 	end,
+	-- 	lazy = true,
+	-- },
 
 	{
 		"dstein64/nvim-scrollview",
@@ -70,14 +70,15 @@ return {
 	--   end,
 	-- },
 
-	{
-		"rcarriga/nvim-notify",
-		lazy = true,
-		event = "VeryLazy",
-		config = function()
-			require("plugin.notify")
-		end,
-	},
+	-- NOTE: replaced with snacks notify
+	-- {
+	-- 	"rcarriga/nvim-notify",
+	-- 	lazy = true,
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("plugin.notify")
+	-- 	end,
+	-- },
 
 	{
 		"MunifTanjim/nui.nvim",
@@ -100,7 +101,7 @@ return {
 			-- OPTIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify", -- using snacks notifier
 		},
 	},
 

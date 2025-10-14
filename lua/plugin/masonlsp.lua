@@ -9,7 +9,7 @@ require("mason-lspconfig").setup({
 		--    "htmx", failed to install
 		"jsonls",
 		"jdtls",
-		"tsserver",
+		"ts_ls",
 		"jqls",
 		"lua_ls",
 		"marksman",

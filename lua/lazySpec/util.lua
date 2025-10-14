@@ -18,22 +18,22 @@ return {
 		lazy = true,
 	},
 
-	{
-		"famiu/bufdelete.nvim",
-		lazy = true,
-		keys = {
-			{ "<leader>q", ":Bdelete<CR>", desc = "Delete the buffer without losing layout" },
-		},
-		config = function()
-			vim.keymap.set(
-				"n",
-				"<leader>q",
-				":Bdelete<CR>",
-				{ silent = true },
-				{ desc = "Delete buffer without losing layout" }
-			)
-		end,
-	},
+	-- {
+	-- 	"famiu/bufdelete.nvim",
+	-- 	lazy = true,
+	-- 	keys = {
+	-- 		{ "<leader>q", ":Bdelete<CR>", desc = "Delete the buffer without losing layout" },
+	-- 	},
+	-- 	config = function()
+	-- 		vim.keymap.set(
+	-- 			"n",
+	-- 			"<leader>q",
+	-- 			":Bdelete<CR>",
+	-- 			{ silent = true },
+	-- 			{ desc = "Delete buffer without losing layout" }
+	-- 		)
+	-- 	end,
+	-- },
 
 	{
 		"NvChad/nvim-colorizer.lua",
@@ -62,14 +62,14 @@ return {
 	--   config = true
 	-- },
 
-	{
-		"goolord/alpha-nvim",
-		lazy = true,
-		event = "VimEnter",
-		config = function()
-			require("plugin.alpha")
-		end,
-	},
+	-- {
+	-- 	"goolord/alpha-nvim",
+	-- 	lazy = true,
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("plugin.alpha")
+	-- 	end,
+	-- },
 
 	{
 		"akinsho/toggleterm.nvim",
@@ -297,11 +297,56 @@ return {
 
 			-- optional
 			"nvim-treesitter/nvim-treesitter",
-			"rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify", -- using snacks notifier
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
 			-- configuration goes here
+		},
+	},
+
+	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		---@type snacks.Config
+		opts = {
+			animate = require("plugin.snacksPlugins.animate"),
+			bigfile = require("plugin.snacksPlugins.bigfile"),
+			bufdelete = require("plugin.snacksPlugins.bufdelete"),
+			dashboard = require("plugin.snacksPlugins.dashboard"),
+			debug = { enabled = false },
+			dim = { enabled = false },
+			explorer = require("plugin.snacksPlugins.explorer"),
+			gitbrowse = require("plugin.snacksPlugins.gitbrowse"),
+			image = {}, -- running defaults, no file currently
+			indent = require("plugin.snacksPlugins.indent"),
+			input = require("plugin.snacksPlugins.input"),
+			layout = require("plugin.snacksPlugins.layout"), -- BUG: has errors with the utilization of snack layouts
+			lazygit = require("plugin.snacksPlugins.lazygit"), -- lazygit needs to be installed
+			notifier = require("plugin.snacksPlugins.notifier"),
+			picker = require("plugin.snacksPlugins.picker"), -- using defaults, due to telescope
+			profiler = require("plugin.snacksPlugins.profiler"),
+			quickfile = require("plugin.snacksPlugins.quickfile"),
+			scope = require("plugin.snacksPlugins.scope"),
+			scratch = require("plugin.snacksPlugins.scratch"),
+			scroll = require("plugin.snacksPlugins.scroll"), -- disabled
+			statuscolumn = require("plugin.snacksPlugins.statuscolumn"),
+			terminal = require("plugin.snacksPlugins.terminal"), -- disabled
+			toggle = require("plugin.snacksPlugins.toggle"),
+			win = { enabled = true },
+			words = require("plugin.snacksPlugins.words"),
+			zen = require("plugin.snacksPlugins.zen"),
+			styles = require("plugin.snacksPlugins.stylesConfig"),
+		},
+		keys = {
+			{
+				"<Leader>q",
+				function()
+					Snacks.bufdelete()
+				end,
+				desc = "Delete buffer without losing layout",
+			},
 		},
 	},
 }

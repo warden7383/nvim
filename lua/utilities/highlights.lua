@@ -70,6 +70,8 @@ api(0, "WinSeparator", { fg = "#8aadf4", bold = true }) --#FB508F #80bd9c #68ded
 api(0, "SignColumn", { fg = "#8aadf4", bold = true })
 api(0, "ColorColumn", { link = "CursorColumn" })
 
+api(0, "TabLineFill", { bg = colors.transparent_bg }) -- tabline background
+
 api(0, "FloatBorder", { fg = "#363a4f" })
 
 -- remove background from diagnostic virtual messages and set italic
@@ -218,3 +220,45 @@ api(0, "NoiceCmdlinePopupTitle", { fg = colors.black, bg = colors.black })
 api(0, "NoiceCmdlinePopup", { bg = colors.mantle })
 api(0, "NoiceCmdlinePopupBorder", { fg = colors.mantle, bg = colors.mantle })
 api(0, "NoiceCmdlineIcon", { fg = colors.mauve })
+
+-- blink cmp
+api(0, "BlinkCmpMenu", { fg = colors.text, bg = colors.black })
+api(0, "BlinkCmpMenuBorder", { fg = "#363a4f", bg = colors.black, bold = true }) -- comment this to revert back to the PmenuSel
+api(0, "BlinkCmpMenuSelection", { link = "CursorColumn" })
+api(0, "BlinkCmpScrollBarThumb", { link = "Visual" })
+api(0, "BlinkCmpScrollBarGutter", { link = "Visual" })
+api(0, "BlinkCmpLabel", { fg = colors.text })
+api(0, "BlinkCmpLabelDetail", { fg = colors.text, bg = colors.black })
+api(0, "BlinkCmpLabelDescription", { fg = colors.text, bg = colors.black })
+api(0, "BlinkCmpSource", { fg = colors.text, bg = colors.black })
+api(0, "BlinkCmpDoc", { fg = colors.text, bg = colors.black })
+api(0, "BlinkCmpDocBorder", { fg = "#363a4f", bg = colors.black, bold = true })
+api(0, "BlinkCmpDocSeparator", { fg = "#363a4f", bg = colors.black, bold = true })
+api(0, "BlinkCmpSignatureHelp", { fg = colors.text, bg = colors.black })
+api(0, "BlinkCmpSignatureHelpBorder", { fg = "#363a4f", bg = colors.black })
+api(0, "BlinkCmpSignatureHelpActiveParameter", { bg = "#283457", bold = true })
+
+-- Snacks.dashboard
+api(0, "SnacksDashboardKey", { fg = colors.red, bg = "" })
+api(0, "SnacksDashboardDesc", { fg = colors.blue, bg = "" })
+api(0, "SnacksDashboardIcon", { fg = colors.teal, bg = "" })
+api(0, "SnacksDashboardSpecial", { fg = colors.mauve, bg = "" })
+api(0, "SnacksDashboardFooter", { fg = colors.mauve, bg = "" })
+api(0, "SnacksDashboardNormal", { fg = colors.text, bg = "" })
+
+-- Snacks.indent
+api(0, "SnacksIndentScope", { fg = "#c6a0f6", bold = true })
+api(0, "SnacksIndent", { fg = "#3b4261", bold = true })
+
+-- Snacks.input
+api(0, "SnacksInputNormal", { fg = colors.text, bg = colors.black })
+api(0, "SnacksInputBorder", { fg = "#363a4f", bg = colors.black, bold = true })
+api(0, "SnacksInputTitle", { fg = colors.mantle, bg = "#e0af68", bold = true })
+
+-- Snacks.notify
+api(0, "SnacksNotifierTitleInfo", { bg = "#0db9d7", fg = "#1e2030", bold = true })
+api(0, "SnacksNotifierTitleWarn", { bg = "#e0af68", fg = "#1e2030", bold = true })
+api(0, "SnacksNotifierTitleDebug", { bg = "#565f89", fg = colors.text, bold = true })
+api(0, "SnacksNotifierTitleError", { bg = "#db4b4b", fg = "#1e2030", bold = true })
+api(0, "SnacksNotifierTitleTrace", { bg = "#9d7cd8", fg = "#1e2030", bold = true })
+api(0, "SnacksNotifierHistory", { bg = colors.black, bold = true })

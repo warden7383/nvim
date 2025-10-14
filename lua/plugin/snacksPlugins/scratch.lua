@@ -1,9 +1,4 @@
 -- running defaults (below)
----@class snacks.scratch.Config
----@field win? snacks.win.Config scratch window
----@field template? string template for new buffers
----@field file? string scratch file path. You probably don't need to set this.
----@field ft? string|fun():string the filetype of the scratch buffer
 local config = {
 	enabled = true,
 	name = "Scratch",

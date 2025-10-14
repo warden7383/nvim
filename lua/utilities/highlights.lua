@@ -220,6 +220,8 @@ api(0, "NoiceCmdlinePopupTitle", { fg = colors.black, bg = colors.black })
 api(0, "NoiceCmdlinePopup", { bg = colors.mantle })
 api(0, "NoiceCmdlinePopupBorder", { fg = colors.mantle, bg = colors.mantle })
 api(0, "NoiceCmdlineIcon", { fg = colors.mauve })
+api(0, "NoiceCmdlinePopupBorderLua", { fg = colors.mantle, bg = colors.mantle })
+api(0, "NoiceCmdlinePopupTitleLua", { fg = "#1e2030", bg = "#2ac3de" })
 
 -- blink cmp
 api(0, "BlinkCmpMenu", { fg = colors.text, bg = colors.black })

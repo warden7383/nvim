@@ -140,13 +140,6 @@ return {
 	},
 
 	{
-		"NStefan002/2048.nvim",
-		cmd = "Play2048",
-		config = true,
-		lazy = true,
-	},
-
-	{
 		"nanotee/zoxide.vim",
 		lazy = true,
 		cmd = { "Z", "Zi", "Lz", "Tz", "Lzi", "Tzi" },

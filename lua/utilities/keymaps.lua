@@ -42,7 +42,6 @@ map("n", "d", '"_d')
 --Buffer navigation
 map("n", "<M-b>", "<CMD>bp<CR>", { silent = true, desc = "Move to previous buffer" })
 map("n", "<M-n>", "<CMD>bn<CR>", { silent = true, desc = "Move to next buffer" })
---- NOTE: the following code here is being used in smart-splits.lua
 
 --Tab mappings
 map("n", "<leader><tab>n", "<cmd>tabnext<cr>", { desc = "Next Tab" })
@@ -53,19 +52,19 @@ map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader><tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 --Resize windows
-map("n", "<Right>", "<C-w>>", { desc = "Enlarges window width" })
-map("n", "<Left>", "<C-w><lt>", { desc = "Shrinks window width" })
-map("n", "<Down>", "<C-w>+", { desc = "increase window height" })
-map("n", "<Up>", "<C-w>-", { desc = "decrease window height" })
+map("n", "<Left>", "<C-w>>", { desc = "Enlarges window width" })
+map("n", "<Right>", "<C-w><lt>", { desc = "Shrinks window width" })
+map("n", "<Up>", "<C-w>+", { desc = "increase window height" })
+map("n", "<Down>", "<C-w>-", { desc = "decrease window height" })
 
 map("n", "<leader>sv", "<CMD>vsplit<CR>", { silent = true, desc = "Split Vertical" })
 map("n", "<leader>sh", "<CMD>split<CR>", { silent = true, desc = "Split Horizontal" })
 
 --Naviate through windows
--- map({'n','t'}, '<C-h>', '<C-w>h', {desc = "Moves cursor to the right window"})
--- map({'n','t'}, '<C-l>', '<C-w>l', {desc = "Moves cursor to the left window"})
--- map({'n','t'}, '<C-k>', '<C-w>k', {desc = "Moves cursor to the top window"})
--- map({'n','t'}, '<C-j>', '<C-w>j', {desc = "Moves cursor to the bottom window"})
+map({ "n", "t" }, "<C-h>", "<C-w>h", { desc = "Moves cursor to the right window" })
+map({ "n", "t" }, "<C-l>", "<C-w>l", { desc = "Moves cursor to the left window" })
+map({ "n", "t" }, "<C-k>", "<C-w>k", { desc = "Moves cursor to the top window" })
+map({ "n", "t" }, "<C-j>", "<C-w>j", { desc = "Moves cursor to the bottom window" })
 
 --Code line alteration
 map("n", "<M-d>", "<cmd>m .+1<cr>==", { desc = "Move line down" })

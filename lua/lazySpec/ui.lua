@@ -119,17 +119,17 @@ return {
 	-- },
 
 	-- NOTE: can be integrated with several terminal emulators such as wezterm for win
-	{
-		"mrjones2014/smart-splits.nvim",
-		lazy = true,
-		event = { "BufReadPre", "BufAdd" },
-		config = function()
-			require("plugin.smart-splits")
-		end,
-		dependencies = {
-			-- "kwkarlwang/bufresize.nvim",
-		},
-	},
+	-- {
+	-- 	"mrjones2014/smart-splits.nvim",
+	-- 	lazy = true,
+	-- 	event = { "BufReadPre", "BufAdd" },
+	-- 	config = function()
+	-- 		require("plugin.smart-splits")
+	-- 	end,
+	-- 	dependencies = {
+	-- 		-- "kwkarlwang/bufresize.nvim",
+	-- 	},
+	-- },
 
 	{
 		"nvim-zh/colorful-winsep.nvim",

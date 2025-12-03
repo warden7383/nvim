@@ -276,7 +276,7 @@ local config = {
 		enabled = true,
 		keymap = {
 			preset = "cmdline",
-			["<C-l>"] = { "select_and_accept", "fallback" },
+			["<Tab>"] = { "select_and_accept", "fallback" },
 		},
 		sources = function()
 			local type = vim.fn.getcmdtype()

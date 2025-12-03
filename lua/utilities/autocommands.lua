@@ -155,11 +155,19 @@ autocmd({ "BufAdd", "BufReadPost" }, {
 	end,
 })
 
+usrAutocmd("Scratch", function()
+	vim.cmd("lua Snacks.scratch()")
+end, { desc = "Toggle scratch" })
+
+usrAutocmd("ScratchSelect", function()
+	vim.cmd("lua Snacks.scratch.select()")
+end, { desc = "Select scratch buffer" })
+
 usrAutocmd("Snacks", function(opts)
 	-- fargs[0] is the command name which is Snacks
-	if opts.fargs[1] == "scratch" then
-		vim.cmd("lua Snacks.scratch()")
-	end
+	-- if opts.fargs[1] == "scratch" then
+	-- 	vim.cmd("lua Snacks.scratch()")
+	-- end
 
 	if opts.fargs[1] == "picker" then
 		vim.cmd("lua Snacks.picker()")
@@ -185,7 +193,8 @@ end, {
 	nargs = "*",
 	-- custom completion for after the first arg (which is `Snacks`)
 	complete = function(ArgLead, CmdLine, CursorPos)
-		local completionCandidates = { "scratch", "picker", "notify", "git", "blame", "root", "gitbrowse" }
+		-- local completionCandidates = { "scratch", "picker", "notify", "git", "blame", "root", "gitbrowse" }
+		local completionCandidates = { "picker", "notify", "git", "blame", "root", "gitbrowse" }
 		local completionResult = {}
 		for _, completion in ipairs(completionCandidates) do
 			if completion:sub(1, #ArgLead) == ArgLead then
@@ -194,4 +203,5 @@ end, {
 		end
 		return completionResult
 	end,
+	desc = "Most commonly used snack modules with easier commands to call them",
 })

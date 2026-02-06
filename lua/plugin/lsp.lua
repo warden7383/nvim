@@ -61,6 +61,21 @@ for _, i in ipairs(lsp) do
 			},
 			handlers = handlers,
 		})
+	elseif i == "jdtls" then
+		lspconfig[i].setup({
+			settings = {
+				java = {
+					project = {
+						referencedLibraries = {
+							"lib/**/*.jar",
+						},
+					},
+				},
+			},
+			root_dir = require("lspconfig.util").root_pattern(".classpath", ".root", ".git", "lib") or vim.fn.getcwd(),
+			capabilities = capabilities,
+			handlers = handlers,
+		})
 	else
 		lspconfig[i].setup({
 			-- on_attach = on_attach,

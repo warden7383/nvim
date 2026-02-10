@@ -28,21 +28,31 @@ end
 -- while being in a tmux session)
 -- FIXES clipboard pasting invisible text when extended-keys is on for tmux.conf
 -- where 'p' in nvim and ctrl-v do not paste properly
-if vim.fn.executable("wl-copy") == 1 then
-	vim.g.clipboard = {
-		name = "wl-clipboard",
-		copy = {
-			["+"] = "wl-copy",
-			["*"] = "wl-copy",
-		},
-		paste = {
-			["+"] = "wl-paste",
-			["*"] = "wl-paste",
-		},
-		cache_enabled = 1,
-	}
-else
-end
+-- if vim.fn.executable("wl-copy") == 1 then
+-- 	vim.g.clipboard = {
+-- 		name = "wl-clipboard",
+-- 		copy = {
+-- 			["*"] = "wl-copy",
+-- 		},
+-- 		paste = {
+-- 			["*"] = "wl-paste",
+-- 		},
+-- 		cache_enabled = 1,
+-- 	}
+-- else
+-- end
+
+vim.g.clipboard = {
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+	},
+}
 
 -- vim-waka api key: if you get a new key, find your wakatime.cfg file and replace the api key if the
 -- WakaTimeAPI.... throws 104 incorrect api key. (very likely the .cfg file is appending the api key instead of)

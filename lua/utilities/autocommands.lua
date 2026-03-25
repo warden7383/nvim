@@ -76,12 +76,6 @@ autocmd({ "TermOpen" }, {
 		opt.relativenumber = false
 
 		vim.cmd.startinsert()
-		-- if vim.bo.filetype == "toggleterm" then
-		--
-		-- else
-		--   vim.api.nvim_feedkeys("i", "t", false) -- start in insert mode
-		--
-		-- end
 	end,
 })
 
@@ -90,12 +84,6 @@ autocmd({ "TermOpen" }, {
 autocmd({ "TermClose" }, {
 	pattern = "term://*",
 	callback = function()
-		if vim.bo.filetype == "toggleterm" then
-		else
-			-- require("bufdelete").bufdelete(0, true) -- BUG: require(bufdelete) does not exist and causes error
-			-- vim.api.nvim_feedkeys(" q", "n", false)
-		end
-
 		-- vim.cmd([[stopinsert]])
 		vim.api.nvim_feedkeys("jk", "t", false) --without this, closing terminals will leave you in insert mode
 	end,
@@ -144,10 +132,6 @@ autocmd("CmdlineEnter", {
 autocmd({ "BufAdd", "BufReadPost" }, {
 	pattern = { "*.md", "*.txt", "*.markdown" },
 	callback = function() -- Called twice?
-		-- vim.api.nvim_set_option_value({ "linebreak" }, { true }, { "local" })
-		-- vim.api.nvim_set_option_value({ "wrap" }, { true }, { "local" })
-		-- vim.api.nvim_set_option_value("linebreak", true, vim.bo)
-		-- vim.api.nvim_set_option_value("wrap", true, vim.bo)
 		vim.cmd([[
 		    setlocal linebreak
 		    setlocal wrap
@@ -164,11 +148,6 @@ usrAutocmd("ScratchSelect", function()
 end, { desc = "Select scratch buffer" })
 
 usrAutocmd("Snacks", function(opts)
-	-- fargs[0] is the command name which is Snacks
-	-- if opts.fargs[1] == "scratch" then
-	-- 	vim.cmd("lua Snacks.scratch()")
-	-- end
-
 	if opts.fargs[1] == "picker" then
 		vim.cmd("lua Snacks.picker()")
 	end
@@ -193,7 +172,6 @@ end, {
 	nargs = "*",
 	-- custom completion for after the first arg (which is `Snacks`)
 	complete = function(ArgLead, CmdLine, CursorPos)
-		-- local completionCandidates = { "scratch", "picker", "notify", "git", "blame", "root", "gitbrowse" }
 		local completionCandidates = { "picker", "notify", "git", "blame", "root", "gitbrowse" }
 		local completionResult = {}
 		for _, completion in ipairs(completionCandidates) do

@@ -24,36 +24,6 @@ elseif osName == "Darwin" then
 else
 end
 
--- forces linux machines to use wl-clipboard instead of tmux (see checkhealth providers
--- while being in a tmux session)
--- FIXES clipboard pasting invisible text when extended-keys is on for tmux.conf
--- where 'p' in nvim and ctrl-v do not paste properly
--- if vim.fn.executable("wl-copy") == 1 then
--- 	vim.g.clipboard = {
--- 		name = "wl-clipboard",
--- 		copy = {
--- 			["*"] = "wl-copy",
--- 		},
--- 		paste = {
--- 			["*"] = "wl-paste",
--- 		},
--- 		cache_enabled = 1,
--- 	}
--- else
--- end
-
-vim.g.clipboard = {
-	name = "OSC 52",
-	copy = {
-		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-	},
-	paste = {
-		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-	},
-}
-
 -- vim-waka api key: if you get a new key, find your wakatime.cfg file and replace the api key if the
 -- WakaTimeAPI.... throws 104 incorrect api key. (very likely the .cfg file is appending the api key instead of)
 -- replacing it
@@ -61,26 +31,6 @@ vim.g.clipboard = {
 -- example: "C:\Users\Andrew Ng\.wakatime.cfg"
 
 glb.fsync = false
--- testing did this save;
--- Examples: >vim
--- 		" Relative number with bar separator and click handlers:
--- 		set statuscolumn=%@SignCb@%s%=%T%@NumCb@%r│%T
---
--- 		" Right aligned relative cursor line number:
--- 		let &stc=y'%=%{v:relnum?v:relnum:v:lnum} 'y
---
--- 		" Line numbers in hexadecimal for non wrapped part of lines:
--- 		let &stc='%=%{v:virtnum>0?"":printf("%x",v:lnum)} '
---
--- 		" Human readable line numbers with thousands separator:
--- 		let &stc='%{substitute(v:lnum,"\\d\\zs\\ze\\'
--- 			   . '%(\\d\\d\\d\\)\\+$",",","g")}'
---
--- 		" Both relative and absolute line numbers with different
--- 		" highlighting for odd and even relative numbers:
--- 		let &stc='%#NonText#%{&nu?v:lnum:""}' .
--- 		 '%=%{&rnu&&(v:lnum%2)?"\ ".v:relnum:""}' .
--- 		 '%#LineNr#%{&rnu&&!(v:lnum%2)?"\ ".v:relnum:""}'
 opt.termguicolors = true
 opt.updatetime = 200
 opt.splitright = true
@@ -108,7 +58,6 @@ opt.pumheight = 8
 opt.confirm = true
 -- opt.statuscolumn = [[%!v:lua.require('utilities.statuscolumn').statuscolumn()]] -- NOTE: using snacks status column module
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
--- opt.smoothscroll = true -- 04-09-2024: not working?
 -- opt.fillchars:append({ eob = ' ', fold = ' ', foldsep = ' ', foldopen = '', foldclose = ''})
 opt.foldtext = ""
 opt.fillchars = {
@@ -144,14 +93,10 @@ vim.diagnostic.config({
 	underline = true,
 	signs = {
 		text = {
-			-- [sign.HINT] = "", --   hint = '⚑',󰛨
-			-- [sign.ERROR] = "✘", --
-			-- [sign.WARN] = "", --   warn = '▲',    
-			-- [sign.INFO] = "⚑", -- info = '»' 𝓳 󰙎
-			[sign.HINT] = "●",
-			[sign.ERROR] = "●",
-			[sign.WARN] = "●",
-			[sign.INFO] = "●",
+			[sign.HINT] = "●", -- "", --   hint = '⚑',󰛨  󰌶 
+			[sign.ERROR] = "●", -- "✘", --    ✘
+			[sign.WARN] = "●", -- "", --   warn = '▲',      󰀪 ▲󰳤 󱗓 
+			[sign.INFO] = "●", -- "⚑", -- info = '»' 𝓳 󰙎    󰋼 󰋽 ⚑ⁱ
 		},
 	},
 	float = {
@@ -159,9 +104,3 @@ vim.diagnostic.config({
 	},
 	severity_sort = true,
 })
--- diagnostics = {
--- 			Error = '✘', --   ✘
--- 			Warn  = '󰀪', --  󰀪 ▲󰳤 󱗓 
--- 			Info  = 'ⁱ', --    󰋼 󰋽 ⚑ⁱ
--- 			Hint  = '', --  󰌶 
--- 			}

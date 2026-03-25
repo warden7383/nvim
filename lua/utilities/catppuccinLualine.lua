@@ -33,45 +33,6 @@ local colors = {
 	text1 = "#a9b1d6",
 }
 
--- return {
--- 	normal = {
--- 		a = { bg = colors.blue, fg = colors.mantle, gui = "bold" },
--- 		b = { bg = colors.surface0, fg = colors.blue },
--- 		c = { bg = colors.black, fg = colors.text },
--- 	},
---
--- 	insert = {
--- 		a = { bg = colors.green, fg = colors.base, gui = "bold" },
--- 		b = { bg = colors.surface0, fg = colors.green },
--- 	},
---
--- 	terminal = {
--- 		a = { bg = colors.green, fg = colors.base, gui = "bold" },
--- 		b = { bg = colors.surface0, fg = colors.green },
--- 	},
---
--- 	command = {
--- 		a = { bg = colors.peach, fg = colors.base, gui = "bold" },
--- 		b = { bg = colors.surface0, fg = colors.peach },
--- 	},
---
--- 	visual = {
--- 		a = { bg = colors.mauve, fg = colors.base, gui = "bold" },
--- 		b = { bg = colors.surface0, fg = colors.mauve },
--- 	},
---
--- 	replace = {
--- 		a = { bg = colors.red, fg = colors.base, gui = "bold" },
--- 		b = { bg = colors.surface0, fg = colors.red },
--- 	},
---
--- 	inactive = {
--- 		a = { bg = colors.transparent_bg, fg = colors.blue },
--- 		b = { bg = colors.transparent_bg, fg = colors.surface1, gui = "bold" },
--- 		c = { bg = colors.transparent_bg, fg = colors.overlay0 },
--- 	},
--- }
-
 return {
 	normal = {
 		a = { bg = colors.black, fg = colors.blue, gui = "bold" },

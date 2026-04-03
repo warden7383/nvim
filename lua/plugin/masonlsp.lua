@@ -21,5 +21,6 @@ require("mason-lspconfig").setup({
 		"ltex",
 		"lemminx",
 		"yamlls",
+		"beautysh",
 	},
 })

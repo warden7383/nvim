@@ -34,6 +34,7 @@ require("conform").setup({
 		-- rust = { "rustfmt", lsp_format = "fallback" },
 		rust = { "rustfmt" },
 		java = { lsp_format = "prefer" },
+		bash = { "beautysh" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()

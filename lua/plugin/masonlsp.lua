@@ -21,10 +21,7 @@ require("mason-lspconfig").setup({
 		"ltex",
 		"lemminx",
 		"yamlls",
-<<<<<<< HEAD
 		"beautysh",
-=======
 		"hls", -- haskel-language-server
->>>>>>> f57fa17 (feat: add haskel lsp config)
 	},
 })

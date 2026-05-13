@@ -27,6 +27,7 @@ local lsp = {
 	"lemminx",
 	"yamlls",
 	-- "rust_analyzer",
+	"hls",
 }
 
 -- require("neodev").setup({})

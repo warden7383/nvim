@@ -23,5 +23,6 @@ require("mason-lspconfig").setup({
 		"yamlls",
 		"beautysh",
 		"hls", -- haskel-language-server
+		"gopls",
 	},
 })

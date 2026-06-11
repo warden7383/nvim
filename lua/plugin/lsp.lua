@@ -28,6 +28,7 @@ local lsp = {
 	"yamlls",
 	-- "rust_analyzer",
 	"hls",
+	"gopls",
 }
 
 -- require("neodev").setup({})

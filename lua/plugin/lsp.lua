@@ -29,6 +29,7 @@ local lsp = {
 	-- "rust_analyzer",
 	"hls",
 	"gopls",
+	"asm_lsp",
 }
 
 -- require("neodev").setup({})

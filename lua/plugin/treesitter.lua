@@ -29,6 +29,7 @@ require("nvim-treesitter.configs").setup({
 		"rust",
 		"xml",
 		"go",
+		"asm",
 	},
 	-- DTD and xml parsers are the same i think(?)
 

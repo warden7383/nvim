@@ -30,6 +30,7 @@ local lsp = {
 	"hls",
 	"gopls",
 	"asm_lsp",
+	"racket_langserver",
 }
 
 -- require("neodev").setup({})
@@ -78,6 +79,14 @@ for _, i in ipairs(lsp) do
 			root_dir = require("lspconfig.util").root_pattern(".classpath", ".root", ".git", "lib") or vim.fn.getcwd(),
 			capabilities = capabilities,
 			handlers = handlers,
+		})
+	elseif i == "racket_langserver" then
+		lspconfig[i].setup({
+			cmd = { "racket", "--lib", "racket-langserver" },
+			filetypes = { "racket", "scheme" },
+			capabilities = capabilities,
+			handlers = handlers,
+			single_file_support = true,
 		})
 	else
 		lspconfig[i].setup({

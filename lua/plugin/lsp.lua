@@ -31,6 +31,7 @@ local lsp = {
 	"gopls",
 	"asm_lsp",
 	"racket_langserver",
+	"eslint",
 }
 
 -- require("neodev").setup({})

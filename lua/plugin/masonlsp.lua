@@ -25,5 +25,6 @@ require("mason-lspconfig").setup({
 		"hls", -- haskel-language-server
 		"gopls",
 		"asm_lsp",
+		"eslint",
 	},
 })

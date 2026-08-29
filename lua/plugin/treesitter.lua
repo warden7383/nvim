@@ -31,6 +31,7 @@ require("nvim-treesitter.configs").setup({
 		"go",
 		"asm",
 		"racket",
+		"typescript",
 		-- "haskell",
 	},
 	-- DTD and xml parsers are the same i think(?)

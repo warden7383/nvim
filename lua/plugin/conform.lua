@@ -5,15 +5,18 @@ local function formatterCommand()
 	if hostname == "Darwin" then
 		return {
 			stylua = "stylua",
+			oxfmt = "oxfmt",
 			test = "testing",
 		}
 	elseif hostname == "Windows_NT" then
 		return {
 			stylua = "stylua.exe",
+			oxfmt = "oxtfmt.exe",
 		}
 	else -- linux os
 		return {
 			stylua = "stylua",
+			oxfmt = "oxfmt",
 		}
 	end
 end
@@ -27,7 +30,13 @@ require("conform").setup({
 		-- Conform will run multiple formatters sequentially
 		python = { "isort", "black" },
 		-- Use a sub-list to run only the first available formatter
-		javascript = { { "prettierd", "prettier" } },
+		-- javascript = { { "prettierd", "prettier" } },
+		html = { "oxfmt" },
+		css = { "oxfmt" },
+		javascript = { "oxfmt" },
+		javascriptreact = { "oxfmt" },
+		typescript = { "oxfmt" },
+		typescriptreact = { "oxfmt" },
 		cpp = {
 			"clang_format",
 		},
@@ -56,6 +65,10 @@ require("conform").setup({
 			args = {
 				"-style=file",
 			},
+		},
+		oxfmt = {
+			command = formatterCommand().oxfmt,
+			args = { "--stdin-filepath", "$FILENAME" },
 		},
 	},
 })

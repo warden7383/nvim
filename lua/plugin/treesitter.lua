@@ -32,6 +32,7 @@ require("nvim-treesitter.configs").setup({
 		"asm",
 		"racket",
 		"typescript",
+		"tsx",
 		-- "haskell",
 	},
 	-- DTD and xml parsers are the same i think(?)
@@ -81,3 +82,5 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable                     " Disable folding at startup.
 ]])
+
+-- vim.treesitter.language.register("tsx", "typescriptreact")

@@ -23,7 +23,6 @@ local lsp = {
 	"pyright",
 	"sqlls",
 	--"svelte",
-	"ltex",
 	"lemminx",
 	"yamlls",
 	-- "rust_analyzer",
@@ -33,6 +32,7 @@ local lsp = {
 	"racket_langserver",
 	"eslint",
 	-- "oxfmt",
+	"ltex_plus",
 }
 
 -- require("neodev").setup({})

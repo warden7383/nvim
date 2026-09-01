@@ -18,13 +18,13 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"sqlls",
 		--"svelte", not needed yet
-		"ltex",
 		"lemminx",
 		"yamlls",
-		"beautysh",
+		-- "beautysh", -- NOTE: will give a warning, prob because its a formatter and not a lsp
 		"hls", -- haskel-language-server
 		"gopls",
 		"asm_lsp",
 		"eslint",
+		-- "ltex-ls-plus", -- NOTE: does causes a warning to show up
 	},
 })
